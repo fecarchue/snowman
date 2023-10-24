@@ -5,28 +5,24 @@ using UnityEngine;
 public class TreeStoneTimer : MonoBehaviour
 {
 
-    [SerializeField]
-    private float moveSpeed = 3f;
+    public Transform playerTransform;
 
-    // Start is called before the first frame update
     void Start()
     {
+        playerTransform = GameObject.FindWithTag("Player").transform;
         Destroy(gameObject, 1f);        //애니메이션 나오고 1초 후 사라지게 하자
+        StartCoroutine(MovePrefab());
     }
 
-    
-
-    void Update()
-    {   //키보드 좌우만 명령 은 쓸수있게 살렸다
-        Vector3 moveTo = new Vector3(moveSpeed * Time.deltaTime, 0, 0);     //Vector3개값에서 x만 저거로 설정, y랑z는 0,0
-        if (Input.GetKey(KeyCode.LeftArrow))
-        {                            //GetKey로키보드에서받은 KeyCode중LeftArrow왼쪽화살표인식하면
-            transform.position -= moveTo;                               //그 동안에 moveTo만큼 움직이자
-        }
-        else if (Input.GetKey(KeyCode.RightArrow))
+    private IEnumerator MovePrefab()
+    {
+        while (true) // 무한 반복
         {
-            transform.position += moveTo;
+            transform.position = playerTransform.position;
+
+            yield return null; // 한 프레임을 기다림
         }
     }
+
 
 }

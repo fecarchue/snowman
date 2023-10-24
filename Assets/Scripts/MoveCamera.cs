@@ -17,14 +17,10 @@ public class MoveCamera : MonoBehaviour
         while (true) // 무한 반복
         { // 위로 이동
             transform.position += Vector3.back * moveSpeed * Time.deltaTime;    //밑으로 계속 내려간다.
+
+            transform.position = new Vector3(target.position.x, target.position.y - 3f, transform.position.z);
             yield return null; // 한 프레임을 기다림
         }
     }
-//이거는 카메라 뒤로 당기기 테스트임
 
-
-void LateUpdate()
-    {
-        transform.position = new Vector3(target.position.x, target.position.y-3f, transform.position.z);
-    }
 }
