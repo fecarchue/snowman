@@ -5,20 +5,25 @@ using UnityEngine;
 public class MoveCamera : MonoBehaviour
 {
     public Transform target;
-
-
-//이거는 카메라뒤로당기기 테스트임
+    public float zRatio = -25f; //눈 반지름 : 카메라 z축 비율
+    public float playerScale;
+    public float initialZ;
+    public float newZ;
     [SerializeField]
-    private float moveSpeed = 100f; // 이동 속도 미리 정의
     private void Start()
-    { StartCoroutine(CameraUp()); }
+    {
+        initialZ=transform.position.z; //카메라 초기 z축
+        StartCoroutine(CameraUp());
+    }
     private IEnumerator CameraUp()
     {
+        //눈이 정중앙으로 가까워지는 것 오프셋 조정으로 수정 필요
         while (true) // 무한 반복
         { // 위로 이동
-            transform.position += Vector3.back * moveSpeed * Time.deltaTime;    //밑으로 계속 내려간다.
-
-            transform.position = new Vector3(target.position.x, target.position.y - 3f, transform.position.z);
+            playerScale = GameObject.FindWithTag("Player").GetComponent<Player>().newScale;
+            //눈 반지름과 카메라 z축이 정비례할 때, 눈 크기가 일정하게 보인다
+            newZ = playerScale * zRatio;
+            transform.position = new Vector3(target.position.x, target.position.y - 4f, newZ);
             yield return null; // 한 프레임을 기다림
         }
     }
