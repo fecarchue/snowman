@@ -1,5 +1,29 @@
 {
-    "ID": 99,
-    "Weight": 0.0,
-    "Mass": 0.0
+    "snowballs": [
+        {
+            "id": 1,
+            "value1": 97,
+            "value2": 3
+        },
+        {
+            "id": 2,
+            "value1": 78,
+            "value2": 5
+        },
+        {
+            "id": 3,
+            "value1": 27,
+            "value2": 3
+        },
+        {
+            "id": 4,
+            "value1": 37,
+            "value2": 8
+        },
+        {
+            "id": 5,
+            "value1": 33,
+            "value2": 7
+        }
+    ]
 }
