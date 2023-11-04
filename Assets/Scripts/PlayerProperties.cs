@@ -14,7 +14,7 @@ public class PlayerProperties : MonoBehaviour
     public float healthRate = 1f;
     public float massRate = 1f;
     public float weightRate = 1f;
-    public float collisionRate = 3f;
+    public float collisionRate = 5f;
 
     void Start()
     {
@@ -41,7 +41,7 @@ public class PlayerProperties : MonoBehaviour
         if (other.gameObject.tag == "Snowground")
         {
             maxHealth += 2f * maxHealthRate * Time.deltaTime;
-            health += 3f * healthRate * Time.deltaTime;
+            if (health < maxHealth) health += 3f * healthRate * Time.deltaTime;
             mass += 1f * massRate * Time.deltaTime;
             weight += 1f * weightRate * Time.deltaTime;
         }
@@ -58,8 +58,9 @@ public class PlayerProperties : MonoBehaviour
                 health -= 2f * collisionRate;
                 mass += 2f * collisionRate;
                 weight += 3f * collisionRate;
+                //해당 자리로부터 파티클 복제, TreeStoneTimer 실행
                 Instantiate(particle1, transform.position, transform.rotation);
-                Destroy(other.gameObject);
+                Destroy(other.gameObject); //장애물은 제거
             }
             if (other.gameObject.tag == "Tree")
             {

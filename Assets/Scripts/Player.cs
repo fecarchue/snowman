@@ -5,8 +5,8 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
-    public float mass;
-    public float newScale;
+    private float mass;
+    public float newScale; //눈 크기
     [SerializeField]
     private float moveSpeed = 3f; // 이동 속도 미리 정의
     public static float growthRate = 0.1f; // 초당 커지는 비율
@@ -24,9 +24,9 @@ public class Player : MonoBehaviour
         { // 아래로 이동
             transform.position += Vector3.down * moveSpeed * Time.deltaTime;    //밑으로 계속 내려간다.
 
-            mass = GameObject.FindWithTag("Player").GetComponent<PlayerProperties>().mass;
+            mass = GetComponent<PlayerProperties>().mass;
             //부피의 3분의 1이 반지름, 눈 크기는 그 제곱의 비례
-            newScale = initialScale + growthRate * Mathf.Pow(mass, 0.666f);
+            newScale = initialScale + growthRate * Mathf.Pow(mass, 0.66666f);
             transform.localScale = new Vector3(newScale, newScale, newScale);  // 스케일 적용
 
             //키보드 좌우만 명령은 쓸수있게 살렸다
