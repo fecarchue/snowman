@@ -12,7 +12,7 @@ public class SelectSlot: MonoBehaviour
     private int slotID;
     public GameObject WeightObj, VolumeObj;
     private Image previousButtonImage;
-    public void ClickSlot()
+    public void ClickSlot() //슬롯 클릭 할때
     {
         // JSON 파일 경로 설정
         jsonPath = Application.dataPath + "/Data/SnowballData.json";
@@ -26,7 +26,7 @@ public class SelectSlot: MonoBehaviour
         // JSON 문자열을 객체로 역직렬화
         snowballData = JsonUtility.FromJson<SnowballData>(jsonText);
         
-        //out of range 오류 걸러내기
+        //눈덩이가 없는 슬롯 클릭할때 오류
         if (slotID <= snowballData.snowballs.Count)
         {
             snowball = snowballData.snowballs[slotID - 1];
@@ -40,25 +40,23 @@ public class SelectSlot: MonoBehaviour
 
     }
 
-    public void ShowStatus()
+    public void ShowStatus() // 상태창에 Text 띄워주는 함수
     {
+        
         TextMeshProUGUI WeightText = WeightObj.GetComponent<TextMeshProUGUI>();
         TextMeshProUGUI VolumeText = VolumeObj.GetComponent<TextMeshProUGUI>();
         WeightText.text = "Weight: " + snowball.value1;
         VolumeText.text = "Volume: " + snowball.value2;
     }
 
-    public int ClickID()
-    {
-        // 클릭된 GameObject 가져오기
+    public int ClickID() // 클릭된 버튼 숫자 가져오는 함수
+    {  
         GameObject clickObject = EventSystem.current.currentSelectedGameObject;
-
-        // GameObject 이름 가져오기
         string objectName = clickObject.name;
-
         // 숫자 부분 추출
         string numberPart = "";
 
+        //10의 자리까지 추출
         for (int i = 5; i < objectName.Length; i++)
         {
             if (char.IsDigit(objectName[i]))
@@ -67,17 +65,17 @@ public class SelectSlot: MonoBehaviour
             }
             else if (numberPart.Length > 0)
             {
-                // 숫자 부분이 이미 추출 중인데 다른 문자를 만나면 중단
                 break;
             }
         }
-
-        // 추출된 숫자를 int로 변환
+        // 추출된 숫자를 int로 변환 후 리턴
         return int.Parse(numberPart);
     }
 
-    public void ClickCheck()
+    
+    public void ClickCheck()  //클릭한 슬롯의 색깔 바꾸는 함수
     {
+        
         GameObject clickObject = EventSystem.current.currentSelectedGameObject;
         Image currentButtonImage = clickObject.GetComponentInChildren<Image>();
 

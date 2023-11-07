@@ -4,6 +4,7 @@ using System.IO;
 
 public class SaveData : MonoBehaviour
 {
+    //저장 방법 그냥 실험한 스크립트
     private SnowballData snowballData;
     private string jsonPath;
     private int idcount = 1;
