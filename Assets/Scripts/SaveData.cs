@@ -9,9 +9,36 @@ public class SaveData : MonoBehaviour
     private string jsonPath;
     private int idcount = 1;
 
-    private void Awake()
+    private static SaveData _instance;
+
+    // 다른 스크립트에서 인스턴스에 접근할 수 있는 프로퍼티
+    public static SaveData Instance
     {
-        LoadData();
+        get
+        {
+            // 인스턴스가 없는 경우 새로 생성
+            if (_instance == null)
+            {
+                GameObject singletonObject = new GameObject("MySingleton");
+                _instance = singletonObject.AddComponent<SaveData>();
+            }
+
+            return _instance;
+        }
+    }
+
+    public void Awake()
+    {
+        // 인스턴스가 이미 있는 경우 중복 생성을 방지
+        if (_instance != null && _instance != this)
+        {
+            Destroy(this.gameObject);
+        }
+
+        // 유니티에서는 싱글톤이 씬을 변경해도 파괴되지 않도록 설정
+        DontDestroyOnLoad(this.gameObject);
+
+        LoadData(); 
     }
 
     public void Save()
@@ -19,13 +46,14 @@ public class SaveData : MonoBehaviour
         // JSON 파일 경로 설정
         jsonPath = Application.dataPath + "/Data/SnowballData.json";
 
+        idcount = snowballData.snowballs.Count + 1;
+
         Snowball snowball = new Snowball
         {
             id = idcount,
-            value1 = Random.Range(1, 100),
-            value2 = Random.Range(1, 10)
+            weight = Random.Range(1, 100),
+            volume = Random.Range(1, 10)
         };
-        idcount++;
 
         // Snowball 객체를 리스트에 추가
         snowballData.snowballs.Add(snowball);
@@ -65,8 +93,8 @@ public class SaveData : MonoBehaviour
 public class Snowball
 {
     public int id;
-    public int value1;
-    public int value2;
+    public int weight;
+    public int volume;
 }
 
 [System.Serializable]

@@ -1,29 +1,29 @@
 {
     "snowballs": [
-        {
-            "id": 1,
-            "value1": 97,
-            "value2": 3
-        },
-        {
-            "id": 2,
-            "value1": 78,
-            "value2": 5
-        },
-        {
-            "id": 3,
-            "value1": 27,
-            "value2": 3
-        },
-        {
-            "id": 4,
-            "value1": 37,
-            "value2": 8
-        },
-        {
-            "id": 5,
-            "value1": 33,
-            "value2": 7
-        }
+      {
+        "id": 1,
+        "weight": 97,
+        "volume": 3
+      },
+      {
+        "id": 2,
+        "weight": 78,
+        "volume": 5
+      },
+      {
+        "id": 3,
+        "weight": 27,
+        "volume": 3
+      },
+      {
+        "id": 4,
+        "weight": 37,
+        "volume": 8
+      },
+      {
+        "id": 5,
+        "weight": 33,
+        "volume": 7
+      }
     ]
 }
