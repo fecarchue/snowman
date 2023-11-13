@@ -3,16 +3,14 @@ using UnityEngine.EventSystems;
 using System.IO;
 using TMPro;
 using UnityEngine.UI;
-using Unity.VisualScripting;
 
 public class SelectSlot : MonoBehaviour
 {
-    Snowball snowball;
-    public GameObject WeightObj, VolumeObj, TopSnowmanObj, BotSnowmanObj;
+    Snowball SelectSnowball;
+    public GameObject WeightObj, VolumeObj, TopSnowmanObj, BotSnowmanObj, PowerObj;
     private string jsonPath;
     private SnowballData snowballData;
-    private int slotID, BotSnowWeight, BotSnowVolume, TopSnowWeight, TopSnowVolume;
-    private Image TopSnowman, BotSnowman;
+    private int slotID;
     private bool isSelect;
 
     public void Awake()
@@ -26,9 +24,6 @@ public class SelectSlot : MonoBehaviour
 
         // JSON 문자열을 객체로 역직렬화
         snowballData = JsonUtility.FromJson<SnowballData>(jsonText);
-
-        TopSnowman = TopSnowmanObj.GetComponent<Image>();
-        BotSnowman = BotSnowmanObj.GetComponent<Image>();
     }
 
     public void ClickSlot() //슬롯 클릭 할때
@@ -39,7 +34,7 @@ public class SelectSlot : MonoBehaviour
         //눈덩이가 없는 슬롯 클릭할때 오류
         if (slotID <= snowballData.snowballs.Count)
         {
-            snowball = snowballData.snowballs[slotID - 1];
+            SelectSnowball = snowballData.snowballs[slotID - 1];
             isSelect = true;
             ShowStatus();
             ClickNow();
@@ -55,8 +50,8 @@ public class SelectSlot : MonoBehaviour
 
         TextMeshProUGUI WeightText = WeightObj.GetComponent<TextMeshProUGUI>();
         TextMeshProUGUI VolumeText = VolumeObj.GetComponent<TextMeshProUGUI>();
-        WeightText.text = "Weight: " + snowball.weight;
-        VolumeText.text = "Volume: " + snowball.volume;
+        WeightText.text = "Weight: " + SelectSnowball.weight;
+        VolumeText.text = "Volume: " + SelectSnowball.volume;
     }
 
     public int getClickID() // 클릭된 버튼 숫자 가져오는 함수
@@ -84,11 +79,13 @@ public class SelectSlot : MonoBehaviour
 
     private GameObject clickObject;
     private Image currentSlotImage, previousSlotImage;
-    private bool Topisnull = true, Botisnull = true;
+    private Snowball TopSnowball, BotSnowball;
+    private int power;
 
     private void ClickNow()  //클릭한 슬롯의 색깔 바꾸는 함수
     {
         clickObject = EventSystem.current.currentSelectedGameObject;
+
         currentSlotImage = clickObject.GetComponentInChildren<Image>();
 
         // 이전 버튼의 색상을 원래대로 되돌리기 (초기 상태로 복원)
@@ -104,51 +101,43 @@ public class SelectSlot : MonoBehaviour
         previousSlotImage = currentSlotImage;
     }
 
-    public void ClickUseBtn()
+    public void GoTopsnowman()
     {
-
+        SelectSnowball.condition = 1;
+        TopSnowball = SelectSnowball;
+        PowerCheck();
     }
-    public void GoBottomSnowman()
-    {
-        if (isSelect)
-        {
-            //비어있으면 값 집어넣기
-            if (Botisnull)
-            {
-                BotSnowWeight = snowball.weight;
-                BotSnowVolume = snowball.volume;
-                BotSnowman.color = Color.red;
-            }
-            else
-            {
-                BotSnowVolume = 0;
-                BotSnowWeight = 0;
-                BotSnowman.color = Color.white;
-            }
 
-            Botisnull = !Botisnull;   //현재 상태 업데이트
+    public void GoBotsnowman()
+    {
+        SelectSnowball.condition = 1;
+        BotSnowball = SelectSnowball;
+        PowerCheck();
+    }
+
+    private void PowerCheck()
+    {
+        if (TopSnowball != null && BotSnowball != null)
+        {
+            power = (TopSnowball.weight + BotSnowball.weight) * (TopSnowball.volume + BotSnowball.volume);
+            TextMeshProUGUI Powertext = PowerObj.GetComponent<TextMeshProUGUI>();
+            Powertext.text = "Power: " + power;
         }
-    }
+    }    
 
-    public void GoTopSnowman()
+    public void Fight()
     {
-        if (isSelect)
+        if (power > 10000)
         {
-            //비어있으면 값 집어넣기
-            if (Topisnull)
-            {
-                TopSnowWeight = snowball.weight;
-                TopSnowVolume = snowball.volume;
-                TopSnowman.color = Color.red;
-            }
-            else
-            {
-                TopSnowVolume = 0;
-                TopSnowWeight = 0;
-                TopSnowman.color = Color.white;
-            }
-
-            Topisnull = !Topisnull;   //현재 상태 업데이트
-        }   
+            SceneController.Instance.Win();
+        }
+        else
+        {
+            SceneController.Instance.Lose();
+        }
+    }    
+    public void SaveSnow() //테스트용 함수 나중에 지울것!
+    {
+        SaveData.Instance.Save(5, 30);
     }
 }

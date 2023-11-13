@@ -19,7 +19,7 @@ public class SaveData : MonoBehaviour
             // 인스턴스가 없는 경우 새로 생성
             if (_instance == null)
             {
-                GameObject singletonObject = new GameObject("MySingleton");
+                GameObject singletonObject = new GameObject("SnowballDataManager");
                 _instance = singletonObject.AddComponent<SaveData>();
             }
 
@@ -41,7 +41,7 @@ public class SaveData : MonoBehaviour
         LoadData(); 
     }
 
-    public void Save()
+    public void Save(int snowweight = 1, int snowvolume = 1)
     {
         // JSON 파일 경로 설정
         jsonPath = Application.dataPath + "/Data/SnowballData.json";
@@ -51,8 +51,8 @@ public class SaveData : MonoBehaviour
         Snowball snowball = new Snowball
         {
             id = idcount,
-            weight = Random.Range(1, 100),
-            volume = Random.Range(1, 10)
+            weight = snowweight,
+            volume = snowvolume
         };
 
         // Snowball 객체를 리스트에 추가
@@ -95,6 +95,7 @@ public class Snowball
     public int id;
     public int weight;
     public int volume;
+    public int condition = 0; // 0은 기본상태, 1은 사용 상태.
 }
 
 [System.Serializable]
