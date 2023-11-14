@@ -9,6 +9,7 @@ TagManager:
   - Stone
   - Snowground
   - Ground
+  - Slot
   layers:
   - Default
   - TransparentFX

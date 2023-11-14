@@ -35,9 +35,6 @@ public class SaveData : MonoBehaviour
             Destroy(this.gameObject);
         }
 
-        // 유니티에서는 싱글톤이 씬을 변경해도 파괴되지 않도록 설정
-        DontDestroyOnLoad(this.gameObject);
-
         LoadData(); 
     }
 
