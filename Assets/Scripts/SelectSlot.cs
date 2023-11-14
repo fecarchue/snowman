@@ -4,18 +4,21 @@ using System.IO;
 using TMPro;
 using UnityEngine.UI;
 
-public class SelectSlot : MonoBehaviour //isSelect 주석 해제 바람
+public class SelectSlot : MonoBehaviour
 {
     Snowball SelectSnowball;
-    public GameObject WeightObj, VolumeObj, TopSnowmanObj, BotSnowmanObj, PowerObj;
-    private string jsonPath;
+    public GameObject WeightObj, VolumeObj, PowerObj;
+    private string jsonPath, SlotName;
     private SnowballData snowballData;
     private int slotID;
-    //private bool isSelect;
+    private GameObject clickObject;
+    private GameObject Top, Bot;
+    private Image currentSlotImage, previousSlotImage, TopSnowballSlot, BotSnowballSlot;
+    private Snowball TopSnowball, BotSnowball;
+    private int power;
 
     public void Awake()
     {
-        //isSelect = false;
         // JSON 파일 경로 설정
         jsonPath = Application.dataPath + "/Data/SnowballData.json";
 
@@ -30,12 +33,12 @@ public class SelectSlot : MonoBehaviour //isSelect 주석 해제 바람
     {
         //슬롯 클릭시 버튼 번호 가져오기
         slotID = getClickID();
+        SlotName = "Slot (" + slotID + ")";
 
         //눈덩이가 없는 슬롯 클릭할때 오류
         if (slotID <= snowballData.snowballs.Count)
         {
             SelectSnowball = snowballData.snowballs[slotID - 1];
-            //isSelect = true;
             ShowStatus();
             ClickNow();
         }
@@ -77,10 +80,6 @@ public class SelectSlot : MonoBehaviour //isSelect 주석 해제 바람
         return int.Parse(numberPart);
     }
 
-    private GameObject clickObject;
-    private Image currentSlotImage, previousSlotImage;
-    private Snowball TopSnowball, BotSnowball;
-    private int power;
 
     private void ClickNow()  //클릭한 슬롯의 색깔 바꾸는 함수
     {
@@ -101,21 +100,29 @@ public class SelectSlot : MonoBehaviour //isSelect 주석 해제 바람
         previousSlotImage = currentSlotImage;
     }
 
+
+    //눈사람 클릭시 버튼 색 바뀌고 TopSnowball에 추가
     public void GoTopsnowman()
     {
         SelectSnowball.condition = 1;
         TopSnowball = SelectSnowball;
+        Top = GameObject.Find(SlotName);
+        TopSnowballSlot = Top.GetComponent<Image>();
+        TopSnowballSlot.color = Color.yellow;
         PowerCheck();
     }
 
     public void GoBotsnowman()
     {
         SelectSnowball.condition = 1;
-        BotSnowball = SelectSnowball;
+        BotSnowball = SelectSnowball; ;
+        Bot = GameObject.Find(SlotName);
+        BotSnowballSlot = Bot.GetComponent<Image>();
+        BotSnowballSlot.color = Color.yellow;
         PowerCheck();
     }
 
-    private void PowerCheck()
+    private void PowerCheck() // TopSnowball과 BotSnowball이 비어있지 않으면 전투력 측정
     {
         if (TopSnowball != null && BotSnowball != null)
         {
@@ -123,7 +130,7 @@ public class SelectSlot : MonoBehaviour //isSelect 주석 해제 바람
             TextMeshProUGUI Powertext = PowerObj.GetComponent<TextMeshProUGUI>();
             Powertext.text = "Power: " + power;
         }
-    }    
+    }
 
     public void Fight()
     {
@@ -135,7 +142,9 @@ public class SelectSlot : MonoBehaviour //isSelect 주석 해제 바람
         {
             SceneController.Instance.Lose();
         }
-    }    
+    }
+
+
     public void SaveSnow() //테스트용 함수 나중에 지울것!
     {
         SaveData.Instance.Save(5, 30);
