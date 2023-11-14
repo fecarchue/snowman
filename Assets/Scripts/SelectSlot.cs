@@ -4,18 +4,18 @@ using System.IO;
 using TMPro;
 using UnityEngine.UI;
 
-public class SelectSlot : MonoBehaviour
+public class SelectSlot : MonoBehaviour //isSelect 주석 해제 바람
 {
     Snowball SelectSnowball;
     public GameObject WeightObj, VolumeObj, TopSnowmanObj, BotSnowmanObj, PowerObj;
     private string jsonPath;
     private SnowballData snowballData;
     private int slotID;
-    private bool isSelect;
+    //private bool isSelect;
 
     public void Awake()
     {
-        isSelect = false;
+        //isSelect = false;
         // JSON 파일 경로 설정
         jsonPath = Application.dataPath + "/Data/SnowballData.json";
 
@@ -35,7 +35,7 @@ public class SelectSlot : MonoBehaviour
         if (slotID <= snowballData.snowballs.Count)
         {
             SelectSnowball = snowballData.snowballs[slotID - 1];
-            isSelect = true;
+            //isSelect = true;
             ShowStatus();
             ClickNow();
         }

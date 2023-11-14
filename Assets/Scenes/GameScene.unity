@@ -570,6 +570,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   newScale: 0
   moveSpeed: 3
+  swipeControl: {fileID: 1904938539}
+  rawSwipe: 0
+  maxSwipeConst: 100
+  xSpeedRate: 0.05
+  xSpeed: 0
 --- !u!50 &138496659
 Rigidbody2D:
   serializedVersion: 4
@@ -6000,6 +6005,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   swipeListener: {fileID: 459972124}
+  rawswipe: 0
 --- !u!4 &1904938541
 Transform:
   m_ObjectHideFlags: 0

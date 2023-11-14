@@ -16,7 +16,11 @@ public class Player : MonoBehaviour
     private float initialScale; // 초기 스케일
     private SwipeControlManager swipeManager;
 
-
+    public GameObject swipeControl;
+    public float rawSwipe; //불러오기
+    public float maxSwipeConst = 100f; //최대 스와이프 허용 범위
+    public float xSpeedRate = 0.05f; //최종 속도 배율
+    public float xSpeed; //최종 속도
 
 
 
@@ -24,7 +28,7 @@ public class Player : MonoBehaviour
     {
         initialScale = transform.localScale.x; // 초기 스케일 저장
         StartCoroutine(MovePlayer());
-        swipeManager = FindObjectOfType<SwipeControlManager>();
+        //swipeManager = FindObjectOfType<SwipeControlManager>();
     }
 
     private IEnumerator MovePlayer()
@@ -38,10 +42,13 @@ public class Player : MonoBehaviour
             newScale = initialScale + growthRate * Mathf.Pow(mass, 0.66666f);
             transform.localScale = new Vector3(newScale, newScale, newScale);  // 스케일 적용
 
-
+            rawSwipe = swipeControl.GetComponent<SwipeControlManager>().rawswipe;
+            if (rawSwipe >= 0) xSpeed = xSpeedRate * Mathf.Min(maxSwipeConst, rawSwipe);
+            else if (rawSwipe < 0) xSpeed = xSpeedRate * Mathf.Max(-maxSwipeConst, rawSwipe);
+            transform.position += Vector3.right * xSpeed * Time.deltaTime;
 
             //(실전용)좌우이동을 스와이프로 구현함, 속도인 horiSpeed는 swipe에 비례, 수직낙하에만 쓰는 moveSpeed는 horiSpeed랑 연동
-            SwipeControlManager swipeControl = FindObjectOfType<SwipeControlManager>();
+            /*SwipeControlManager swipeControl = FindObjectOfType<SwipeControlManager>();
             float touch = swipeControl.GetRealTouch();              // touch값은 중심기준좌표(절대값)라 0~540임. 
             float swipe = swipeControl.GetRealSwipe();              //swipe값은 변위라서 대충 0~540정도임. 근데 L제한때문에 최대(touch는 3/4지점, swipe는 끝까지 일때) 270임. 기본세타리미트는 270/540정도로 (0~1/2)임최대 이게 90도가 되도록 파이를곱하자
             float standardize = 0.25f, pi = 180;                              //이 0~72900이 0~1이되게 해야되므로 일단 72900으로 나눠봄(나중에 표준화나 그런거 적용해봐도될듯)      standardize는 1/72900해서 소수점3 이후 나머지버림한거임 1 안넘어가게. pi는 파이임.
@@ -64,7 +71,7 @@ public class Player : MonoBehaviour
 
                 }
 
-            }
+            }*/
 
             /* else if (swipe < 0)
             {
