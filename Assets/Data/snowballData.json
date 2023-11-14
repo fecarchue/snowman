@@ -65,6 +65,18 @@
             "weight": 5,
             "volume": 30,
             "condition": 0
+        },
+        {
+            "id": 12,
+            "weight": 5,
+            "volume": 30,
+            "condition": 0
+        },
+        {
+            "id": 13,
+            "weight": 5,
+            "volume": 30,
+            "condition": 0
         }
     ]
 }

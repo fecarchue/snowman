@@ -11,7 +11,9 @@ public class Player : MonoBehaviour
     private float mass;
     public float newScale; //눈 크기
     [SerializeField]
-    private float moveSpeed = 3f; // 이동 속도 미리 정의
+    private float diagTemp;
+    public float yDefaultSpeed = 3f; // 이동 속도 미리 정의
+    public float ySpeed;
     public static float growthRate = 0.1f; // 초당 커지는 비율
     private float initialScale; // 초기 스케일
     private SwipeControlManager swipeManager;
@@ -19,9 +21,11 @@ public class Player : MonoBehaviour
     public GameObject swipeControl;
     public float rawSwipe; //불러오기
     public float maxSwipeConst = 100f; //최대 스와이프 허용 범위
-    public float xSpeedRate = 0.05f; //최종 속도 배율
+    public float xSpeedRate = 0.03f; //최종 속도 배율
+    public float rawXSpeed; //최종 속도 목표
+    public float xAccel = 0.2f; //가속
+    public float xDecel = 0.05f; //감속
     public float xSpeed; //최종 속도
-
 
 
     private void Start()
@@ -35,17 +39,37 @@ public class Player : MonoBehaviour
     {
         while (true) // 무한 반복
         { // 아래로 이동
-            transform.position += Vector3.down * moveSpeed * Time.deltaTime;    //밑으로 계속 내려간다.
+            //rawXSpeed는 (-1 * xSpeedRate * maxSwipeConst) ~ (xSpeedRate * maxSwipeConst)로 제한
+            rawSwipe = swipeControl.GetComponent<SwipeControlManager>().rawswipe;
+            if (rawSwipe >= 0) rawXSpeed = xSpeedRate * Mathf.Min(maxSwipeConst, rawSwipe);
+            else rawXSpeed = xSpeedRate * Mathf.Max(-maxSwipeConst, rawSwipe);
+
+            if (rawXSpeed != 0) //가속용
+            {
+                if (xSpeed < rawXSpeed) xSpeed += xAccel * Time.deltaTime * 120f;
+                else if (xSpeed > rawXSpeed) xSpeed -= xAccel * Time.deltaTime * 120f;
+                if (Mathf.Abs(rawXSpeed - xSpeed) < xAccel) xSpeed = rawXSpeed; //rawXSpeed를 넘어버릴때 +-+- 왔다갔다 방지
+            }
+            else //감속용
+            {
+                if (xSpeed < 0) xSpeed += xDecel * Time.deltaTime * 120f;
+                else if (xSpeed > 0) xSpeed -= xDecel * Time.deltaTime * 120f;
+                if (Mathf.Abs(rawXSpeed - xSpeed) < xDecel) xSpeed = 0; //0 근처에서 +-+- 왔다갔다 방지
+            }
+
+            transform.position += Vector3.right * xSpeed * Time.deltaTime;
+
+            //xSpeed를 x, yDefaultSpeed를 y라 하자. 대각선 diagTemp는 sqrt(x제곱+y제곱)
+            diagTemp = Mathf.Pow(Mathf.Pow(rawXSpeed, 2) + Mathf.Pow(yDefaultSpeed, 2), 0.5f);
+            ySpeed = Mathf.Pow(yDefaultSpeed, 2) / diagTemp; //닮음비에 따라 다음 식이 성립한다
+            transform.position += Vector3.down * ySpeed * Time.deltaTime;    //밑으로 계속 내려간다.
 
             mass = GetComponent<PlayerProperties>().mass;
             //부피의 3분의 1이 반지름, 눈 크기는 그 제곱의 비례
             newScale = initialScale + growthRate * Mathf.Pow(mass, 0.66666f);
             transform.localScale = new Vector3(newScale, newScale, newScale);  // 스케일 적용
 
-            rawSwipe = swipeControl.GetComponent<SwipeControlManager>().rawswipe;
-            if (rawSwipe >= 0) xSpeed = xSpeedRate * Mathf.Min(maxSwipeConst, rawSwipe);
-            else if (rawSwipe < 0) xSpeed = xSpeedRate * Mathf.Max(-maxSwipeConst, rawSwipe);
-            transform.position += Vector3.right * xSpeed * Time.deltaTime;
+            
 
             //(실전용)좌우이동을 스와이프로 구현함, 속도인 horiSpeed는 swipe에 비례, 수직낙하에만 쓰는 moveSpeed는 horiSpeed랑 연동
             /*SwipeControlManager swipeControl = FindObjectOfType<SwipeControlManager>();
@@ -91,7 +115,7 @@ public class Player : MonoBehaviour
 
 
             //(테스트용)키보드 좌우만 명령은 쓸수있게 살렸다. 안중요한 코드
-            Vector3 moveTo = new Vector3(moveSpeed * Time.deltaTime, 0, 0);     //Vector3개값에서 x만 저거로 설정, y랑z는 0,0
+            Vector3 moveTo = new Vector3(yDefaultSpeed * Time.deltaTime, 0, 0);     //Vector3개값에서 x만 저거로 설정, y랑z는 0,0
             if (Input.GetKey(KeyCode.LeftArrow))
             {                            //GetKey로키보드에서받은 KeyCode중LeftArrow왼쪽화살표인식하면
                 transform.position -= moveTo;                               //그 동안에 moveTo만큼 움직이자

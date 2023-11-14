@@ -569,11 +569,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   newScale: 0
-  moveSpeed: 3
+  diagTemp: 0
+  yDefaultSpeed: 3
+  ySpeed: 0
   swipeControl: {fileID: 1904938539}
   rawSwipe: 0
   maxSwipeConst: 100
-  xSpeedRate: 0.05
+  xSpeedRate: 0.03
+  rawXSpeed: 0
+  xAccel: 0.2
+  xDecel: 0.05
   xSpeed: 0
 --- !u!50 &138496659
 Rigidbody2D:
