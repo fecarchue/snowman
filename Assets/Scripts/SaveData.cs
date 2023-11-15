@@ -9,7 +9,7 @@ public class SaveData : MonoBehaviour
     private string jsonPath;
     private int idcount = 1;
 
-    private static SaveData _instance;
+    private static SaveData instance;
 
     // 다른 스크립트에서 인스턴스에 접근할 수 있는 프로퍼티
     public static SaveData Instance
@@ -17,24 +17,26 @@ public class SaveData : MonoBehaviour
         get
         {
             // 인스턴스가 없는 경우 새로 생성
-            if (_instance == null)
+            if (instance == null)
             {
-                GameObject singletonObject = new GameObject("SnowballDataManager");
-                _instance = singletonObject.AddComponent<SaveData>();
+                return null;
             }
-
-            return _instance;
+            return instance;
         }
     }
 
     public void Awake()
     {
         // 인스턴스가 이미 있는 경우 중복 생성을 방지
-        if (_instance != null && _instance != this)
+        if (instance == null)
+        {
+            instance = this;
+            DontDestroyOnLoad(this.gameObject);
+        }
+        else
         {
             Destroy(this.gameObject);
         }
-
         LoadData(); 
     }
 
@@ -92,7 +94,6 @@ public class Snowball
     public int id;
     public int weight;
     public int volume;
-    public int condition = 0; // 0은 기본상태, 1은 사용 상태.
 }
 
 [System.Serializable]

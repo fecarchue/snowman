@@ -12,8 +12,9 @@ public class SelectSlot : MonoBehaviour
     private SnowballData snowballData;
     private int slotID;
     private GameObject clickObject;
-    private GameObject Top, Bot;
-    private Image currentSlotImage, previousSlotImage, TopSnowballSlot, BotSnowballSlot;
+    private GameObject TopSlot, BotSlot;
+    private bool GoTop = false, GoBot = false;
+    private SlotController currentSlot, previousSlot;
     private Snowball TopSnowball, BotSnowball;
     private int power;
 
@@ -80,46 +81,56 @@ public class SelectSlot : MonoBehaviour
         return int.Parse(numberPart);
     }
 
-
     private void ClickNow()  //클릭한 슬롯의 색깔 바꾸는 함수
     {
         clickObject = EventSystem.current.currentSelectedGameObject;
-
-        currentSlotImage = clickObject.GetComponentInChildren<Image>();
+        SlotController currentSlot = clickObject.GetComponent<SlotController>();
 
         // 이전 버튼의 색상을 원래대로 되돌리기 (초기 상태로 복원)
-        if (previousSlotImage != null)
+        if (previousSlot != null)
         {
-            previousSlotImage.color = Color.white; // 여기서는 기본 색상을 흰색으로 가정
+            previousSlot.NonClicked();
         }
 
-        // 현재 버튼의 색상 변경
-        currentSlotImage.color = Color.red;
-
-        // 이전 버튼을 현재 버튼으로 업데이트
-        previousSlotImage = currentSlotImage;
+        previousSlot = currentSlot;
     }
 
 
     //눈사람 클릭시 버튼 색 바뀌고 TopSnowball에 추가
     public void GoTopsnowman()
     {
-        SelectSnowball.condition = 1;
         TopSnowball = SelectSnowball;
-        Top = GameObject.Find(SlotName);
-        TopSnowballSlot = Top.GetComponent<Image>();
-        TopSnowballSlot.color = Color.yellow;
+        if(PreTopSlot != null)
+        {
+            PreTopSlot.NonClicked();
+        }
+        //자식 오브젝트의 Frame Image 가져오기
+        TopSlot = GameObject.Find(SlotName);
+        CurTopSlot = BotSlot.GetComponent<SlotController>();
+        CurTopSlot.Used();
+        GoTop = true;
         PowerCheck();
+
+        PreTopSlot = CurTopSlot;
     }
 
+    private GameObject c;
+    public SlotController CurTopSlot, CurBotSlot, PreBotSlot,PreTopSlot;
     public void GoBotsnowman()
     {
-        SelectSnowball.condition = 1;
-        BotSnowball = SelectSnowball; ;
-        Bot = GameObject.Find(SlotName);
-        BotSnowballSlot = Bot.GetComponent<Image>();
-        BotSnowballSlot.color = Color.yellow;
+        BotSnowball = SelectSnowball;
+        if(PreBotSlot != null)
+        {
+            PreBotSlot.NonClicked();
+        }
+        BotSlot = GameObject.Find(SlotName);
+        CurTopSlot = BotSlot.GetComponent<SlotController>();
+        CurTopSlot.Used();
+        GoBot = true;
         PowerCheck();
+
+        PreBotSlot = CurBotSlot;
+
     }
 
     private void PowerCheck() // TopSnowball과 BotSnowball이 비어있지 않으면 전투력 측정

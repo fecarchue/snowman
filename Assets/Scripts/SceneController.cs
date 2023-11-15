@@ -7,41 +7,33 @@ public class SceneController : MonoBehaviour
 {
     private string SceneName;
 
-    private static SceneController _instance;
+    private static SceneController instance = null;
 
-    // 다른 스크립트에서 접근 가능한 프로퍼티
     public static SceneController Instance
     {
         get
         {
             // 인스턴스가 없는 경우 새로 생성
-            if (_instance == null)
+            if (instance == null)
             {
-                _instance = FindObjectOfType<SceneController>();
-
-                // 씬에 인스턴스가 없으면 새로 생성
-                if (_instance == null)
-                {
-                    GameObject singletonObject = new GameObject(typeof(SceneController).Name);
-                    _instance = singletonObject.AddComponent<SceneController>();
-                }
+                return null;
             }
 
-            return _instance;
+            return instance;
         }
     }
 
     private void Awake()
     {
         // 인스턴스가 여러 개 생성되지 않도록 함
-        if (_instance != null && _instance != this)
+        if (instance == null)
         {
-            Destroy(this.gameObject);
+            instance = this;
+            DontDestroyOnLoad(this.gameObject);
         }
         else
         {
-            _instance = this;
-            DontDestroyOnLoad(this.gameObject);
+            Destroy(this.gameObject);
         }
     }
 
@@ -65,7 +57,7 @@ public class SceneController : MonoBehaviour
         StartCoroutine(LoseCoroutine());
     }
 
-        IEnumerator WinCoroutine()
+    static IEnumerator WinCoroutine()
     {
         SceneManager.LoadScene("FightScene");
         yield return new WaitForSeconds(5f);
