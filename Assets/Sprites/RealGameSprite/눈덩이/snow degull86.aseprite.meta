@@ -1,0 +1,1032 @@
+fileFormatVersion: 2
+guid: c2c0e865a834d21488dbf204b94ff650
+ScriptedImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 2
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+  script: {fileID: 11500000, guid: 62a9f0aa5b59740cfbadc7e5f9823bb0, type: 3}
+  textureImporterSettings:
+    alphaSource: 1
+    mipMapMode: 0
+    enableMipMap: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+    convertToNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+    swizzle: 50462976
+    isReadable: 0
+    streamingMipmaps: 0
+    streamingMipmapsPriority: 0
+    vTOnly: 0
+    ignoreMipmapLimit: 0
+    nPOTScale: 1
+    sRGBTexture: 1
+    spriteMode: 2
+    spriteExtrude: 1
+    spriteMeshType: 1
+    alignment: 0
+    spritePivot: {x: 0.5, y: 0.5}
+    spritePixelsToUnits: 100
+    spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+    spriteGenerateFallbackPhysicsShape: 0
+    generateCubemap: 6
+    cubemapConvolution: 0
+    seamlessCubemap: 0
+    alphaIsTransparency: 1
+    spriteTessellationDetail: -1
+    textureType: 8
+    textureShape: 1
+    singleChannelComponent: 0
+    flipbookRows: 0
+    flipbookColumns: 0
+    ignorePngGamma: 0
+    cookieMode: 0
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+    normalMap: 0
+    textureFormat: 0
+    maxTextureSize: 0
+    lightmap: 0
+    compressionQuality: 0
+    linearTexture: 0
+    grayScaleToAlpha: 0
+    rGBM: 0
+    cubemapConvolutionSteps: 0
+    cubemapConvolutionExponent: 0
+    maxTextureSizeSet: 0
+    compressionQualitySet: 0
+    textureFormatSet: 0
+    applyGammaDecoding: 0
+  previousAsepriteImporterSettings:
+    fileImportMode: 1
+    importHiddenLayers: 0
+    layerImportMode: 1
+    defaultPivotSpace: 0
+    defaultPivotAlignment: 7
+    customPivotPosition: {x: 0.5, y: 0.5}
+    spritePadding: 0
+    generateModelPrefab: 1
+    generateAnimationClips: 1
+    addSortingGroup: 1
+    addShadowCasters: 0
+  asepriteImporterSettings:
+    fileImportMode: 1
+    importHiddenLayers: 0
+    layerImportMode: 1
+    defaultPivotSpace: 0
+    defaultPivotAlignment: 7
+    customPivotPosition: {x: 0.5, y: 0.5}
+    spritePadding: 0
+    generateModelPrefab: 1
+    generateAnimationClips: 1
+    addSortingGroup: 1
+    addShadowCasters: 0
+  importFileNodeState: 1
+  platformSettingsDirtyTick: 0
+  textureAssetName: 
+  singleSpriteImportData:
+  - name: 
+    originalName: 
+    pivot: {x: 0, y: 0}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 0
+      height: 0
+    spriteID: 
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 0, y: 0}
+  animatedSpriteImportData:
+  - name: snow degull86_Frame_0
+    originalName: 
+    pivot: {x: 0.5, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 286
+      y: 837
+      width: 86
+      height: 86
+    spriteID: c8dcb9ed8811c2444920fab8a5d35f07
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 286, y: 837}
+  - name: snow degull86_Frame_1
+    originalName: 
+    pivot: {x: 0.5, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 286
+      y: 931
+      width: 86
+      height: 86
+    spriteID: fec0d7bb2c342c6488e91bbc32257058
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 286, y: 931}
+  - name: snow degull86_Frame_2
+    originalName: 
+    pivot: {x: 0.5, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 380
+      y: 4
+      width: 86
+      height: 86
+    spriteID: a24f784ec2d7df24b8c1710d7db94091
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 380, y: 4}
+  - name: snow degull86_Frame_3
+    originalName: 
+    pivot: {x: 0.5, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 380
+      y: 98
+      width: 86
+      height: 86
+    spriteID: 8da31295df18a6b4eb07327f2d77141b
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 380, y: 98}
+  - name: snow degull86_Frame_4
+    originalName: 
+    pivot: {x: 0.5, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 380
+      y: 192
+      width: 86
+      height: 86
+    spriteID: 88bf4b46cd57d1446af5accaac72c7cb
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 380, y: 192}
+  - name: snow degull86_Frame_5
+    originalName: 
+    pivot: {x: 0.5, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 380
+      y: 286
+      width: 86
+      height: 86
+    spriteID: b3c0832a837cc454f81deee1a84dd4ce
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 380, y: 286}
+  - name: snow degull86_Frame_6
+    originalName: 
+    pivot: {x: 0.5, y: 0.054945055}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 192
+      y: 924
+      width: 86
+      height: 91
+    spriteID: e3b27b19db7c0894c8aa5cfb4f408b60
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 192, y: 924}
+  - name: snow degull86_Frame_7
+    originalName: 
+    pivot: {x: 0.5, y: 0.11340206}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 286
+      y: 732
+      width: 86
+      height: 97
+    spriteID: 7fa771055f11de74a8d8b1bb93cbd0e5
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 286, y: 732}
+  - name: snow degull86_Frame_8
+    originalName: 
+    pivot: {x: 0.5, y: 0.16504855}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 286
+      y: 621
+      width: 86
+      height: 103
+    spriteID: 33ee9fcb69cff0046ac440d6f6104759
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 286, y: 621}
+  - name: snow degull86_Frame_9
+    originalName: 
+    pivot: {x: 0.5, y: 0.21100919}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 286
+      y: 504
+      width: 86
+      height: 109
+    spriteID: abf62f60441710743b490f86d8b837be
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 286, y: 504}
+  - name: snow degull86_Frame_10
+    originalName: 
+    pivot: {x: 0.5, y: 0.26495728}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 192
+      y: 549
+      width: 86
+      height: 117
+    spriteID: 5af0e0f4e78c6ba409e163fc1df0c6e5
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 192, y: 549}
+  - name: snow degull86_Frame_11
+    originalName: 
+    pivot: {x: 0.5, y: 0.26495728}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 192
+      y: 674
+      width: 86
+      height: 117
+    spriteID: b154eefc051ac22468fe459544e1ca0c
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 192, y: 674}
+  - name: snow degull86_Frame_12
+    originalName: 
+    pivot: {x: 0.5, y: 0.26495728}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 192
+      y: 799
+      width: 86
+      height: 117
+    spriteID: 4b7155aaf256bd943b25303b28ee2e35
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 192, y: 799}
+  - name: snow degull86_Frame_13
+    originalName: 
+    pivot: {x: 0.5, y: 0.26495728}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 286
+      y: 4
+      width: 86
+      height: 117
+    spriteID: 24777fbf7ac84794d9bb2e2677913056
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 286, y: 4}
+  - name: snow degull86_Frame_14
+    originalName: 
+    pivot: {x: 0.5, y: 0.26495728}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 286
+      y: 129
+      width: 86
+      height: 117
+    spriteID: 4eb2d6fdec99e9e488ddbc6b98dc2ee1
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 286, y: 129}
+  - name: snow degull86_Frame_15
+    originalName: 
+    pivot: {x: 0.5, y: 0.26495728}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 286
+      y: 254
+      width: 86
+      height: 117
+    spriteID: bf814ff5eb2ce894ebbd5ab7d210de4c
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 286, y: 254}
+  - name: snow degull86_Frame_16
+    originalName: 
+    pivot: {x: 0.5, y: 0.26495728}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 286
+      y: 379
+      width: 86
+      height: 117
+    spriteID: 69e9b4707d1669a4f87165545aaea466
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 286, y: 379}
+  - name: snow degull86_Frame_17
+    originalName: 
+    pivot: {x: 0.5, y: 0.27731094}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 192
+      y: 422
+      width: 86
+      height: 119
+    spriteID: 19c9b78399dc9c44dbf39ed2433f9cd3
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 192, y: 422}
+  - name: snow degull86_Frame_18
+    originalName: 
+    pivot: {x: 0.5, y: 0.312}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 192
+      y: 289
+      width: 86
+      height: 125
+    spriteID: 1c49fea0e3a8e3c48b859f0c4b577e15
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 192, y: 289}
+  - name: snow degull86_Frame_19
+    originalName: 
+    pivot: {x: 0.5, y: 0.34351146}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 192
+      y: 150
+      width: 86
+      height: 131
+    spriteID: b4f340dbf8d326e42a7ec74c85a146c2
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 192, y: 150}
+  - name: snow degull86_Frame_20
+    originalName: 
+    pivot: {x: 0.5, y: 0.37681156}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 192
+      y: 4
+      width: 86
+      height: 138
+    spriteID: d30e1db97b1a1504d97e6c2e323d6e49
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 192, y: 4}
+  - name: snow degull86_Frame_21
+    originalName: 
+    pivot: {x: 0.5, y: 0.4027778}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 98
+      y: 854
+      width: 86
+      height: 144
+    spriteID: a553b754bbb6299438dccfbdf61dc389
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 98, y: 854}
+  - name: snow degull86_Frame_22
+    originalName: 
+    pivot: {x: 0.5, y: 0.42666665}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 98
+      y: 696
+      width: 86
+      height: 150
+    spriteID: c056198be60b49b458382f5a8e1db3c8
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 98, y: 696}
+  - name: snow degull86_Frame_23
+    originalName: 
+    pivot: {x: 0.5, y: 0.44871792}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 98
+      y: 532
+      width: 86
+      height: 156
+    spriteID: 77dd75e6f9a5d884981ac1d27c25cd49
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 98, y: 532}
+  - name: snow degull86_Frame_24
+    originalName: 
+    pivot: {x: 0.5, y: 0.4691358}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 98
+      y: 362
+      width: 86
+      height: 162
+    spriteID: 813fd88b95615e242bb495d8729e3b93
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 98, y: 362}
+  - name: snow degull86_Frame_25
+    originalName: 
+    pivot: {x: 0.5, y: 0.48809525}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 98
+      y: 186
+      width: 86
+      height: 168
+    spriteID: ee71fc5c412d1ee4da6b1da6b831f752
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 98, y: 186}
+  - name: snow degull86_Frame_26
+    originalName: 
+    pivot: {x: 0.5, y: 0.50574714}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 98
+      y: 4
+      width: 86
+      height: 174
+    spriteID: 07c74b0d5b4dfc346b1ce4e3d108be1c
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 98, y: 4}
+  - name: snow degull86_Frame_27
+    originalName: 
+    pivot: {x: 0.5, y: 0.5222222}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 806
+      width: 86
+      height: 180
+    spriteID: 3e6b9dea8dca9b44d967844869d1d167
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 806}
+  - name: snow degull86_Frame_28
+    originalName: 
+    pivot: {x: 0.5, y: 0.5376344}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 612
+      width: 86
+      height: 186
+    spriteID: d4dd43fcd94b18144b59a5b433a3e5c8
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 612}
+  - name: snow degull86_Frame_29
+    originalName: 
+    pivot: {x: 0.5, y: 0.5520833}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 412
+      width: 86
+      height: 192
+    spriteID: af943848143962242b8d60a180d01f04
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 412}
+  - name: snow degull86_Frame_30
+    originalName: 
+    pivot: {x: 0.5, y: 0.5612245}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 4
+      width: 86
+      height: 196
+    spriteID: 042e8caf20a168b4eaa9cd80b22ebcd0
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 4}
+  - name: snow degull86_Frame_31
+    originalName: 
+    pivot: {x: 0.5, y: 0.5612245}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 208
+      width: 86
+      height: 196
+    spriteID: 08fa28127259a154587a01912ce47d05
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 208}
+  spriteSheetImportData: []
+  asepriteLayers:
+  - layerIndex: 0
+    guid: 683953506
+    name: snow degull86
+    layerFlags: 0
+    layerType: 0
+    blendMode: 0
+    cells:
+    - name: snow degull86_Frame_0
+      frameIndex: 0
+      cellRect:
+        x: 0
+        y: 0
+        width: 86
+        height: 86
+      spriteId: c8dcb9ed8811c2444920fab8a5d35f07
+    - name: snow degull86_Frame_1
+      frameIndex: 1
+      cellRect:
+        x: 0
+        y: 0
+        width: 86
+        height: 86
+      spriteId: fec0d7bb2c342c6488e91bbc32257058
+    - name: snow degull86_Frame_2
+      frameIndex: 2
+      cellRect:
+        x: 0
+        y: 0
+        width: 86
+        height: 86
+      spriteId: a24f784ec2d7df24b8c1710d7db94091
+    - name: snow degull86_Frame_3
+      frameIndex: 3
+      cellRect:
+        x: 0
+        y: 0
+        width: 86
+        height: 86
+      spriteId: 8da31295df18a6b4eb07327f2d77141b
+    - name: snow degull86_Frame_4
+      frameIndex: 4
+      cellRect:
+        x: 0
+        y: 0
+        width: 86
+        height: 86
+      spriteId: 88bf4b46cd57d1446af5accaac72c7cb
+    - name: snow degull86_Frame_5
+      frameIndex: 5
+      cellRect:
+        x: 0
+        y: 0
+        width: 86
+        height: 86
+      spriteId: b3c0832a837cc454f81deee1a84dd4ce
+    - name: snow degull86_Frame_6
+      frameIndex: 6
+      cellRect:
+        x: 0
+        y: -5
+        width: 86
+        height: 91
+      spriteId: e3b27b19db7c0894c8aa5cfb4f408b60
+    - name: snow degull86_Frame_7
+      frameIndex: 7
+      cellRect:
+        x: 0
+        y: -11
+        width: 86
+        height: 97
+      spriteId: 7fa771055f11de74a8d8b1bb93cbd0e5
+    - name: snow degull86_Frame_8
+      frameIndex: 8
+      cellRect:
+        x: 0
+        y: -17
+        width: 86
+        height: 103
+      spriteId: 33ee9fcb69cff0046ac440d6f6104759
+    - name: snow degull86_Frame_9
+      frameIndex: 9
+      cellRect:
+        x: 0
+        y: -23
+        width: 86
+        height: 109
+      spriteId: abf62f60441710743b490f86d8b837be
+    - name: snow degull86_Frame_10
+      frameIndex: 10
+      cellRect:
+        x: 0
+        y: -31
+        width: 86
+        height: 117
+      spriteId: 5af0e0f4e78c6ba409e163fc1df0c6e5
+    - name: snow degull86_Frame_11
+      frameIndex: 11
+      cellRect:
+        x: 0
+        y: -31
+        width: 86
+        height: 117
+      spriteId: b154eefc051ac22468fe459544e1ca0c
+    - name: snow degull86_Frame_12
+      frameIndex: 12
+      cellRect:
+        x: 0
+        y: -31
+        width: 86
+        height: 117
+      spriteId: 4b7155aaf256bd943b25303b28ee2e35
+    - name: snow degull86_Frame_13
+      frameIndex: 13
+      cellRect:
+        x: 0
+        y: -31
+        width: 86
+        height: 117
+      spriteId: 24777fbf7ac84794d9bb2e2677913056
+    - name: snow degull86_Frame_14
+      frameIndex: 14
+      cellRect:
+        x: 0
+        y: -31
+        width: 86
+        height: 117
+      spriteId: 4eb2d6fdec99e9e488ddbc6b98dc2ee1
+    - name: snow degull86_Frame_15
+      frameIndex: 15
+      cellRect:
+        x: 0
+        y: -31
+        width: 86
+        height: 117
+      spriteId: bf814ff5eb2ce894ebbd5ab7d210de4c
+    - name: snow degull86_Frame_16
+      frameIndex: 16
+      cellRect:
+        x: 0
+        y: -31
+        width: 86
+        height: 117
+      spriteId: 69e9b4707d1669a4f87165545aaea466
+    - name: snow degull86_Frame_17
+      frameIndex: 17
+      cellRect:
+        x: 0
+        y: -33
+        width: 86
+        height: 119
+      spriteId: 19c9b78399dc9c44dbf39ed2433f9cd3
+    - name: snow degull86_Frame_18
+      frameIndex: 18
+      cellRect:
+        x: 0
+        y: -39
+        width: 86
+        height: 125
+      spriteId: 1c49fea0e3a8e3c48b859f0c4b577e15
+    - name: snow degull86_Frame_19
+      frameIndex: 19
+      cellRect:
+        x: 0
+        y: -45
+        width: 86
+        height: 131
+      spriteId: b4f340dbf8d326e42a7ec74c85a146c2
+    - name: snow degull86_Frame_20
+      frameIndex: 20
+      cellRect:
+        x: 0
+        y: -52
+        width: 86
+        height: 138
+      spriteId: d30e1db97b1a1504d97e6c2e323d6e49
+    - name: snow degull86_Frame_21
+      frameIndex: 21
+      cellRect:
+        x: 0
+        y: -58
+        width: 86
+        height: 144
+      spriteId: a553b754bbb6299438dccfbdf61dc389
+    - name: snow degull86_Frame_22
+      frameIndex: 22
+      cellRect:
+        x: 0
+        y: -64
+        width: 86
+        height: 150
+      spriteId: c056198be60b49b458382f5a8e1db3c8
+    - name: snow degull86_Frame_23
+      frameIndex: 23
+      cellRect:
+        x: 0
+        y: -70
+        width: 86
+        height: 156
+      spriteId: 77dd75e6f9a5d884981ac1d27c25cd49
+    - name: snow degull86_Frame_24
+      frameIndex: 24
+      cellRect:
+        x: 0
+        y: -76
+        width: 86
+        height: 162
+      spriteId: 813fd88b95615e242bb495d8729e3b93
+    - name: snow degull86_Frame_25
+      frameIndex: 25
+      cellRect:
+        x: 0
+        y: -82
+        width: 86
+        height: 168
+      spriteId: ee71fc5c412d1ee4da6b1da6b831f752
+    - name: snow degull86_Frame_26
+      frameIndex: 26
+      cellRect:
+        x: 0
+        y: -88
+        width: 86
+        height: 174
+      spriteId: 07c74b0d5b4dfc346b1ce4e3d108be1c
+    - name: snow degull86_Frame_27
+      frameIndex: 27
+      cellRect:
+        x: 0
+        y: -94
+        width: 86
+        height: 180
+      spriteId: 3e6b9dea8dca9b44d967844869d1d167
+    - name: snow degull86_Frame_28
+      frameIndex: 28
+      cellRect:
+        x: 0
+        y: -100
+        width: 86
+        height: 186
+      spriteId: d4dd43fcd94b18144b59a5b433a3e5c8
+    - name: snow degull86_Frame_29
+      frameIndex: 29
+      cellRect:
+        x: 0
+        y: -106
+        width: 86
+        height: 192
+      spriteId: af943848143962242b8d60a180d01f04
+    - name: snow degull86_Frame_30
+      frameIndex: 30
+      cellRect:
+        x: 0
+        y: -110
+        width: 86
+        height: 196
+      spriteId: 042e8caf20a168b4eaa9cd80b22ebcd0
+    - name: snow degull86_Frame_31
+      frameIndex: 31
+      cellRect:
+        x: 0
+        y: -110
+        width: 86
+        height: 196
+      spriteId: 08fa28127259a154587a01912ce47d05
+    linkedCells: []
+    parentIndex: -1
+  platformSettings: []
+  secondarySpriteTextures: []
+  spritePackingTag: 
+  canvasSize: {x: 86, y: 86}

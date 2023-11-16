@@ -426,6 +426,7 @@ GameObject:
   - component: {fileID: 138496658}
   - component: {fileID: 138496660}
   - component: {fileID: 138496659}
+  - component: {fileID: 138496661}
   m_Layer: 0
   m_Name: Player(snowball)
   m_TagString: Player
@@ -510,7 +511,7 @@ Animator:
   m_GameObject: {fileID: 138496653}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: a501fa125567ca24f80c9c6080e30d23, type: 2}
+  m_Controller: {fileID: 9100000, guid: 88ef0318493442e41980321f5839fad9, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -630,6 +631,20 @@ MonoBehaviour:
   collisionRate: 5
   particle1: {fileID: 2104158561234832950, guid: bd8e186010798ac419b4c2bed1f1dc21, type: 3}
   particle2: {fileID: 6929551707034645033, guid: 76167be08c8bcb648afedf021a862b8d, type: 3}
+--- !u!114 &138496661
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 138496653}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 57f49f5059de54b439055bc4d8d74b25, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  anim: {fileID: 138496656}
+  player: {fileID: 138496653}
 --- !u!1 &156246223
 GameObject:
   m_ObjectHideFlags: 0
