@@ -5,6 +5,7 @@ using UnityEngine.UI;
 public class SlotController : MonoBehaviour
 {
     private Image image;
+    public bool isUsed;
 
     [SerializeField]
     private Sprite[] sprites;
