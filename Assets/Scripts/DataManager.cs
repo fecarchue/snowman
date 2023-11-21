@@ -2,17 +2,17 @@ using System.Collections.Generic;
 using UnityEngine;
 using System.IO;
 
-public class SaveData : MonoBehaviour
+public class DataManager : MonoBehaviour
 {
     //저장 방법 그냥 실험한 스크립트
     private SnowballData snowballData;
     private string jsonPath;
-    private int idcount = 1;
+    private int idcount = 0;
 
-    private static SaveData instance;
+    private static DataManager instance;
 
     // 다른 스크립트에서 인스턴스에 접근할 수 있는 프로퍼티
-    public static SaveData Instance
+    public static DataManager Instance
     {
         get
         {
@@ -37,15 +37,15 @@ public class SaveData : MonoBehaviour
         {
             Destroy(this.gameObject);
         }
-        LoadData(); 
+        LoadData();
     }
 
-    public void Save(int snowweight = 1, int snowvolume = 1)
+    public void SaveData(int snowweight = 1, int snowvolume = 1)
     {
         // JSON 파일 경로 설정
         jsonPath = Application.dataPath + "/Data/SnowballData.json";
 
-        idcount = snowballData.snowballs.Count + 1;
+        idcount = snowballData.snowballs.Count;
 
         Snowball snowball = new Snowball
         {
@@ -58,7 +58,7 @@ public class SaveData : MonoBehaviour
         snowballData.snowballs.Add(snowball);
 
         // Snowball 리스트를 JSON 문자열로 변환
-        string jsonText = JsonUtility.ToJson(snowballData,true);
+        string jsonText = JsonUtility.ToJson(snowballData, true);
 
         // JSON 문자열을 파일에 쓰기
         File.WriteAllText(jsonPath, jsonText);
@@ -85,6 +85,47 @@ public class SaveData : MonoBehaviour
             // 파일이 없을 경우 초기화
             snowballData = new SnowballData();
         }
+    }
+
+    public void DeleteData(int TopID ,int BotID = -1)
+    {
+        LoadData();
+        if(BotID != -1)
+        {
+            snowballData.snowballs.RemoveAt(TopID);
+            snowballData.snowballs.RemoveAt(BotID);
+        }
+        else
+        {
+            snowballData.snowballs.RemoveAt(TopID);
+        }
+        string jsonText = JsonUtility.ToJson(snowballData, true);
+        File.WriteAllText(jsonPath, jsonText);
+    }
+
+    //인벤토리 정렬
+    public void SortData()
+    {
+        for (int i = 0; i < snowballData.snowballs.Count ; i++)
+        {
+            Snowball temp = snowballData.snowballs[i];
+            if(temp.id != i)
+            {
+                temp.id = i;
+            }
+        }
+
+        string jsonText = JsonUtility.ToJson(snowballData, true);
+        File.WriteAllText(jsonPath, jsonText);
+    }
+
+    //Delete버튼 작동함수
+    public void CurrentDelete()
+    {
+        GameObject selectObj = GameObject.Find("SelectManager");
+        SelectSlot selectslot = selectObj.GetComponent<SelectSlot>();
+        Snowball selectsnowball = selectslot.SelectSnowball;
+        DeleteData(selectsnowball.id);
     }
 }
 

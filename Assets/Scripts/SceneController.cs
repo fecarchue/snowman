@@ -7,8 +7,8 @@ public class SceneController : MonoBehaviour
 {
     private string SceneName;
 
+    //싱글톤
     private static SceneController instance = null;
-
     public static SceneController Instance
     {
         get
@@ -25,7 +25,6 @@ public class SceneController : MonoBehaviour
 
     private void Awake()
     {
-        // 인스턴스가 여러 개 생성되지 않도록 함
         if (instance == null)
         {
             instance = this;

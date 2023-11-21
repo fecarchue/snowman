@@ -11,6 +11,11 @@ public class ButtonController : MonoBehaviour
         SceneController.Instance.SwitchScene();
     }
 
+    public void SortButton()
+    {
+        DataManager.Instance.SortData();
+    }
+
     // Start 함수에서 버튼에 자동으로 클릭 이벤트 함수를 연결
     void Awake()
     {
@@ -20,8 +25,14 @@ public class ButtonController : MonoBehaviour
         // 버튼이 null이 아니라면
         if (button != null)
         {
-            // 버튼에 클릭 이벤트 함수(Scenechange) 연결
-            button.onClick.AddListener(Scenechange);
+            if (ThisObj.name == "Sort")
+            {
+                button.onClick.AddListener(SortButton);
+            }
+            else// 버튼에 클릭 이벤트 함수(Scenechange) 연결
+            {
+                button.onClick.AddListener(Scenechange);
+            }
         }
     }
 }

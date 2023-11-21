@@ -1,82 +1,39 @@
 {
     "snowballs": [
         {
-            "id": 1,
+            "id": 0,
             "weight": 97,
-            "volume": 3,
-            "condition": 0
+            "volume": 3
+        },
+        {
+            "id": 1,
+            "weight": 78,
+            "volume": 5
         },
         {
             "id": 2,
-            "weight": 78,
-            "volume": 5,
-            "condition": 0
+            "weight": 27,
+            "volume": 3
         },
         {
             "id": 3,
-            "weight": 27,
-            "volume": 3,
-            "condition": 0
+            "weight": 37,
+            "volume": 8
         },
         {
             "id": 4,
-            "weight": 37,
-            "volume": 8,
-            "condition": 0
+            "weight": 82,
+            "volume": 7
         },
         {
             "id": 5,
-            "weight": 33,
-            "volume": 7,
-            "condition": 0
+            "weight": 80,
+            "volume": 1
         },
         {
             "id": 6,
-            "weight": 82,
-            "volume": 7,
-            "condition": 0
-        },
-        {
-            "id": 7,
-            "weight": 47,
-            "volume": 3,
-            "condition": 0
-        },
-        {
-            "id": 8,
-            "weight": 80,
-            "volume": 1,
-            "condition": 0
-        },
-        {
-            "id": 9,
             "weight": 5,
-            "volume": 30,
-            "condition": 0
-        },
-        {
-            "id": 10,
-            "weight": 5,
-            "volume": 30,
-            "condition": 0
-        },
-        {
-            "id": 11,
-            "weight": 5,
-            "volume": 30,
-            "condition": 0
-        },
-        {
-            "id": 12,
-            "weight": 5,
-            "volume": 30,
-            "condition": 0
-        },
-        {
-            "id": 13,
-            "weight": 5,
-            "volume": 30,
-            "condition": 0
+            "volume": 30
         }
     ]
 }

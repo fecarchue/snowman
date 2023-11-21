@@ -6,7 +6,7 @@ using UnityEngine.UI;
 
 public class SelectSlot : MonoBehaviour
 {
-    Snowball SelectSnowball;
+    public Snowball SelectSnowball;
     public GameObject WeightObj, VolumeObj, PowerObj;
     private string jsonPath, SlotName;
     private SnowballData snowballData;
@@ -41,7 +41,7 @@ public class SelectSlot : MonoBehaviour
         if (slotID <= snowballData.snowballs.Count)
         {
             //SelectSnowball 은 현재 선택된 Snowball
-            SelectSnowball = snowballData.snowballs[slotID - 1];
+            SelectSnowball = snowballData.snowballs[slotID];
             ShowStatus(); //눈덩이 상태 보여주기
             ClickNow(); //클릭할때 슬롯 이미지 바꾸기
         }
@@ -164,19 +164,28 @@ public class SelectSlot : MonoBehaviour
 
     public void Fight()
     {
-        if (power > 10000)
+        if (TopSnowball != null && BotSnowball != null)
         {
-            SceneController.Instance.Win();
+            DataManager.Instance.DeleteData(TopSnowball.id, BotSnowball.id);
+            Awake();
+            if (power > 10000)
+            {
+                SceneController.Instance.Win();
+            }
+            else
+            {
+                SceneController.Instance.Lose();
+            }
         }
         else
         {
-            SceneController.Instance.Lose();
+            Debug.Log("오류");
         }
     }
 
 
     public void SaveSnow() //테스트용 함수 나중에 지울것!
     {
-        SaveData.Instance.Save(5, 30);
+        DataManager.Instance.SaveData(5, 30);
     }
 }
