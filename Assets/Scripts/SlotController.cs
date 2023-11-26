@@ -1,33 +1,63 @@
+using System.Diagnostics.Tracing;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class SlotController : MonoBehaviour
 {
-    private Image image;
+    private Image frame, image;
     public bool isUsed;
+    public string condition = "None"; //{None, Top, Bot}
 
     [SerializeField]
-    private Sprite[] sprites;
+    private Sprite[] framesprites; // => {사용됨, 선택됨, 들어있음, 비어있음}
+    [SerializeField]
+    private Sprite[] imagesprites; // => {들어있음, 비어있음}
 
+    //프레임과 이미지 가져오기
     private void Awake()
     {
         Transform TransformChild = this.gameObject.transform.Find("Frame");
+        frame = TransformChild.GetComponent<Image>();
+
+        TransformChild = this.gameObject.transform.Find("Image");
         image = TransformChild.GetComponent<Image>();
-        image.sprite = sprites[0];
+
+        image.sprite = imagesprites[1]; //비어있음
+        frame.sprite = framesprites[3]; //테두리 없음
     }
     
+    //프레임 변경하는 함수
+    public void Empty()
+    {
+        frame.sprite = framesprites[3];
+    }
+    //프레임 변경하는 함수
     public void NonClicked()
     {
-        image.sprite = sprites[0];
+        frame.sprite = framesprites[2];
     }
 
+    //프레임 변경하는 함수
     public void Clicked()
     {
-        image.sprite = sprites[1];
+        frame.sprite = framesprites[1];
     }
-    
+
+    //프레임 변경하는 함수
     public void Used()
     {
-        image.sprite = sprites[2];
+        frame.sprite = framesprites[0];
+    }
+
+    //이미지 변경하는 함수
+    public void exist()
+    {
+        image.sprite = imagesprites[0];
+    }
+
+    //이미지 변경하는 함수
+    public void nonexist()
+    {
+        image.sprite = imagesprites[1];
     }
 }
