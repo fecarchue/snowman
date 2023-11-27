@@ -1,0 +1,1055 @@
+fileFormatVersion: 2
+guid: 754c334850337d249bd31fe76da363f0
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 12
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 1
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: iPhone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Server
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: snowdegull202-Sheet_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 202
+        height: 202
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 15681f766bfd37b4da043fd3194ef095
+      internalID: 1034433931
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: snowdegull202-Sheet_1
+      rect:
+        serializedVersion: 2
+        x: 202
+        y: 0
+        width: 202
+        height: 202
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ed7451e0b3d820a42b1de5e36cbbdae2
+      internalID: 1170479145
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: snowdegull202-Sheet_2
+      rect:
+        serializedVersion: 2
+        x: 404
+        y: 0
+        width: 202
+        height: 202
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fea3a6f10c085bd44865959e7d4b9ab4
+      internalID: 152860528
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: snowdegull202-Sheet_3
+      rect:
+        serializedVersion: 2
+        x: 606
+        y: 0
+        width: 202
+        height: 202
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 20f5a6188506c5548b41295a674619d1
+      internalID: -1793349108
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: snowdegull202-Sheet_4
+      rect:
+        serializedVersion: 2
+        x: 808
+        y: 0
+        width: 202
+        height: 202
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5671f8143b32a7b4b8386535072eb4f0
+      internalID: 2116988957
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: snowdegull202-Sheet_5
+      rect:
+        serializedVersion: 2
+        x: 1010
+        y: 0
+        width: 202
+        height: 202
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f38ac23d2b7c5a84f95bc583d16bddde
+      internalID: -388029449
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: snowdegull202-Sheet_6
+      rect:
+        serializedVersion: 2
+        x: 1212
+        y: 0
+        width: 202
+        height: 202
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 444a0723163ae5c47a4e4c5128c5c6ba
+      internalID: -212537028
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: snowdegull202-Sheet_7
+      rect:
+        serializedVersion: 2
+        x: 1414
+        y: 0
+        width: 202
+        height: 202
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fcec1e48dae37f345a13185866dec4aa
+      internalID: -1425497039
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: snowdegull202-Sheet_8
+      rect:
+        serializedVersion: 2
+        x: 1616
+        y: 0
+        width: 202
+        height: 202
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3cb2022f3eb62524995da4ee514b7d12
+      internalID: -992760612
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: snowdegull202-Sheet_9
+      rect:
+        serializedVersion: 2
+        x: 1818
+        y: 0
+        width: 202
+        height: 202
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 183d9cfd248eefa44bdac393203df0dc
+      internalID: -1780289975
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: snowdegull202-Sheet_10
+      rect:
+        serializedVersion: 2
+        x: 2020
+        y: 0
+        width: 202
+        height: 202
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0931a7250ecdd7a47ac6a046e17ce80f
+      internalID: -2014630923
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: snowdegull202-Sheet_11
+      rect:
+        serializedVersion: 2
+        x: 2222
+        y: 0
+        width: 202
+        height: 202
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 16f91faceea6e264292811774e5a8764
+      internalID: 981609813
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: snowdegull202-Sheet_12
+      rect:
+        serializedVersion: 2
+        x: 2424
+        y: 0
+        width: 202
+        height: 202
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8865bd89ba2fa0a448f844c1c18fc4be
+      internalID: -1664551013
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: snowdegull202-Sheet_13
+      rect:
+        serializedVersion: 2
+        x: 2626
+        y: 0
+        width: 202
+        height: 202
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 619d8327dd6d0c948ae4dbc0d19bf204
+      internalID: 278141726
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: snowdegull202-Sheet_14
+      rect:
+        serializedVersion: 2
+        x: 2828
+        y: 0
+        width: 202
+        height: 202
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 41564b6e895247f46b59c8a4228ff480
+      internalID: 524951216
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: snowdegull202-Sheet_15
+      rect:
+        serializedVersion: 2
+        x: 3030
+        y: 0
+        width: 202
+        height: 202
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 76ecd0ad7c99dda478cd586285b683fd
+      internalID: -685682281
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: snowdegull202-Sheet_16
+      rect:
+        serializedVersion: 2
+        x: 3232
+        y: 0
+        width: 202
+        height: 202
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: de239585e5065ae42a9a3dc2f22dfcbe
+      internalID: -851417958
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: snowdegull202-Sheet_17
+      rect:
+        serializedVersion: 2
+        x: 3434
+        y: 0
+        width: 202
+        height: 202
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b2d4ef976f2fb3445b1810a7dbaebd79
+      internalID: -1105187763
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: snowdegull202-Sheet_18
+      rect:
+        serializedVersion: 2
+        x: 3636
+        y: 0
+        width: 202
+        height: 202
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3200ea39cfa3c5a4ba12548ff9e49331
+      internalID: 842735835
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: snowdegull202-Sheet_19
+      rect:
+        serializedVersion: 2
+        x: 3838
+        y: 0
+        width: 202
+        height: 202
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2a67840e6472b9944b2636a0c3760299
+      internalID: 181597092
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: snowdegull202-Sheet_20
+      rect:
+        serializedVersion: 2
+        x: 4040
+        y: 0
+        width: 202
+        height: 202
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 813263150c69c7942aae3684228b4d89
+      internalID: 1288825296
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: snowdegull202-Sheet_21
+      rect:
+        serializedVersion: 2
+        x: 4242
+        y: 0
+        width: 202
+        height: 202
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 17f9d230049c1184e8f7c517435a95dd
+      internalID: -1761096481
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: snowdegull202-Sheet_22
+      rect:
+        serializedVersion: 2
+        x: 4444
+        y: 0
+        width: 202
+        height: 202
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3f781e4b04d1e3749b93003de95e916f
+      internalID: 1575617268
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: snowdegull202-Sheet_23
+      rect:
+        serializedVersion: 2
+        x: 4646
+        y: 0
+        width: 202
+        height: 202
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f11c6ceef4e4d594dbe5582d67719873
+      internalID: -2118496725
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: snowdegull202-Sheet_24
+      rect:
+        serializedVersion: 2
+        x: 4848
+        y: 0
+        width: 202
+        height: 202
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dd79ba6a88a4faf4dab46f8f5cb8117c
+      internalID: -742288683
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: snowdegull202-Sheet_25
+      rect:
+        serializedVersion: 2
+        x: 5050
+        y: 0
+        width: 202
+        height: 202
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5fe0d28b2fbb9cd469305f9e55f531d2
+      internalID: 1998410664
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: snowdegull202-Sheet_26
+      rect:
+        serializedVersion: 2
+        x: 5252
+        y: 0
+        width: 202
+        height: 202
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 98a0fb1622b34ed46b78e73ce1e7bda5
+      internalID: 1891993127
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: snowdegull202-Sheet_27
+      rect:
+        serializedVersion: 2
+        x: 5454
+        y: 0
+        width: 202
+        height: 202
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d6274f33d75563a46a858a64bbfa3736
+      internalID: -371776287
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: snowdegull202-Sheet_28
+      rect:
+        serializedVersion: 2
+        x: 5656
+        y: 0
+        width: 202
+        height: 202
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9df0c6f3ea003e448852413151e98d10
+      internalID: -80595346
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: snowdegull202-Sheet_29
+      rect:
+        serializedVersion: 2
+        x: 5858
+        y: 0
+        width: 202
+        height: 202
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c9d13cb4179a2b147a0ba31fe36653e0
+      internalID: -401286024
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: snowdegull202-Sheet_30
+      rect:
+        serializedVersion: 2
+        x: 6060
+        y: 0
+        width: 202
+        height: 202
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d63042ed22ae40f4fa238b32bb04fd6c
+      internalID: -1209823557
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: snowdegull202-Sheet_31
+      rect:
+        serializedVersion: 2
+        x: 6262
+        y: 0
+        width: 202
+        height: 202
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0d950944bcc1ed64582702269c14b4b3
+      internalID: -777751269
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: snowdegull202-Sheet_32
+      rect:
+        serializedVersion: 2
+        x: 6464
+        y: 0
+        width: 202
+        height: 202
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7ee15c6025ca4bf4eb5e840841b0e875
+      internalID: -2142204933
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: snowdegull202-Sheet_33
+      rect:
+        serializedVersion: 2
+        x: 6666
+        y: 0
+        width: 202
+        height: 202
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 084f5f98292b357489f3faaa27c9076b
+      internalID: -2078592840
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: snowdegull202-Sheet_34
+      rect:
+        serializedVersion: 2
+        x: 6868
+        y: 0
+        width: 202
+        height: 202
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9d48f1ff1024bf046961995dbbcb576a
+      internalID: 1259449345
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: snowdegull202-Sheet_35
+      rect:
+        serializedVersion: 2
+        x: 7070
+        y: 0
+        width: 202
+        height: 202
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 64865a45b2b6287499b444a42cdeb9b0
+      internalID: -1561849126
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: snowdegull202-Sheet_36
+      rect:
+        serializedVersion: 2
+        x: 7272
+        y: 0
+        width: 202
+        height: 202
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c517e076434ee2941a8f96cd0950ffc1
+      internalID: -1158684331
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: snowdegull202-Sheet_37
+      rect:
+        serializedVersion: 2
+        x: 7474
+        y: 0
+        width: 202
+        height: 202
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 56efd5e9a08af734397f835b4ad5d6f7
+      internalID: -675737048
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: snowdegull202-Sheet_38
+      rect:
+        serializedVersion: 2
+        x: 7676
+        y: 0
+        width: 202
+        height: 202
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: eaf08631707aa66458c8d7ecfde93548
+      internalID: 259116135
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: snowdegull202-Sheet_39
+      rect:
+        serializedVersion: 2
+        x: 7878
+        y: 0
+        width: 202
+        height: 202
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 25eb87e28bd3f9744a2877e39aadf9b3
+      internalID: -1351209505
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: snowdegull202-Sheet_40
+      rect:
+        serializedVersion: 2
+        x: 8080
+        y: 0
+        width: 202
+        height: 202
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6766651afa9282749ba1a1090f416833
+      internalID: -411134172
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      snowdegull202-Sheet_0: 1034433931
+      snowdegull202-Sheet_1: 1170479145
+      snowdegull202-Sheet_10: -2014630923
+      snowdegull202-Sheet_11: 981609813
+      snowdegull202-Sheet_12: -1664551013
+      snowdegull202-Sheet_13: 278141726
+      snowdegull202-Sheet_14: 524951216
+      snowdegull202-Sheet_15: -685682281
+      snowdegull202-Sheet_16: -851417958
+      snowdegull202-Sheet_17: -1105187763
+      snowdegull202-Sheet_18: 842735835
+      snowdegull202-Sheet_19: 181597092
+      snowdegull202-Sheet_2: 152860528
+      snowdegull202-Sheet_20: 1288825296
+      snowdegull202-Sheet_21: -1761096481
+      snowdegull202-Sheet_22: 1575617268
+      snowdegull202-Sheet_23: -2118496725
+      snowdegull202-Sheet_24: -742288683
+      snowdegull202-Sheet_25: 1998410664
+      snowdegull202-Sheet_26: 1891993127
+      snowdegull202-Sheet_27: -371776287
+      snowdegull202-Sheet_28: -80595346
+      snowdegull202-Sheet_29: -401286024
+      snowdegull202-Sheet_3: -1793349108
+      snowdegull202-Sheet_30: -1209823557
+      snowdegull202-Sheet_31: -777751269
+      snowdegull202-Sheet_32: -2142204933
+      snowdegull202-Sheet_33: -2078592840
+      snowdegull202-Sheet_34: 1259449345
+      snowdegull202-Sheet_35: -1561849126
+      snowdegull202-Sheet_36: -1158684331
+      snowdegull202-Sheet_37: -675737048
+      snowdegull202-Sheet_38: 259116135
+      snowdegull202-Sheet_39: -1351209505
+      snowdegull202-Sheet_4: 2116988957
+      snowdegull202-Sheet_40: -411134172
+      snowdegull202-Sheet_5: -388029449
+      snowdegull202-Sheet_6: -212537028
+      snowdegull202-Sheet_7: -1425497039
+      snowdegull202-Sheet_8: -992760612
+      snowdegull202-Sheet_9: -1780289975
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

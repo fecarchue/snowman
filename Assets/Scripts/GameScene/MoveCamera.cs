@@ -22,9 +22,9 @@ public class MoveCamera : MonoBehaviour
         { // 위로 이동
             playerScale = player.GetComponent<Player>().newScale;
             //눈 반지름과 카메라 z축이 정비례할 때, 눈 크기가 일정하게 보인다
-            newZ = playerScale * zRatio;
+            newZ = playerScale * zRatio+30;                                                                                 //픽셀들이작아서 30정도 일단추가해봄 (11-27 현석)
             //눈 크기의 차이 때문에 중앙으로 가까워지는 듯 보임, 따라서 눈 크기만큼 -y
-            transform.position = new Vector3(target.position.x, target.position.y - (3.3f * playerScale), newZ);
+            transform.position = new Vector3(target.position.x, target.position.y+5 - (3.3f * playerScale), newZ);          //비율안이뻐서 5정도 일단추가해봄 (11-27 현석)
             yield return null; // 한 프레임을 기다림
         }
     }
