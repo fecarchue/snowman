@@ -16,6 +16,8 @@ public class PlayerProperties : MonoBehaviour
     public float weightRate = 1f;
     public float collisionRate = 5f;
 
+    public UI ui;
+
     void Start()
     {
         
@@ -45,6 +47,7 @@ public class PlayerProperties : MonoBehaviour
             mass += 1f * massRate * Time.deltaTime;
             weight += 1f * weightRate * Time.deltaTime;
         }
+        
     }
 
     public GameObject particle1, particle2;
@@ -70,7 +73,10 @@ public class PlayerProperties : MonoBehaviour
                 Instantiate(particle2, transform.position, transform.rotation);
                 Destroy(other.gameObject);
             }
-
+            if (other.gameObject.tag == "Goal")
+            {
+                ui.finish();
+            }
         }
     }
 }
