@@ -44,8 +44,8 @@ public class BackgroundMusic : MonoBehaviour
 
             audioSource.Play();
         }
-        
-        
+
+
         else
         {
             Destroy(this.gameObject);

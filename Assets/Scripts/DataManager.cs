@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using System.IO;
+using UnityEngine.Rendering;
 
 public class DataManager : MonoBehaviour
 {
@@ -40,8 +41,12 @@ public class DataManager : MonoBehaviour
         LoadData();
     }
 
-    public void SaveData(int snowweight = 1, int snowvolume = 1)
+    public void SaveData()
     {
+        SortData();
+        int snowweight = Random.Range(0, 100);
+        int snowvolume = Random.Range(0, 100);
+        string[] objects = null;
         // JSON 파일 경로 설정
         jsonPath = Application.dataPath + "/Data/SnowballData.json";
 
@@ -51,7 +56,8 @@ public class DataManager : MonoBehaviour
         {
             id = idcount,
             weight = snowweight,
-            volume = snowvolume
+            volume = snowvolume,
+            objects = objects
         };
 
         // Snowball 객체를 리스트에 추가
@@ -135,6 +141,7 @@ public class Snowball
     public int id;
     public int weight;
     public int volume;
+    public string[] objects;
 }
 
 [System.Serializable]

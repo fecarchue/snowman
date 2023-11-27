@@ -5,17 +5,15 @@ using UnityEngine.UI;
 public class SlotController : MonoBehaviour
 {
     private Image frame, image;
-    public bool isUsed;
-    public string condition = "None"; //{None, Top, Bot}
+    public string condition; // => {None, Top, Bot}
 
-    [SerializeField]
-    private Sprite[] framesprites; // => {사용됨, 선택됨, 들어있음, 비어있음}
-    [SerializeField]
-    private Sprite[] imagesprites; // => {들어있음, 비어있음}
+    public Sprite[] framesprites; // => {사용됨, 선택됨, 들어있음, 비어있음}
+    public Sprite[] imagesprites; // => {들어있음, 비어있음}
 
     //프레임과 이미지 가져오기
     private void Awake()
     {
+        condition = "None";
         Transform TransformChild = this.gameObject.transform.Find("Frame");
         frame = TransformChild.GetComponent<Image>();
 
@@ -24,12 +22,14 @@ public class SlotController : MonoBehaviour
 
         image.sprite = imagesprites[1]; //비어있음
         frame.sprite = framesprites[3]; //테두리 없음
+
     }
     
     //프레임 변경하는 함수
     public void Empty()
     {
         frame.sprite = framesprites[3];
+
     }
     //프레임 변경하는 함수
     public void NonClicked()

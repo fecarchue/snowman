@@ -1,39 +1,100 @@
 {
     "snowballs": [
         {
-            "id": 0,
-            "weight": 97,
-            "volume": 3
-        },
-        {
-            "id": 1,
-            "weight": 78,
-            "volume": 5
-        },
-        {
             "id": 2,
             "weight": 27,
-            "volume": 3
+            "volume": 3,
+            "objects": []
         },
         {
             "id": 3,
             "weight": 37,
-            "volume": 8
+            "volume": 8,
+            "objects": []
         },
         {
             "id": 4,
             "weight": 82,
-            "volume": 7
+            "volume": 7,
+            "objects": []
         },
         {
             "id": 5,
             "weight": 80,
-            "volume": 1
+            "volume": 1,
+            "objects": []
         },
         {
-            "id": 50,
+            "id": 6,
             "weight": 5,
-            "volume": 30
+            "volume": 30,
+            "objects": []
+        },
+        {
+            "id": 8,
+            "weight": 66,
+            "volume": 70,
+            "objects": []
+        },
+        {
+            "id": 10,
+            "weight": 70,
+            "volume": 80,
+            "objects": []
+        },
+        {
+            "id": 11,
+            "weight": 4,
+            "volume": 73,
+            "objects": []
+        },
+        {
+            "id": 12,
+            "weight": 0,
+            "volume": 35,
+            "objects": []
+        },
+        {
+            "id": 13,
+            "weight": 20,
+            "volume": 93,
+            "objects": []
+        },
+        {
+            "id": 14,
+            "weight": 70,
+            "volume": 43,
+            "objects": []
+        },
+        {
+            "id": 15,
+            "weight": 28,
+            "volume": 44,
+            "objects": []
+        },
+        {
+            "id": 16,
+            "weight": 68,
+            "volume": 98,
+            "objects": []
+        },
+        {
+            "id": 17,
+            "weight": 90,
+            "volume": 66,
+            "objects": []
+        },
+        {
+            "id": 18,
+            "weight": 3,
+            "volume": 73,
+            "objects": []
+        },
+        {
+            "id": 19,
+            "weight": 39,
+            "volume": 36,
+            "objects": []
         }
     ]
 }

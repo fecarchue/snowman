@@ -7,7 +7,8 @@ using UnityEngine.UI;
 public class SelectSlot : MonoBehaviour
 {
     public Snowball SelectSnowball;
-    public GameObject WeightObj, VolumeObj, PowerObj;
+    public GameObject WeightObj, VolumeObj, PowerObj, TopsnowmanObj,BotsnowmanObj;
+    private Image Topsnowman, Botsnowman;
     private string jsonPath;
     private SnowballData snowballData;
     private int slotID;
@@ -18,6 +19,9 @@ public class SelectSlot : MonoBehaviour
 
     public void Awake()
     {
+        Topsnowman = TopsnowmanObj.GetComponent<Image>();
+        Botsnowman = BotsnowmanObj.GetComponent<Image>();
+
         SelectSnowball = null;
         
         // JSON 파일 경로 설정
@@ -28,10 +32,10 @@ public class SelectSlot : MonoBehaviour
 
         // JSON 문자열을 객체로 역직렬화
         snowballData = JsonUtility.FromJson<SnowballData>(jsonText);
-
-        LoadImage();
+        Invoke("LoadImage", 1.0f);
     }
 
+    //처음에만 작동(이미지 불러오기)
     public void LoadImage()
     {
         GameObject inventory = GameObject.Find("content");
@@ -130,78 +134,97 @@ public class SelectSlot : MonoBehaviour
     {
         currentSlot = clickObject.GetComponent<SlotController>();
 
-        // 이전 버튼의 색상을 원래대로 되돌리기 (초기 상태로 복원)
-        
-        if(previousSlot == null || previousSlot == BotSlotController || previousSlot == TopSlotController)
-        {
-            previousSlot = null;
-        }
-
         if (previousSlot != null)
         {
             previousSlot.NonClicked();
         }
-
-        if(currentSlot != TopSlotController && currentSlot != BotSlotController)
-        {
-            currentSlot.Clicked();
-        }
         
-        previousSlot = currentSlot;
+        if(currentSlot.condition == "None")
+        {
+            currentSlot.Clicked(); 
+            previousSlot = currentSlot;
+        }
+
     }
 
-
-    //선택된 눈덩이를 눈사람 윗부분으로 사용
-    public void GoTopsnowman()
+    public void use()
     {
-        if (SelectSnowball != null) //선택된 눈덩이가 있을때
-        {
-            // 이전에 있던 눈덩이 원상복구
-            if (TopSlotController != null)
-            {
-                TopSlotController.condition = "None";
-                TopSlotController.NonClicked();
-                TopSlotController = null;
-            }
+       if(currentSlot == TopSlotController) //선택한 슬롯이 윗 눈사람
+        {//윗 눈사람 돌려놓기
+            TopSlotController.condition = "None";
+            TopSlotController.Clicked();
+            TopSlotController = null;
+            TopSnowball = null;
+            previousSlot = currentSlot;
 
-            TopSlotController = currentSlot;
-            currentSlot.isUsed = true;
-
-            TopSnowball = SelectSnowball;
-            TopSlotController.Used();
+            Topsnowman.color = Color.white;
 
             PowerCheck();
         }
-    }
 
-    //선택된 눈덩이를 눈사람 밑부분으로 사용
-    public void GoBotsnowman()
-    {
-        if (SelectSnowball != null)
+       else if(currentSlot == BotSlotController && TopSlotController != null) //선택한 슬롯이 아랫 눈사람이면서 윗 눈사람이 존재
+        {//위에 있는 눈덩이를 치워야 아래눈덩이가 제거됨
+            Debug.Log("위에 있는 눈덩이를 먼저 제거해주세요");
+            PowerCheck();
+        }
+
+       else if (currentSlot == BotSlotController) //선택한 슬롯이 아랫 눈사람인데 윗 눈사람이 없음
+        {//아래 눈사람 돌려놓기
+            BotSlotController.condition = "None";
+            BotSlotController.Clicked();
+            BotSlotController = null;
+            BotSnowball = null;
+            previousSlot = currentSlot;
+
+            Botsnowman.color = Color.white;
+
+            PowerCheck();
+        }
+
+       else if(BotSlotController == null && TopSlotController ==null) //위 아래 눈사람 다 비어있을때
         {
-            //전에 선택된 슬롯 프레임 되돌리기
-            if(BotSlotController != null)
-            {
-                BotSlotController.isUsed = false;
-                BotSlotController.NonClicked();
-                BotSlotController = null;
-            }
-
             BotSlotController = currentSlot;
-            currentSlot.isUsed = true;
-            BotSnowball = SelectSnowball;
             BotSlotController.Used();
+            BotSlotController.condition = "Bot";
+            BotSnowball = SelectSnowball;
+            previousSlot = null;
+
+            Botsnowman.color = Color.gray;
+
+            PowerCheck();
+        }
+
+       else if(BotSlotController != null && TopSlotController == null) //아래 눈사람만 있을때
+        {
+            TopSlotController = currentSlot;
+            TopSlotController.Used();
+            TopSlotController.condition = "Top";
+            TopSnowball = SelectSnowball;
+            previousSlot = null;
+
+            Topsnowman.color = Color.gray;
+
+            PowerCheck();
+        }
+
+       else // 꽉 차있을때
+        {
+            Debug.Log("이미 모두 선택되었습니다");
             PowerCheck();
         }
     }
 
     private void PowerCheck() // TopSnowball과 BotSnowball이 비어있지 않으면 전투력 측정
     {
+        TextMeshProUGUI Powertext = PowerObj.GetComponent<TextMeshProUGUI>();
         if (TopSnowball != null && BotSnowball != null)
         {
             power = (TopSnowball.weight + BotSnowball.weight) * (TopSnowball.volume + BotSnowball.volume);
-            TextMeshProUGUI Powertext = PowerObj.GetComponent<TextMeshProUGUI>();
             Powertext.text = "Power: " + power;
+        }
+        else
+        {
+            Powertext.text = "Power: " + 0;
         }
     }
 
