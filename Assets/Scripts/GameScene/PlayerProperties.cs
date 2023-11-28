@@ -25,7 +25,11 @@ public class PlayerProperties : MonoBehaviour
 
     void Update()
     {
-        
+        if (health <= 0)
+        {
+            health = 0;
+            ui.fail();
+        }
     }
 
     
@@ -62,7 +66,7 @@ public class PlayerProperties : MonoBehaviour
                 mass += 2f * collisionRate;
                 weight += 3f * collisionRate;
                 //해당 자리로부터 파티클 복제, TreeStoneTimer 실행
-                Instantiate(particle1, transform.position, transform.rotation);
+                //Instantiate(particle1, transform.position, transform.rotation);
                 Destroy(other.gameObject); //장애물은 제거
             }
             if (other.gameObject.tag == "Tree")
@@ -70,7 +74,7 @@ public class PlayerProperties : MonoBehaviour
                 health -= 2f * collisionRate;
                 mass += 3f * collisionRate;
                 weight += 2f * collisionRate;
-                Instantiate(particle2, transform.position, transform.rotation);
+                //Instantiate(particle2, transform.position, transform.rotation);
                 Destroy(other.gameObject);
             }
             if (other.gameObject.tag == "Goal")

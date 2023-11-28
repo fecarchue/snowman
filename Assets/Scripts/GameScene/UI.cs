@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class UI : MonoBehaviour //UI 전부를 다루는 스크립트
 {
@@ -17,6 +18,7 @@ public class UI : MonoBehaviour //UI 전부를 다루는 스크립트
     public GameObject pauseMenu;
     public GameObject startMenu;
     public GameObject finishScreen;
+    public GameObject failScreen;
 
     void Start()
     {
@@ -61,6 +63,20 @@ public class UI : MonoBehaviour //UI 전부를 다루는 스크립트
     }
     public void finish()
     {
+        Time.timeScale = 0;
         finishScreen.SetActive(true);
+    }
+    public void fail()
+    {
+        Time.timeScale = 0;
+        failScreen.SetActive(true);
+    }
+    public void retry()
+    {
+        SceneManager.LoadScene("GameScene");
+    }
+    public void mainMenu()
+    {
+        SceneManager.LoadScene("StartScene");
     }
 }
