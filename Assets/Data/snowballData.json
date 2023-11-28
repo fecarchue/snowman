@@ -95,6 +95,12 @@
             "weight": 39,
             "volume": 36,
             "objects": []
+        },
+        {
+            "id": 16,
+            "weight": 52,
+            "volume": 97,
+            "objects": []
         }
     ]
 }
