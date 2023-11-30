@@ -1,18 +1,6 @@
 {
     "snowballs": [
         {
-            "id": 0,
-            "weight": 27,
-            "volume": 3,
-            "objects": []
-        },
-        {
-            "id": 1,
-            "weight": 37,
-            "volume": 8,
-            "objects": []
-        },
-        {
             "id": 2,
             "weight": 82,
             "volume": 7,
@@ -100,6 +88,30 @@
             "id": 16,
             "weight": 52,
             "volume": 97,
+            "objects": []
+        },
+        {
+            "id": 17,
+            "weight": 14,
+            "volume": 62,
+            "objects": []
+        },
+        {
+            "id": 18,
+            "weight": 52,
+            "volume": 72,
+            "objects": []
+        },
+        {
+            "id": 19,
+            "weight": 30,
+            "volume": 27,
+            "objects": []
+        },
+        {
+            "id": 20,
+            "weight": 34,
+            "volume": 48,
             "objects": []
         }
     ]

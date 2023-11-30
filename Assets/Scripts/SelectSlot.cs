@@ -6,6 +6,7 @@ using UnityEngine.UI;
 
 public class SelectSlot : MonoBehaviour
 {
+    public ObjectInfomation objectinfo;
     public Snowball SelectSnowball;
     public GameObject WeightObj, VolumeObj, PowerObj, TopsnowmanObj,BotsnowmanObj;
     private Image Topsnowman, Botsnowman;
@@ -32,7 +33,7 @@ public class SelectSlot : MonoBehaviour
 
         // JSON 문자열을 객체로 역직렬화
         snowballData = JsonUtility.FromJson<SnowballData>(jsonText);
-        Invoke("LoadImage", 1.0f);
+        LoadImage();
     }
 
     //처음에만 작동(이미지 불러오기)
@@ -51,12 +52,13 @@ public class SelectSlot : MonoBehaviour
                 // 해당 슬롯의 존재 여부 확인 및 처리
                 if (i < snowballData.snowballs.Count)
                 {
+                    controller.BringImage();
                     controller.exist();
                     controller.NonClicked();
                 }
                 else
                 {
-                    break; // 눈덩이가 들어있는 슬롯을 찾았으면 반복문 종료
+                    break; //눈덩이 없으면 종료
                 }
             }
         }
@@ -64,6 +66,7 @@ public class SelectSlot : MonoBehaviour
 
     public void ClickSlot() //슬롯 클릭 할때 호출
     {
+        string[] objects = new string[10];
         clickObject = EventSystem.current.currentSelectedGameObject;
         
         //슬롯 클릭시 버튼 번호 가져오기
@@ -90,6 +93,8 @@ public class SelectSlot : MonoBehaviour
         {
             //SelectSnowball 은 현재 선택된 Snowball
             SelectSnowball = snowballData.snowballs[slotID];
+            objects = SelectSnowball.objects;
+            //objectinfo.MakeObject(objects);
             ShowStatus(); //눈덩이 스탯 보여주기
             ClickNow(); //클릭할때 슬롯 이미지 바꾸기
         }

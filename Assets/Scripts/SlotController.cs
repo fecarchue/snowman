@@ -7,11 +7,16 @@ public class SlotController : MonoBehaviour
     private Image frame, image;
     public string condition; // => {None, Top, Bot}
 
-    public Sprite[] framesprites; // => {사용됨, 선택됨, 들어있음, 비어있음}
-    public Sprite[] imagesprites; // => {들어있음, 비어있음}
+    public Sprite[] framesprites; // => { 0 = 사용됨, 1 = 선택됨, 2 = 들어있음, 3 = 비어있음}
+    public Sprite[] imagesprites; // => { 0 = 들어있음, 1 = 비어있음}
+
+    public void Awake()
+    {
+        
+    }
 
     //프레임과 이미지 가져오기
-    private void Awake()
+    public void BringImage()
     {
         condition = "None";
         Transform TransformChild = this.gameObject.transform.Find("Frame");
@@ -22,7 +27,6 @@ public class SlotController : MonoBehaviour
 
         image.sprite = imagesprites[1]; //비어있음
         frame.sprite = framesprites[3]; //테두리 없음
-
     }
     
     //프레임 변경하는 함수

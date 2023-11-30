@@ -41,12 +41,9 @@ public class DataManager : MonoBehaviour
         LoadData();
     }
 
-    public void SaveData()
+    public void SaveData(int snowweight, int snowvolume, string[] objects)
     {
         SortData();
-        int snowweight = Random.Range(0, 100);
-        int snowvolume = Random.Range(0, 100);
-        string[] objects = null;
         // JSON 파일 경로 설정
         jsonPath = Application.dataPath + "/Data/SnowballData.json";
 
