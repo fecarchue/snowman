@@ -22,7 +22,7 @@ public class TreeStoneTimer : MonoBehaviour
         while (true) // 무한 반복
         {
             transform.position = playerTransform.position; //눈 위치와 일치
-            playerScale = player.GetComponent<Player>().newScale;
+            playerScale = player.GetComponent<PlayerProperties>().newScale;
             //눈 크기와도 일치
             transform.localScale = new Vector3(playerScale, playerScale, playerScale);
 

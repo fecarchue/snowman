@@ -417,7 +417,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 94111119eb8b4094d860dfb4aa9433f3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  newScale: 0
   diagTemp: 0
   yDefaultSpeed: 3
   ySpeed: 0
@@ -468,15 +467,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c609ecce87bf8e54c82b692ec372bb61, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 10
-  health: 10
-  mass: 10
-  weight: 10
+  maxHealth: 12
+  health: 12
+  volume: 12
+  weight: 12
   maxHealthRate: 1
   healthRate: 1
-  massRate: 1
+  volumeRate: 1
   weightRate: 1
   collisionRate: 5
+  growthRate: 0.1
+  newScale: 0
+  playerSize: 0
+  sizeCut: 10000000140000001a0000002400000030000000400000005600000074000000ca0000000f270000
   ui: {fileID: 298572932}
   particle1: {fileID: 2104158561234832950, guid: bd8e186010798ac419b4c2bed1f1dc21, type: 3}
   particle2: {fileID: 6929551707034645033, guid: 76167be08c8bcb648afedf021a862b8d, type: 3}
@@ -767,7 +770,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   trailRenderer: {fileID: 0}
   player: {fileID: 138496653}
-  playerScale: 0
+  playerSize: 0
 --- !u!1 &298572930
 GameObject:
   m_ObjectHideFlags: 0
@@ -812,11 +815,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4e83d559b0df3b347bd1bb21ec038a68, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 138496658}
+  player: {fileID: 138496653}
   playerProperties: {fileID: 0}
   maxHealthText: {fileID: 320576328}
   healthText: {fileID: 1554239793}
-  massText: {fileID: 1504953156}
+  volumeText: {fileID: 1504953156}
   weightText: {fileID: 402956006}
   maxHealthBar: {fileID: 727363473}
   healthBar: {fileID: 2032159474}
@@ -99951,7 +99954,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 138496653}
   target: {fileID: 138496655}
-  zRatio: -25
+  zRatio: -5
   initialZ: 0
   newZ: 0
 --- !u!1 &596996883
@@ -102085,7 +102088,7 @@ GameObject:
   - component: {fileID: 1504953157}
   - component: {fileID: 1504953156}
   m_Layer: 5
-  m_Name: Mass Text
+  m_Name: Volume Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -102635,11 +102638,11 @@ RectTransform:
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 298572931}
   - {fileID: 320576327}
   - {fileID: 1554239792}
   - {fileID: 1504953155}
   - {fileID: 402956005}
-  - {fileID: 298572931}
   - {fileID: 727363472}
   - {fileID: 2032159473}
   - {fileID: 999779620}

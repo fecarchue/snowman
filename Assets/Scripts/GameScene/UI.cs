@@ -7,11 +7,11 @@ using UnityEngine.SceneManagement;
 
 public class UI : MonoBehaviour //UI 전부를 다루는 스크립트
 {
-    public Player player;
+    public GameObject player;
     public PlayerProperties playerProperties;
     public TextMeshProUGUI maxHealthText;
     public TextMeshProUGUI healthText;
-    public TextMeshProUGUI massText;
+    public TextMeshProUGUI volumeText;
     public TextMeshProUGUI weightText;
     public Image maxHealthBar;
     public Image healthBar;
@@ -27,7 +27,7 @@ public class UI : MonoBehaviour //UI 전부를 다루는 스크립트
         playerProperties = player.GetComponent<PlayerProperties>();
         maxHealthText = maxHealthText.GetComponent<TextMeshProUGUI>();
         healthText = healthText.GetComponent<TextMeshProUGUI>();
-        massText = massText.GetComponent<TextMeshProUGUI>();
+        volumeText = volumeText.GetComponent<TextMeshProUGUI>();
         weightText = weightText.GetComponent<TextMeshProUGUI>();
         Time.timeScale = 0;
     }
@@ -47,7 +47,7 @@ public class UI : MonoBehaviour //UI 전부를 다루는 스크립트
         //float값 뒤의 소수점 자르기
         maxHealthText.text = ((int)playerProperties.maxHealth).ToString();
         healthText.text = ((int)playerProperties.health).ToString();
-        massText.text = ((int)playerProperties.mass).ToString();
+        volumeText.text = ((int)playerProperties.volume).ToString();
         weightText.text = ((int)playerProperties.weight).ToString();
     }
 

@@ -6,16 +6,14 @@ using Unity.VisualScripting;
 using UnityEngine;
 
 
-public class Player : MonoBehaviour
+public class PlayerMove : MonoBehaviour
 {
-    private float mass;
-    public float newScale; //눈 크기
+
     [SerializeField]
     private float diagTemp;
     public float yDefaultSpeed = 3f; // 이동 속도 미리 정의
     public float ySpeed;
-    public static float growthRate = 0.1f; // 초당 커지는 비율
-    private float initialScale; // 초기 스케일
+    
     private SwipeControlManager swipeManager;
 
     public GameObject swipeControl;
@@ -30,7 +28,6 @@ public class Player : MonoBehaviour
 
     private void Start()
     {
-        initialScale = transform.localScale.x; // 초기 스케일 저장
         StartCoroutine(MovePlayer());
         //swipeManager = FindObjectOfType<SwipeControlManager>();
     }
@@ -63,11 +60,7 @@ public class Player : MonoBehaviour
             diagTemp = Mathf.Pow(Mathf.Pow(rawXSpeed, 2) + Mathf.Pow(yDefaultSpeed, 2), 0.5f);
             ySpeed = Mathf.Pow(yDefaultSpeed, 2) / diagTemp; //닮음비에 따라 다음 식이 성립한다
             transform.position += Vector3.down * ySpeed * Time.deltaTime;    //밑으로 계속 내려간다.
-
-            mass = GetComponent<PlayerProperties>().mass;
-            //부피의 3분의 1이 반지름, 눈 크기는 그 제곱의 비례
-            newScale = initialScale + growthRate * Mathf.Pow(mass, 0.66666f);
-            transform.localScale = new Vector3(newScale, newScale, newScale);  // 스케일 적용
+            
 
             
 
