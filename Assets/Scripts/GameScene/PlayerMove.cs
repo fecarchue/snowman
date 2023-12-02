@@ -11,20 +11,20 @@ public class PlayerMove : MonoBehaviour
 
     [SerializeField]
     private float diagTemp;
-    public float yDefaultSpeed = 3f; // 이동 속도 미리 정의
+    public float yDefaultSpeed = 1f; // 이동 속도 미리 정의
     public float ySpeed;
     
     private SwipeControlManager swipeManager;
 
     public GameObject swipeControl;
     public float rawSwipe; //불러오기
-    public float maxSwipeConst = 100f; //최대 스와이프 허용 범위
-    public float xSpeedRate = 0.03f; //최종 속도 배율
+    public float maxSwipeConst = 250f; //최대 스와이프 허용 범위
+    public float xSpeedRate = 0.004f; //최종 속도 배율
     public float rawXSpeed; //최종 속도 목표
-    public float xAccel = 0.2f; //가속
-    public float xDecel = 0.05f; //감속
+    public float xAccel = 0.1f; //가속
+    public float xDecel = 0.25f; //감속
     public float xSpeed; //최종 속도
-
+    public bool isAlternative = false;
 
     private void Start()
     {
@@ -59,7 +59,7 @@ public class PlayerMove : MonoBehaviour
             //xSpeed를 x, yDefaultSpeed를 y라 하자. 대각선 diagTemp는 sqrt(x제곱+y제곱)
             diagTemp = Mathf.Pow(Mathf.Pow(rawXSpeed, 2) + Mathf.Pow(yDefaultSpeed, 2), 0.5f);
             ySpeed = Mathf.Pow(yDefaultSpeed, 2) / diagTemp; //닮음비에 따라 다음 식이 성립한다
-            transform.position += Vector3.down * ySpeed * Time.deltaTime;    //밑으로 계속 내려간다.
+            transform.position += Vector3.down * (isAlternative ? yDefaultSpeed : ySpeed) * Time.deltaTime; //대안 조작 판단
             
 
             
