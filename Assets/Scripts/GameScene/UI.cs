@@ -35,7 +35,7 @@ public class UI : MonoBehaviour //UI 전부를 다루는 스크립트
     
     void Update()
     {
-        if (startMenu.activeSelf && Input.GetMouseButtonDown(0))
+        if (startMenu.activeSelf && Input.GetMouseButtonDown(0)) //게임 시작
         {
             startMenu.SetActive(false);
             Time.timeScale = 1;

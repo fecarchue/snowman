@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TreeStoneTimer : MonoBehaviour
+public class TreeStoneTimer : MonoBehaviour //안 쓰는 스크립트
 {
     public GameObject player;
     public Transform playerTransform;
@@ -22,7 +22,7 @@ public class TreeStoneTimer : MonoBehaviour
         while (true) // 무한 반복
         {
             transform.position = playerTransform.position; //눈 위치와 일치
-            playerScale = player.GetComponent<PlayerProperties>().newScale;
+            playerScale = player.GetComponent<PlayerProperties>().cameraScale;
             //눈 크기와도 일치
             transform.localScale = new Vector3(playerScale, playerScale, playerScale);
 

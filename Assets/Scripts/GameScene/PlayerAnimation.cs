@@ -18,7 +18,7 @@ public class PlayerAnimation : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        playerSize= player.GetComponent<PlayerProperties>().playerSize;
-        anim.SetFloat("snowScale", playerSize);
+        playerSize = player.GetComponent<PlayerProperties>().playerSize;
+        anim.SetFloat("snowScale", playerSize); //0ÀÌ default
     }
 }

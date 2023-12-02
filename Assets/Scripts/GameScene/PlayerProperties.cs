@@ -5,10 +5,10 @@ using UnityEngine;
 public class PlayerProperties : MonoBehaviour
 {
     //Inspector에서 수정 가능
-    public float maxHealth = 12f; //기본
-    public float health = 12f;
-    public float volume = 12f;
-    public float weight = 12f;
+    public float maxHealth = 10f; //기본
+    public float health = 10f;
+    public float volume = 1f;
+    public float weight = 1f;
     
     public float maxHealthRate = 1f; //가중치
     public float healthRate = 1f;
@@ -16,29 +16,31 @@ public class PlayerProperties : MonoBehaviour
     public float weightRate = 1f;
     public float collisionRate = 5f;
 
-    public float growthRate = 0.1f; // 초당 커지는 비율
-    private float initialScale; // 초기 스케일
-    public float newScale; //눈 크기
+    public float growthRate = 1f; // 커지는 비율
+    public float cameraScale; // degul12 기준 눈크기; 카메라, 트레일용
+    public float snowScale; // 그래픽 변환 고려한 실제 Scale
 
     public int playerSize = 0;
-    public int[] sizeCut = { 16, 20, 26, 36, 48, 64, 86, 116, 202, 9999};
+    public float[] sizeCut = { 12, 16, 20, 26, 36, 48, 64, 86, 116, 202, 9999};
 
     public UI ui;
 
     void Start()
     {
-        initialScale = transform.localScale.x; // 초기 스케일 저장
+
     }
 
     void Update()
     {
-        //부피의 3분의 1이 반지름, 눈 크기는 그 제곱의 비례
-        newScale = initialScale + growthRate * Mathf.Pow(volume, 0.66666f);
-        transform.localScale = new Vector3(newScale, newScale, 1);  // 스케일 적용
 
-        if (volume > sizeCut[playerSize]) playerSize++;
+        if (snowScale > sizeCut[playerSize + 1] / sizeCut[playerSize]) playerSize++;
 
-        if (health <= 0)
+        cameraScale = growthRate * Mathf.Pow(volume, 0.333333f); //부피의 3분의 1이 반지름
+        snowScale = cameraScale * 12 / sizeCut[playerSize]; //12분의 pixel수
+
+        transform.localScale = new Vector3(snowScale, snowScale, 1);  //스케일 적용
+
+        if (health <= 0) //게임오버
         {
             health = 0;
             ui.fail();
@@ -77,7 +79,6 @@ public class PlayerProperties : MonoBehaviour
                 health -= 2f * collisionRate;
                 volume += 2f * collisionRate;
                 weight += 3f * collisionRate;
-                //해당 자리로부터 파티클 복제, TreeStoneTimer 실행
                 //Instantiate(particle1, transform.position, transform.rotation);
                 Destroy(other.gameObject); //장애물은 제거
             }
