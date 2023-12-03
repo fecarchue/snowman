@@ -25,6 +25,8 @@ public class PlayerProperties : MonoBehaviour
 
     public UI ui;
 
+    public bool isSlide = false;
+
     void Start()
     {
 
@@ -65,7 +67,9 @@ public class PlayerProperties : MonoBehaviour
             volume += 1f * volumeRate * Time.deltaTime;
             weight += 1f * weightRate * Time.deltaTime;
         }
-        
+
+        isSlide = other.gameObject.tag == "Slide" ? true : false;
+
     }
 
     public GameObject particle1, particle2;

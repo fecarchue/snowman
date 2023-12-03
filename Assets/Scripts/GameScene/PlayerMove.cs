@@ -10,9 +10,6 @@ public class PlayerMove : MonoBehaviour
 {
 
     [SerializeField]
-    private float diagTemp;
-    public float yDefaultSpeed = 1f; // 이동 속도 미리 정의
-    public float ySpeed;
     
     private SwipeControlManager swipeManager;
 
@@ -20,11 +17,19 @@ public class PlayerMove : MonoBehaviour
     public float rawSwipe; //불러오기
     public float maxSwipeConst = 250f; //최대 스와이프 허용 범위
     public float xSpeedRate = 0.004f; //최종 속도 배율
-    public float rawXSpeed; //최종 속도 목표
+    public float x1Speed; //가속 감속 전
+    public float x2Speed; //슬라이드 전
+    public float x3Speed; //최종 속도
     public float xAccel = 0.1f; //가속
     public float xDecel = 0.25f; //감속
-    public float xSpeed; //최종 속도
+    private float diagTemp;
+    public float yDefaultSpeed = 1f; // 이동 속도 미리 정의
+    public float y1Speed; //슬라이드 전
+    public float y2Speed; //최종 속도
+
     public bool isAlternative = false;
+    public bool isSlide;
+    public float slideSpeedRate = 1.5f;
 
     private void Start()
     {
@@ -35,34 +40,38 @@ public class PlayerMove : MonoBehaviour
     private IEnumerator MovePlayer()
     {
         while (true) // 무한 반복
-        { // 아래로 이동
+        {
+            isSlide = GetComponent<PlayerProperties>().isSlide;
+
             //rawXSpeed는 (-1 * xSpeedRate * maxSwipeConst) ~ (xSpeedRate * maxSwipeConst)로 제한
             rawSwipe = swipeControl.GetComponent<SwipeControlManager>().rawswipe;
-            if (rawSwipe >= 0) rawXSpeed = xSpeedRate * Mathf.Min(maxSwipeConst, rawSwipe);
-            else rawXSpeed = xSpeedRate * Mathf.Max(-maxSwipeConst, rawSwipe);
+            if (rawSwipe >= 0) x1Speed = xSpeedRate * Mathf.Min(maxSwipeConst, rawSwipe);
+            else x1Speed = xSpeedRate * Mathf.Max(-maxSwipeConst, rawSwipe);
 
-            if (rawXSpeed != 0) //가속용
+            if (x1Speed != 0) //가속용
             {
-                if (xSpeed < rawXSpeed) xSpeed += xAccel * Time.deltaTime * 120f;
-                else if (xSpeed > rawXSpeed) xSpeed -= xAccel * Time.deltaTime * 120f;
-                if (Mathf.Abs(rawXSpeed - xSpeed) < xAccel) xSpeed = rawXSpeed; //rawXSpeed를 넘어버릴때 +-+- 왔다갔다 방지
+                if (x2Speed < x1Speed) x2Speed += xAccel * Time.deltaTime * 120f;
+                else if (x2Speed > x1Speed) x2Speed -= xAccel * Time.deltaTime * 120f;
+                if (Mathf.Abs(x1Speed - x2Speed) < xAccel) x2Speed = x1Speed; //rawXSpeed를 넘어버릴때 +-+- 왔다갔다 방지
             }
             else //감속용
             {
-                if (xSpeed < 0) xSpeed += xDecel * Time.deltaTime * 120f;
-                else if (xSpeed > 0) xSpeed -= xDecel * Time.deltaTime * 120f;
-                if (Mathf.Abs(rawXSpeed - xSpeed) < xDecel) xSpeed = 0; //0 근처에서 +-+- 왔다갔다 방지
+                if (x2Speed < 0) x2Speed += xDecel * Time.deltaTime * 120f;
+                else if (x2Speed > 0) x2Speed -= xDecel * Time.deltaTime * 120f;
+                if (Mathf.Abs(x1Speed - x2Speed) < xDecel) x2Speed = 0; //0 근처에서 +-+- 왔다갔다 방지
             }
 
-            transform.position += Vector3.right * xSpeed * Time.deltaTime;
-
             //xSpeed를 x, yDefaultSpeed를 y라 하자. 대각선 diagTemp는 sqrt(x제곱+y제곱)
-            diagTemp = Mathf.Pow(Mathf.Pow(rawXSpeed, 2) + Mathf.Pow(yDefaultSpeed, 2), 0.5f);
-            ySpeed = Mathf.Pow(yDefaultSpeed, 2) / diagTemp; //닮음비에 따라 다음 식이 성립한다
-            transform.position += Vector3.down * (isAlternative ? yDefaultSpeed : ySpeed) * Time.deltaTime; //대안 조작 판단
-            
+            diagTemp = Mathf.Pow(Mathf.Pow(x1Speed, 2) + Mathf.Pow(yDefaultSpeed, 2), 0.5f);
+            y1Speed = Mathf.Pow(yDefaultSpeed, 2) / diagTemp; //닮음비에 따라 다음 식이 성립한다
 
-            
+            y1Speed = isAlternative ? yDefaultSpeed : y1Speed;
+            x3Speed = isSlide ? (x2Speed * slideSpeedRate) : x2Speed;
+            y2Speed = isSlide ? (y1Speed * slideSpeedRate) : y1Speed;
+
+            transform.position += Vector3.right * x3Speed * Time.deltaTime;
+            transform.position += Vector3.down * y2Speed * Time.deltaTime;
+
 
             //(실전용)좌우이동을 스와이프로 구현함, 속도인 horiSpeed는 swipe에 비례, 수직낙하에만 쓰는 moveSpeed는 horiSpeed랑 연동
             /*SwipeControlManager swipeControl = FindObjectOfType<SwipeControlManager>();

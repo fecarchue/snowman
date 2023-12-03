@@ -11,6 +11,7 @@ TagManager:
   - Ground
   - Slot
   - Goal
+  - Slide
   layers:
   - Default
   - TransparentFX
