@@ -28,7 +28,7 @@ public class PlayerMove : MonoBehaviour
     public float y2Speed; //최종 속도
 
     public bool isAlternative = false;
-    public bool isSlide;
+    public bool isSlide = false;
     public float slideSpeedRate = 1.5f;
 
     private void Start()
@@ -41,7 +41,6 @@ public class PlayerMove : MonoBehaviour
     {
         while (true) // 무한 반복
         {
-            isSlide = GetComponent<PlayerProperties>().isSlide;
 
             //rawXSpeed는 (-1 * xSpeedRate * maxSwipeConst) ~ (xSpeedRate * maxSwipeConst)로 제한
             rawSwipe = swipeControl.GetComponent<SwipeControlManager>().rawswipe;
@@ -129,5 +128,14 @@ public class PlayerMove : MonoBehaviour
 
             yield return null; // 한 프레임을 기다림
         }
+    }
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if(other.gameObject.tag == "Slide") isSlide = true;
+    }
+    private void OnTriggerExit2D(Collider2D other)
+    {
+        if (other.gameObject.tag == "Slide") isSlide = false;
     }
 }

@@ -20,7 +20,7 @@ public class MoveCamera : MonoBehaviour
     {
         while (true)
         {
-            playerScale = player.GetComponent<PlayerProperties>().cameraScale;
+            playerScale = player.GetComponent<PlayerData>().cameraScale;
             //눈 반지름과 카메라 z축이 정비례할 때, 눈 크기가 일정하게 보인다
             newZ = playerScale * zRatio;
             //눈 크기의 차이 때문에 중앙으로 가까워지는 듯 보임, 따라서 눈 크기만큼 -y

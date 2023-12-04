@@ -6,7 +6,6 @@ public class NewBehaviourScript : MonoBehaviour
 {
     // Start is called before the first frame update
     public TrailRenderer trailRenderer;
-    public GameObject player;
     public float playerScale;
     public float trailSize = 0.8f;
 
@@ -19,7 +18,21 @@ public class NewBehaviourScript : MonoBehaviour
     void Update()
     {
         // 캐릭터의 크기에 따라 Trail의 너비 동적으로 조절
-        playerScale = player.GetComponent<PlayerProperties>().cameraScale;
+        playerScale = GetComponent<PlayerData>().cameraScale;
         trailRenderer.widthMultiplier = playerScale * trailSize;
+    }
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.gameObject.tag == "Ground")
+        {
+            trailRenderer.endColor = new Color(0.5f, 0.4f, 0.25f, 0.6f);
+        }
+    }
+    private void OnTriggerExit2D(Collider2D other)
+    {
+        if (other.gameObject.tag == "Ground")
+        {
+            trailRenderer.endColor = new Color(0.5f, 0.5f, 0.5f, 0.6f);
+        }
     }
 }

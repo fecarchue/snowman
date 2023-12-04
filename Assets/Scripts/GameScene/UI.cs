@@ -8,7 +8,7 @@ using UnityEngine.SceneManagement;
 public class UI : MonoBehaviour //UI 전부를 다루는 스크립트
 {
     public GameObject player;
-    public PlayerProperties playerProperties;
+    public PlayerData playerData;
     public TextMeshProUGUI maxHealthText;
     public TextMeshProUGUI healthText;
     public TextMeshProUGUI volumeText;
@@ -24,7 +24,7 @@ public class UI : MonoBehaviour //UI 전부를 다루는 스크립트
     {
         maxHealthBar = maxHealthBar.GetComponent<Image>();
         healthBar = healthBar.GetComponent<Image>();
-        playerProperties = player.GetComponent<PlayerProperties>();
+        playerData = player.GetComponent<PlayerData>();
         maxHealthText = maxHealthText.GetComponent<TextMeshProUGUI>();
         healthText = healthText.GetComponent<TextMeshProUGUI>();
         volumeText = volumeText.GetComponent<TextMeshProUGUI>();
@@ -41,14 +41,14 @@ public class UI : MonoBehaviour //UI 전부를 다루는 스크립트
             Time.timeScale = 1;
         }
 
-        maxHealthBar.rectTransform.sizeDelta = new Vector2(playerProperties.maxHealth * 3, 13);
-        healthBar.rectTransform.sizeDelta = new Vector2(playerProperties.health * 3, 13);
+        maxHealthBar.rectTransform.sizeDelta = new Vector2(playerData.playerData[0] * 3, 13);
+        healthBar.rectTransform.sizeDelta = new Vector2(playerData.playerData[1] * 3, 13);
 
         //float값 뒤의 소수점 자르기
-        maxHealthText.text = ((int)playerProperties.maxHealth).ToString();
-        healthText.text = ((int)playerProperties.health).ToString();
-        volumeText.text = ((int)playerProperties.volume).ToString();
-        weightText.text = ((int)playerProperties.weight).ToString();
+        maxHealthText.text = ((int)playerData.playerData[0]).ToString();
+        healthText.text = ((int)playerData.playerData[1]).ToString();
+        volumeText.text = ((int)playerData.playerData[2]).ToString();
+        weightText.text = ((int)playerData.playerData[3]).ToString();
     }
 
     public void pause()
