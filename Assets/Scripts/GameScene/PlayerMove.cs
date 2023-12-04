@@ -20,16 +20,17 @@ public class PlayerMove : MonoBehaviour
     public float x1Speed; //가속 감속 전
     public float x2Speed; //슬라이드 전
     public float x3Speed; //최종 속도
-    public float xAccel = 0.1f; //가속
-    public float xDecel = 0.25f; //감속
+    public float xAccel = 10f; //가속
+    public float xDecel = 5f; //감속
     private float diagTemp;
     public float yDefaultSpeed = 1f; // 이동 속도 미리 정의
     public float y1Speed; //슬라이드 전
     public float y2Speed; //최종 속도
 
-    public bool isAlternative = false;
+    public bool isAlternative = true;
     public bool isSlide = false;
     public float slideSpeedRate = 1.5f;
+    public float slideMultiplier = 1f;
 
     private void Start()
     {
@@ -49,15 +50,15 @@ public class PlayerMove : MonoBehaviour
 
             if (x1Speed != 0) //가속용
             {
-                if (x2Speed < x1Speed) x2Speed += xAccel * Time.deltaTime * 120f;
-                else if (x2Speed > x1Speed) x2Speed -= xAccel * Time.deltaTime * 120f;
-                if (Mathf.Abs(x1Speed - x2Speed) < xAccel) x2Speed = x1Speed; //rawXSpeed를 넘어버릴때 +-+- 왔다갔다 방지
+                if (x2Speed < x1Speed) x2Speed += xAccel * Time.deltaTime;
+                else if (x2Speed > x1Speed) x2Speed -= xAccel * Time.deltaTime;
+                if (Mathf.Abs(x1Speed - x2Speed) < xAccel * Time.deltaTime) x2Speed = x1Speed; //x1Speed를 넘어버릴때 +-+- 왔다갔다 방지
             }
             else //감속용
             {
-                if (x2Speed < 0) x2Speed += xDecel * Time.deltaTime * 120f;
-                else if (x2Speed > 0) x2Speed -= xDecel * Time.deltaTime * 120f;
-                if (Mathf.Abs(x1Speed - x2Speed) < xDecel) x2Speed = 0; //0 근처에서 +-+- 왔다갔다 방지
+                if (x2Speed < 0) x2Speed += xDecel * Time.deltaTime;
+                else if (x2Speed > 0) x2Speed -= xDecel * Time.deltaTime;
+                if (Mathf.Abs(x1Speed - x2Speed) < xDecel * Time.deltaTime) x2Speed = 0; //0 근처에서 +-+- 왔다갔다 방지
             }
 
             //xSpeed를 x, yDefaultSpeed를 y라 하자. 대각선 diagTemp는 sqrt(x제곱+y제곱)
@@ -65,8 +66,20 @@ public class PlayerMove : MonoBehaviour
             y1Speed = Mathf.Pow(yDefaultSpeed, 2) / diagTemp; //닮음비에 따라 다음 식이 성립한다
 
             y1Speed = isAlternative ? yDefaultSpeed : y1Speed;
-            x3Speed = isSlide ? (x2Speed * slideSpeedRate) : x2Speed;
-            y2Speed = isSlide ? (y1Speed * slideSpeedRate) : y1Speed;
+
+            if (isSlide)
+            {
+                if (slideMultiplier >= slideSpeedRate) slideMultiplier = slideSpeedRate;
+                else slideMultiplier += Time.deltaTime * 0.75f;
+            }
+            else
+            {
+                if (slideMultiplier <= 1) slideMultiplier = 1;
+                else slideMultiplier -= Time.deltaTime * 0.75f;
+            }
+
+            x3Speed = x2Speed * slideMultiplier;
+            y2Speed = y1Speed * slideMultiplier;
 
             transform.position += Vector3.right * x3Speed * Time.deltaTime;
             transform.position += Vector3.down * y2Speed * Time.deltaTime;

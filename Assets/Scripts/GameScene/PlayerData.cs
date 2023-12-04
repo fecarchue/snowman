@@ -13,8 +13,27 @@ public class PlayerData : MonoBehaviour
     public float[] groundData = { 0, -4, 0, 0 };
     public float[] snowgroundData = { 2, 3, 1, 1 };
 
-    public float[,] stoneData = { { 0, -2, 2, 3 }, { 0, -2, 2, 3 }, { 0, -2, 2, 3 }, { 0, -2, 2, 3 }, { 0, -2, 2, 3 }, { 0, -2, 2, 3 }, { 0, -2, 2, 3 }, { 0, -2, 2, 3 }, { 0, -2, 2, 3 }, { 0, -2, 2, 3 } };
-    public float[,] treeData = { { 0, -2, 3, 2 }, { 0, -2, 3, 2 }, { 0, -2, 3, 2 }, { 0, -2, 3, 2 }, { 0, -2, 3, 2 }, { 0, -2, 3, 2 }, { 0, -2, 3, 2 }, { 0, -2, 3, 2 }, { 0, -2, 3, 2 }, { 0, -2, 3, 2 }, { 0, -2, 3, 2 }, { 0, -2, 3, 2 } };
+    public float[] stone0Data = { 0, -2, 2, 3 };
+    public float[] stone1Data = { 0, -2, 2, 3 };
+    public float[] stone2Data = { 0, -2, 2, 3 };
+    public float[] stone3Data = { 0, -2, 2, 3 };
+    public float[] stone4Data = { 0, -2, 2, 3 };
+    public float[] stone5Data = { 0, -2, 2, 3 };
+    public float[] stone6Data = { 0, -2, 2, 3 };
+    public float[] stone7Data = { 0, -2, 2, 3 };
+    public float[] tree0Data = { 0, -2, 3, 2 };
+    public float[] tree1Data = { 0, -2, 3, 2 };
+    public float[] tree2Data = { 0, -2, 3, 2 };
+    public float[] tree3Data = { 0, -2, 3, 2 };
+    public float[] tree4Data = { 0, -2, 3, 2 };
+    public float[] tree5Data = { 0, -2, 3, 2 };
+    public float[] tree6Data = { 0, -2, 3, 2 };
+    public float[] tree7Data = { 0, -2, 3, 2 };
+    public float[] tree8Data = { 0, -2, 3, 2 };
+    public float[] tree9Data = { 0, -2, 3, 2 };
+    public float[] tree10Data = { 0, -2, 3, 2 };
+    public float[] tree11Data = { 0, -2, 3, 2 };
+    public float[] tree12Data = { 0, -2, 3, 2 };
 
     public float growthRate = 1f; // 커지는 비율
     public float cameraScale; // degul12 기준 눈크기; 카메라, 트레일용
@@ -76,7 +95,7 @@ public class PlayerData : MonoBehaviour
         //ID는 6글자, 구조는 다음과 같다:
         //앞 2자리: 오브젝트 타입(나무, 돌 등); 10부터 시작
         //중간 2자리: 그래픽 종류 (사이즈); 00부터 시작
-        //뒤 2자리: 위치; 00부터 시작
+        //뒤 2자리: 같은 이미지 습득 저장이 필요할 때; 00부터 시작
         ID = other.gameObject.GetComponent<ObjectID>().ID;
         typeID = ID / 10000;
         imageID = ID % 10000 / 100;
@@ -84,13 +103,41 @@ public class PlayerData : MonoBehaviour
 
         if (typeID == 10) //Stone
         {
-            for (int i = 0; i < 4; i++) playerData[i] += stoneData[imageID, i];
+            for (int i = 0; i < 4; i++)
+            {
+                switch(imageID) {
+                    case 0: playerData[i] += stone0Data[i]; break;
+                    case 1: playerData[i] += stone1Data[i]; break;
+                    case 2: playerData[i] += stone2Data[i]; break;
+                    case 3: playerData[i] += stone3Data[i]; break;
+                    case 4: playerData[i] += stone4Data[i]; break;
+                    case 5: playerData[i] += stone5Data[i]; break;
+                    case 6: playerData[i] += stone6Data[i]; break;
+                    case 7: playerData[i] += stone7Data[i]; break;
+                }
+            }
             objects.Add(ID);
             Destroy(other.gameObject);
         }
         if (typeID == 11) //Tree
         {
-            for (int i = 0; i < 4; i++) playerData[i] += treeData[imageID, i];
+            for (int i = 0; i < 4; i++)
+                switch (imageID)
+                {
+                    case 0: playerData[i] += tree0Data[i]; break;
+                    case 1: playerData[i] += tree1Data[i]; break;
+                    case 2: playerData[i] += tree2Data[i]; break;
+                    case 3: playerData[i] += tree3Data[i]; break;
+                    case 4: playerData[i] += tree4Data[i]; break;
+                    case 5: playerData[i] += tree5Data[i]; break;
+                    case 6: playerData[i] += tree6Data[i]; break;
+                    case 7: playerData[i] += tree7Data[i]; break;
+                    case 8: playerData[i] = tree8Data[i]; break;
+                    case 9: playerData[i] += tree9Data[i]; break;
+                    case 10: playerData[i] += tree10Data[i]; break;
+                    case 11: playerData[i] += tree11Data[i]; break;
+                    case 12: playerData[i] += tree12Data[i]; break;
+                }
             objects.Add(ID);
             Destroy(other.gameObject);
         }
