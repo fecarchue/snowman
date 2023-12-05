@@ -1,8 +1,9 @@
 using UnityEngine;
+using UnityEngine.UI;
 
 public class ObjectInfomation : MonoBehaviour
 {
-    public GameObject InfoWindow, objectPrefab;
+    public GameObject InfoWindow, objectPrefab, objectInfo;
     public Sprite Tree, Rock;
     public Transform parentObject;
     public bool Active;
@@ -25,19 +26,19 @@ public class ObjectInfomation : MonoBehaviour
         GameObject newObject;
         foreach (string obj in objects)
         {
+            name = "obj_" + id;
+            newObject = new GameObject(name);
+            newObject.transform.SetParent(objectInfo.transform);
+            RectTransform rectTransform = newObject.AddComponent<RectTransform>();
+            Image imageComponent = newObject.AddComponent<Image>();
+
             if (obj == "tree")
             {
-                name = "obj_" + id;
-                newObject = new GameObject(name);
-                SpriteRenderer spriteRenderer = newObject.AddComponent<SpriteRenderer>();
-                spriteRenderer.sprite = Tree;
+                imageComponent.color = Color.red;
             }
             else if(obj == "rock")
             {
-                name = "obj_" + id;
-                newObject = new GameObject(name);
-                SpriteRenderer spriteRenderer = newObject.AddComponent<SpriteRenderer>();
-                spriteRenderer.sprite = Rock;
+                imageComponent.color = Color.blue;
             }
             id++;
         }

@@ -6,9 +6,9 @@ using UnityEngine.UI;
 
 public class SelectSlot : MonoBehaviour
 {
-    public ObjectInfomation objectinfo;
+    private ObjectInfomation objectinfo;
     public Snowball SelectSnowball;
-    public GameObject WeightObj, VolumeObj, PowerObj, TopsnowmanObj,BotsnowmanObj;
+    public GameObject WeightObj, VolumeObj, PowerObj, TopsnowmanObj,BotsnowmanObj, ObjectInfoObj;
     private Image Topsnowman, Botsnowman;
     private string jsonPath;
     private SnowballData snowballData;
@@ -20,6 +20,7 @@ public class SelectSlot : MonoBehaviour
 
     public void Awake()
     {
+        objectinfo = ObjectInfoObj.GetComponent<ObjectInfomation>();
         Topsnowman = TopsnowmanObj.GetComponent<Image>();
         Botsnowman = BotsnowmanObj.GetComponent<Image>();
 
@@ -94,7 +95,7 @@ public class SelectSlot : MonoBehaviour
             //SelectSnowball 은 현재 선택된 Snowball
             SelectSnowball = snowballData.snowballs[slotID];
             objects = SelectSnowball.objects;
-            //objectinfo.MakeObject(objects);
+            objectinfo.MakeObject(objects);
             ShowStatus(); //눈덩이 스탯 보여주기
             ClickNow(); //클릭할때 슬롯 이미지 바꾸기
         }

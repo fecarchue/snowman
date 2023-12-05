@@ -8284,7 +8284,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Power:'
+  m_text: 'Power: 0'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 7557fe61b577cd7439218f45413bb5e6, type: 2}
   m_sharedMaterial: {fileID: -5509264747101231861, guid: 7557fe61b577cd7439218f45413bb5e6, type: 2}
@@ -9250,6 +9250,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   InfoWindow: {fileID: 1248190279}
   objectPrefab: {fileID: 1302096495}
+  objectInfo: {fileID: 1248190279}
   Tree: {fileID: 21300000, guid: 2de96564cc610944b97acb9f8ebc7c85, type: 3}
   Rock: {fileID: 21300000, guid: 8cc7d104bd593d14bbd65dc416e19a61, type: 3}
   parentObject: {fileID: 1248190280}
@@ -9717,8 +9718,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -126.67, y: -238.73}
-  m_SizeDelta: {x: 29, y: 20}
+  m_AnchoredPosition: {x: -123.95, y: -238.73}
+  m_SizeDelta: {x: 34.42, y: 27.79}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1142770850
 MonoBehaviour:
@@ -11819,7 +11820,6 @@ GameObject:
   - component: {fileID: 1345684962}
   - component: {fileID: 1345684965}
   - component: {fileID: 1345684964}
-  - component: {fileID: 1345684963}
   m_Layer: 5
   m_Name: Snowman_Top
   m_TagString: Untagged
@@ -11846,62 +11846,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 130}
   m_SizeDelta: {x: 200, y: 200}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1345684963
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1345684961}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Navigation:
-    m_Mode: 3
-    m_WrapAround: 0
-    m_SelectOnUp: {fileID: 0}
-    m_SelectOnDown: {fileID: 0}
-    m_SelectOnLeft: {fileID: 0}
-    m_SelectOnRight: {fileID: 0}
-  m_Transition: 1
-  m_Colors:
-    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
-    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
-    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
-    m_ColorMultiplier: 1
-    m_FadeDuration: 0.1
-  m_SpriteState:
-    m_HighlightedSprite: {fileID: 0}
-    m_PressedSprite: {fileID: 0}
-    m_SelectedSprite: {fileID: 0}
-    m_DisabledSprite: {fileID: 0}
-  m_AnimationTriggers:
-    m_NormalTrigger: Normal
-    m_HighlightedTrigger: Highlighted
-    m_PressedTrigger: Pressed
-    m_SelectedTrigger: Selected
-    m_DisabledTrigger: Disabled
-  m_Interactable: 1
-  m_TargetGraphic: {fileID: 1345684964}
-  m_OnClick:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1438823189}
-        m_TargetAssemblyTypeName: SelectSlot, Assembly-CSharp
-        m_MethodName: GoTopsnowman
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
 --- !u!114 &1345684964
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12790,7 +12734,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 69fa3a55c1526214ca80b242c079a9f1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  objectinfo: {fileID: 0}
   SelectSnowball:
     id: 0
     weight: 0
@@ -12801,6 +12744,7 @@ MonoBehaviour:
   PowerObj: {fileID: 987430914}
   TopsnowmanObj: {fileID: 1345684961}
   BotsnowmanObj: {fileID: 1559271679}
+  ObjectInfoObj: {fileID: 1064537047}
 --- !u!4 &1438823190
 Transform:
   m_ObjectHideFlags: 0
@@ -13757,7 +13701,6 @@ GameObject:
   - component: {fileID: 1559271680}
   - component: {fileID: 1559271683}
   - component: {fileID: 1559271682}
-  - component: {fileID: 1559271681}
   m_Layer: 5
   m_Name: Snowman_Bottom
   m_TagString: Untagged
@@ -13784,62 +13727,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: -50}
   m_SizeDelta: {x: 300, y: 300}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1559271681
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1559271679}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Navigation:
-    m_Mode: 3
-    m_WrapAround: 0
-    m_SelectOnUp: {fileID: 0}
-    m_SelectOnDown: {fileID: 0}
-    m_SelectOnLeft: {fileID: 0}
-    m_SelectOnRight: {fileID: 0}
-  m_Transition: 1
-  m_Colors:
-    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
-    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
-    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
-    m_ColorMultiplier: 1
-    m_FadeDuration: 0.1
-  m_SpriteState:
-    m_HighlightedSprite: {fileID: 0}
-    m_PressedSprite: {fileID: 0}
-    m_SelectedSprite: {fileID: 0}
-    m_DisabledSprite: {fileID: 0}
-  m_AnimationTriggers:
-    m_NormalTrigger: Normal
-    m_HighlightedTrigger: Highlighted
-    m_PressedTrigger: Pressed
-    m_SelectedTrigger: Selected
-    m_DisabledTrigger: Disabled
-  m_Interactable: 1
-  m_TargetGraphic: {fileID: 1559271682}
-  m_OnClick:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1438823189}
-        m_TargetAssemblyTypeName: SelectSlot, Assembly-CSharp
-        m_MethodName: GoBotsnowman
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
 --- !u!114 &1559271682
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -29,7 +29,7 @@ public class ButtonController : MonoBehaviour
             {
                 button.onClick.AddListener(SortButton);
             }
-            else// 버튼에 클릭 이벤트 함수(Scenechange) 연결
+            else // 버튼에 클릭 이벤트 함수(Scenechange) 연결
             {
                 button.onClick.AddListener(Scenechange);
             }
