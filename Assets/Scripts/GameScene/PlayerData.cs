@@ -36,11 +36,12 @@ public class PlayerData : MonoBehaviour
     public float[] tree12Data = { 0, -2, 3, 2 };
 
     public float growthRate = 1f; // 커지는 비율
-    public float cameraScale; // degul12 기준 눈크기; 카메라, 트레일용
-    public float snowScale; // 그래픽 변환 고려한 실제 Scale
+    private float snowScale; // 그래픽 변환 고려한 실제 Scale
 
+    private float[] sizeCut = { 12, 16, 20, 26, 36, 48, 64, 86, 116, 202, 9999 };
+    [HideInInspector]
     public int playerSize = 0;
-    public float[] sizeCut = { 12, 16, 20, 26, 36, 48, 64, 86, 116, 202, 9999};
+    public float cameraScale; // degul12 기준 눈크기; 카메라, 트레일용
 
     public UI ui;
 

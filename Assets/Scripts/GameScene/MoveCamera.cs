@@ -8,8 +8,8 @@ public class MoveCamera : MonoBehaviour
     public Transform target;
     public float zRatio = -3f; //눈 반지름 : 카메라 z축 비율
     private float playerScale;
-    public float initialZ; //카메라 초기 z축
-    public float newZ; //zRatio를 반영한 최종 z축, 눈 크기에 비례
+    private float initialZ; //카메라 초기 z축
+    private float newZ; //zRatio를 반영한 최종 z축, 눈 크기에 비례
     [SerializeField]
     private void Start()
     {

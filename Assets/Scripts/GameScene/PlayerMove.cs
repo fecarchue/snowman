@@ -14,26 +14,27 @@ public class PlayerMove : MonoBehaviour
     private SwipeControlManager swipeManager;
 
     public GameObject swipeControl;
-    public float rawSwipe; //불러오기
+    private float rawSwipe; //불러오기
     public float maxSwipeConst = 250f; //최대 스와이프 허용 범위
     public float xSpeedRate = 0.004f; //최종 속도 배율
-    public float x1Speed; //가속 감속 전
-    public float x2Speed; //슬라이드 전
-    public float x3Speed; //최종 속도
+    private float x1Speed; //가속 감속 전
+    private float x2Speed; //슬라이드 전
+    private float x3Speed; //최종 속도
     public float xAccel = 10f; //가속
     public float xDecel = 5f; //감속
     private float diagTemp;
     public float yDefaultSpeed = 1f; // 이동 속도 미리 정의
-    public float y1Speed; //슬라이드 전
-    public float y2Speed; //최종 속도
+    private float y1Speed; //슬라이드 전
+    private float y2Speed; //최종 속도
 
     public bool isAlternative = true;
-    public bool isSlide = false;
+    private bool isSlide = false;
     public float slideSpeedRate = 1.5f;
-    public float slideMultiplier = 1f;
+    private float slideMultiplier = 1f;
 
     private void Start()
     {
+        isAlternative = true;
         StartCoroutine(MovePlayer());
         //swipeManager = FindObjectOfType<SwipeControlManager>();
     }

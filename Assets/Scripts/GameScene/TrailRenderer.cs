@@ -6,7 +6,7 @@ public class NewBehaviourScript : MonoBehaviour
 {
     // Start is called before the first frame update
     public TrailRenderer trailRenderer;
-    public float playerScale;
+    private float playerScale;
     public float trailSize = 0.8f;
 
     void Start()
