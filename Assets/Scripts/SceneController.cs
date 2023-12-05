@@ -36,16 +36,6 @@ public class SceneController : MonoBehaviour
         }
     }
 
-    public void SwitchScene()
-    {
-        // 버튼 이름 가져오기
-        GameObject clickButton = EventSystem.current.currentSelectedGameObject;
-        SceneName = clickButton.name;
-
-        // 버튼이름과 같은 이름의 씬으로 전환
-        SceneManager.LoadScene(SceneName);
-    }
-
     public void Win()
     {
         StartCoroutine(WinCoroutine());

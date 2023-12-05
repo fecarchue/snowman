@@ -4,7 +4,11 @@
             "id": 0,
             "weight": 66,
             "volume": 70,
-            "objects": []
+            "objects": [
+                "tree",
+                "rock",
+                "tree"
+            ]
         },
         {
             "id": 1,

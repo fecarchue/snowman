@@ -1000,7 +1000,7 @@ GameObject:
   - component: {fileID: 657454838}
   - component: {fileID: 657454837}
   - component: {fileID: 657454836}
-  - component: {fileID: 657454840}
+  - component: {fileID: 657454839}
   m_Layer: 5
   m_Name: GameScene
   m_TagString: Untagged
@@ -1071,7 +1071,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 657454837}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 657454839}
+        m_TargetAssemblyTypeName: SwitchScene, Assembly-CSharp
+        m_MethodName: GameScene
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &657454837
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1110,7 +1122,7 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 657454834}
   m_CullTransparentMesh: 1
---- !u!114 &657454840
+--- !u!114 &657454839
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1119,7 +1131,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 657454834}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e7f6becbaa2480c40814f6a21e4222c1, type: 3}
+  m_Script: {fileID: 11500000, guid: 1894f469e5ea95c49aca618a56ca864c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &676641451
@@ -2175,9 +2187,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 472485298}
-        m_TargetAssemblyTypeName: SceneController, Assembly-CSharp
-        m_MethodName: SwitchScene
+      - m_Target: {fileID: 1310644806}
+        m_TargetAssemblyTypeName: SwitchScene, Assembly-CSharp
+        m_MethodName: InventoryScene
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2234,7 +2246,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1310644801}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e7f6becbaa2480c40814f6a21e4222c1, type: 3}
+  m_Script: {fileID: 11500000, guid: 1894f469e5ea95c49aca618a56ca864c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &1394541205

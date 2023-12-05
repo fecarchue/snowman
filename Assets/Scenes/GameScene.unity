@@ -2297,6 +2297,7 @@ GameObject:
   - component: {fileID: 444411861}
   - component: {fileID: 444411860}
   - component: {fileID: 444411863}
+  - component: {fileID: 444411865}
   m_Layer: 5
   m_Name: Retry Button
   m_TagString: Untagged
@@ -2368,9 +2369,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 298572932}
-        m_TargetAssemblyTypeName: UI, Assembly-CSharp
-        m_MethodName: retry
+      - m_Target: {fileID: 444411865}
+        m_TargetAssemblyTypeName: SwitchScene, Assembly-CSharp
+        m_MethodName: GameScene
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2440,6 +2441,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0c29101526612df4da3c8d5dc50b9af8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &444411865
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 444411858}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1894f469e5ea95c49aca618a56ca864c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &459972123
@@ -137557,7 +137570,7 @@ SpriteRenderer:
   m_Size: {x: 1, y: 0.84}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 0
+  m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!4 &1358881553
@@ -138022,7 +138035,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1.9, y: 1.9}
+    oldSize: {x: 2.81, y: 2.96}
     newSize: {x: 2.81, y: 2.96}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -138432,7 +138445,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 0.84}
+    oldSize: {x: 1.9, y: 1.9}
     newSize: {x: 1.9, y: 1.9}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -139105,7 +139118,7 @@ Canvas:
   m_Enabled: 1
   serializedVersion: 3
   m_RenderMode: 0
-  m_Camera: {fileID: 0}
+  m_Camera: {fileID: 519420031}
   m_PlaneDistance: 100
   m_PixelPerfect: 0
   m_ReceivesEvents: 1
@@ -139607,6 +139620,7 @@ GameObject:
   - component: {fileID: 1653350577}
   - component: {fileID: 1653350575}
   - component: {fileID: 1653350574}
+  - component: {fileID: 1653350578}
   m_Layer: 5
   m_Name: MainMenu Button
   m_TagString: Untagged
@@ -139678,9 +139692,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 298572932}
-        m_TargetAssemblyTypeName: UI, Assembly-CSharp
-        m_MethodName: mainMenu
+      - m_Target: {fileID: 1653350578}
+        m_TargetAssemblyTypeName: SwitchScene, Assembly-CSharp
+        m_MethodName: MainMenu
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -139738,6 +139752,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0c29101526612df4da3c8d5dc50b9af8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1653350578
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1653350572}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1894f469e5ea95c49aca618a56ca864c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &1662311218
