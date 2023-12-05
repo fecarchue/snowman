@@ -38,14 +38,14 @@ public class DataManager : MonoBehaviour
         {
             Destroy(this.gameObject);
         }
+        jsonPath = Application.dataPath + "/Data/SnowballData.json";
         LoadData();
+        SortData();   
     }
 
     public void SaveData(int snowweight, int snowvolume, string[] objects)
     {
         SortData();
-        // JSON 파일 경로 설정
-        jsonPath = Application.dataPath + "/Data/SnowballData.json";
 
         idcount = snowballData.snowballs.Count;
 
@@ -72,8 +72,6 @@ public class DataManager : MonoBehaviour
 
     public void LoadData()
     {
-        // JSON 파일 경로 설정
-        jsonPath = Application.dataPath + "/Data/SnowballData.json";
 
         if (File.Exists(jsonPath))
         {
