@@ -65,6 +65,8 @@ public class PlayerData : MonoBehaviour
 
         transform.localScale = new Vector3(snowScale, snowScale, 1);  //스케일 적용
 
+        GetComponent<CircleCollider2D>().radius = 0.05f * cameraScale;
+
         if (playerData[1] <= 0) //게임오버
         {
             playerData[1] = 0;

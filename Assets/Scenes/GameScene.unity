@@ -1025,7 +1025,7 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 0.1
+  m_Radius: 0.05
 --- !u!114 &138496658
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1040,21 +1040,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   swipeManager: {fileID: 0}
   swipeControl: {fileID: 1904938539}
-  rawSwipe: 0
   maxSwipeConst: 250
   xSpeedRate: 0.004
-  x1Speed: 0
-  x2Speed: 0
-  x3Speed: 0
   xAccel: 10
   xDecel: 5
   yDefaultSpeed: 1
-  y1Speed: 0
-  y2Speed: 0
   isAlternative: 0
-  isSlide: 0
   slideSpeedRate: 1.5
-  slideMultiplier: 1
+  slideAccel: 0.75
 --- !u!50 &138496659
 Rigidbody2D:
   serializedVersion: 4
@@ -1215,21 +1208,8 @@ MonoBehaviour:
   - 3
   - 2
   growthRate: 1
-  cameraScale: 0
-  snowScale: 0
   playerSize: 0
-  sizeCut:
-  - 12
-  - 16
-  - 20
-  - 26
-  - 36
-  - 48
-  - 64
-  - 86
-  - 116
-  - 202
-  - 9999
+  cameraScale: 0
   ui: {fileID: 298572932}
 --- !u!96 &138496662
 TrailRenderer:
@@ -1305,7 +1285,7 @@ TrailRenderer:
     colorGradient:
       serializedVersion: 2
       key0: {r: 0.57254905, g: 0.57254905, b: 0.57254905, a: 0.5019608}
-      key1: {r: 0.57254905, g: 0.57254905, b: 0.57254905, a: 0.6745098}
+      key1: {r: 0.57254905, g: 0.57254905, b: 0.57254905, a: 0.5019608}
       key2: {r: 0.57254905, g: 0.57254905, b: 0.57254905, a: 1}
       key3: {r: 0, g: 0, b: 0, a: 0}
       key4: {r: 0, g: 0, b: 0, a: 0}
@@ -1371,7 +1351,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   trailRenderer: {fileID: 0}
-  playerScale: 0
   trailSize: 0.8
 --- !u!1 &155245072
 GameObject:
@@ -3491,8 +3470,6 @@ MonoBehaviour:
   player: {fileID: 138496653}
   target: {fileID: 138496655}
   zRatio: -3
-  initialZ: 0
-  newZ: 0
 --- !u!1 &542001562
 GameObject:
   m_ObjectHideFlags: 0
@@ -137570,7 +137547,7 @@ SpriteRenderer:
   m_Size: {x: 1, y: 0.84}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!4 &1358881553
@@ -138035,7 +138012,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 2.81, y: 2.96}
+    oldSize: {x: 1.9, y: 1.9}
     newSize: {x: 2.81, y: 2.96}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -138445,7 +138422,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1.9, y: 1.9}
+    oldSize: {x: 1, y: 0.84}
     newSize: {x: 1.9, y: 1.9}
     adaptiveTilingThreshold: 0.5
     drawMode: 0

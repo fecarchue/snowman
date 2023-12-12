@@ -21,7 +21,7 @@ public class NewBehaviourScript : MonoBehaviour
         playerScale = GetComponent<PlayerData>().cameraScale;
         trailRenderer.widthMultiplier = playerScale * trailSize;
     }
-    private void OnTriggerEnter2D(Collider2D other)
+    /*private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.gameObject.tag == "Ground")
         {
@@ -34,5 +34,5 @@ public class NewBehaviourScript : MonoBehaviour
         {
             trailRenderer.endColor = new Color(0.5f, 0.5f, 0.5f, 0.6f);
         }
-    }
+    }*/
 }

@@ -31,6 +31,7 @@ public class PlayerMove : MonoBehaviour
     private bool isSlide = false;
     public float slideSpeedRate = 1.5f;
     private float slideMultiplier = 1f;
+    public float slideAccel = 0.75f;
 
     private void Start()
     {
@@ -71,12 +72,12 @@ public class PlayerMove : MonoBehaviour
             if (isSlide)
             {
                 if (slideMultiplier >= slideSpeedRate) slideMultiplier = slideSpeedRate;
-                else slideMultiplier += Time.deltaTime * 0.75f;
+                else slideMultiplier += Time.deltaTime * slideAccel;
             }
             else
             {
                 if (slideMultiplier <= 1) slideMultiplier = 1;
-                else slideMultiplier -= Time.deltaTime * 0.75f;
+                else slideMultiplier -= Time.deltaTime * slideAccel;
             }
 
             x3Speed = x2Speed * slideMultiplier;
