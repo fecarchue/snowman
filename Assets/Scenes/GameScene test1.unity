@@ -1041,21 +1041,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   swipeManager: {fileID: 0}
   swipeControl: {fileID: 1904938539}
-  rawSwipe: 0
   maxSwipeConst: 250
   xSpeedRate: 0.004
-  x1Speed: 0
-  x2Speed: 0
-  x3Speed: 0
   xAccel: 10
   xDecel: 5
   yDefaultSpeed: 1
-  y1Speed: 0
-  y2Speed: 0
   isAlternative: 1
-  isSlide: 0
   slideSpeedRate: 1.5
-  slideMultiplier: 1
 --- !u!50 &138496659
 Rigidbody2D:
   serializedVersion: 4
@@ -1216,21 +1208,8 @@ MonoBehaviour:
   - 3
   - 2
   growthRate: 1
-  cameraScale: 0
-  snowScale: 0
   playerSize: 0
-  sizeCut:
-  - 12
-  - 16
-  - 20
-  - 26
-  - 36
-  - 48
-  - 64
-  - 86
-  - 116
-  - 202
-  - 9999
+  cameraScale: 0
   ui: {fileID: 298572932}
 --- !u!96 &138496662
 TrailRenderer:
@@ -1372,7 +1351,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   trailRenderer: {fileID: 0}
-  playerScale: 0
   trailSize: 0.8
 --- !u!1 &155245072
 GameObject:
@@ -6585,8 +6563,6 @@ MonoBehaviour:
   player: {fileID: 138496653}
   target: {fileID: 138496655}
   zRatio: -3
-  initialZ: 0
-  newZ: 0
 --- !u!1 &542001562
 GameObject:
   m_ObjectHideFlags: 0
@@ -143805,7 +143781,7 @@ Transform:
   m_GameObject: {fileID: 1826218234}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -50, z: 0}
+  m_LocalPosition: {x: 3.44, y: -51.18, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
