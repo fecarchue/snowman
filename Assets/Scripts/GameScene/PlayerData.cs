@@ -35,13 +35,10 @@ public class PlayerData : MonoBehaviour
     public float[] tree11Data = { 0, -2, 3, 2 };
     public float[] tree12Data = { 0, -2, 3, 2 };
 
-    public float growthRate = 1f; // 커지는 비율
-    private float snowScale; // 그래픽 변환 고려한 실제 Scale
-
-    private float[] sizeCut = { 12, 16, 20, 26, 36, 48, 64, 86, 116, 202, 9999 };
+    public float[] sizeCut = { 2, 4, 6, 8, 10, 12, 14, 16, 18, 20, 22, 24, 9999 };
     [HideInInspector]
     public int playerSize = 0;
-    public float cameraScale; // degul12 기준 눈크기; 카메라, 트레일용
+    public float snowScale; // 그래픽 변환 고려한 실제 Scale
 
     public UI ui;
 
@@ -50,6 +47,7 @@ public class PlayerData : MonoBehaviour
     private int imageID;
     private int posID;
 
+    private int starCount = 0;
     void Start()
     {
         objects = new List<int>();
@@ -57,15 +55,12 @@ public class PlayerData : MonoBehaviour
 
     void Update()
     {
+        if (playerData[2] >= sizeCut[playerSize]) playerSize++;
 
-        if (snowScale > sizeCut[playerSize + 1] / sizeCut[playerSize]) playerSize++;
-
-        cameraScale = growthRate * Mathf.Pow(playerData[2], 0.333333f); //부피의 3분의 1이 반지름
-        snowScale = cameraScale * 12 / sizeCut[playerSize]; //12분의 pixel수
-
+        snowScale = Mathf.Pow(playerData[2], 0.1f); //부피의 3분의 1이 반지름
         transform.localScale = new Vector3(snowScale, snowScale, 1);  //스케일 적용
 
-        GetComponent<CircleCollider2D>().radius = 0.05f * cameraScale;
+        GetComponent<CircleCollider2D>().radius = 0.05f * snowScale;
 
         if (playerData[1] <= 0) //게임오버
         {
@@ -144,6 +139,18 @@ public class PlayerData : MonoBehaviour
             objects.Add(ID);
             Destroy(other.gameObject);
         }
+        if (typeID == 20) //orb
+        {
+            objects.Add(ID);
+            Destroy(other.gameObject);
+        }
+        if (typeID == 21) //star
+        {
+            starCount++;
+            objects.Add(ID);
+            Destroy(other.gameObject);
+        }
+
         if (other.gameObject.tag == "Goal")
         {
             ui.finish();

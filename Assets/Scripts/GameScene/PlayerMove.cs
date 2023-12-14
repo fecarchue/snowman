@@ -16,14 +16,14 @@ public class PlayerMove : MonoBehaviour
     public GameObject swipeControl;
     private float rawSwipe; //불러오기
     public float maxSwipeConst = 250f; //최대 스와이프 허용 범위
-    public float xSpeedRate = 0.004f; //최종 속도 배율
+    public float xSpeedRate = 0.02f; //최종 속도 배율
     private float x1Speed; //가속 감속 전
     private float x2Speed; //슬라이드 전
     private float x3Speed; //최종 속도
-    public float xAccel = 10f; //가속
-    public float xDecel = 5f; //감속
+    public float xAccel = 30f; //가속
+    public float xDecel = 10f; //감속
     private float diagTemp;
-    public float yDefaultSpeed = 1f; // 이동 속도 미리 정의
+    public float yDefaultSpeed = 5f; // 이동 속도 미리 정의
     private float y1Speed; //슬라이드 전
     private float y2Speed; //최종 속도
 

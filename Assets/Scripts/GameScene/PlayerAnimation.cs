@@ -6,19 +6,17 @@ using UnityEngine.UI;
 public class PlayerAnimation : MonoBehaviour
 {
     public Animator anim;
-    public GameObject player;
-    private float playerScale;
     private int playerSize;
     // Start is called before the first frame update
     void Start()
     {
-        anim = this.GetComponent<Animator>();
+        anim = GetComponent<Animator>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        playerSize = player.GetComponent<PlayerData>().playerSize;
-        anim.SetFloat("snowScale", playerSize); //0ÀÌ default
+        playerSize = GetComponent<PlayerData>().playerSize;
+        anim.SetInteger("playerSize", playerSize); //0ÀÌ default
     }
 }

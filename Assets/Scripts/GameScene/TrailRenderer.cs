@@ -18,8 +18,8 @@ public class NewBehaviourScript : MonoBehaviour
     void Update()
     {
         // 캐릭터의 크기에 따라 Trail의 너비 동적으로 조절
-        playerScale = GetComponent<PlayerData>().cameraScale;
-        trailRenderer.widthMultiplier = playerScale * trailSize;
+        playerScale = GetComponent<PlayerData>().snowScale;
+        trailRenderer.widthMultiplier = playerScale * trailSize * 10f;
     }
     /*private void OnTriggerEnter2D(Collider2D other)
     {
