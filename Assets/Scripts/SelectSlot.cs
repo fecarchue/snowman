@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.SceneManagement;
 using System.IO;
 using TMPro;
 using UnityEngine.UI;
@@ -241,14 +242,8 @@ public class SelectSlot : MonoBehaviour
         {
             DataManager.Instance.DeleteData(TopSnowball.id, BotSnowball.id);
             Awake();
-            if (power > 10000)
-            {
-                SceneController.Instance.Win();
-            }
-            else
-            {
-                SceneController.Instance.Lose();
-            }
+            DataManager.Instance.CurrentPower = power;
+            SceneManager.LoadScene("FightScene");
         }
         else
         {

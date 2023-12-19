@@ -2,94 +2,66 @@
     "snowballs": [
         {
             "id": 0,
-            "weight": 66,
-            "volume": 70,
-            "objects": [
-                "tree",
-                "rock",
-                "tree"
-            ]
-        },
-        {
-            "id": 1,
-            "weight": 4,
-            "volume": 73,
-            "objects": []
-        },
-        {
-            "id": 2,
             "weight": 0,
             "volume": 35,
             "objects": []
         },
         {
-            "id": 3,
+            "id": 1,
             "weight": 20,
             "volume": 93,
             "objects": []
         },
         {
-            "id": 4,
+            "id": 2,
             "weight": 70,
             "volume": 43,
             "objects": []
         },
         {
-            "id": 5,
+            "id": 3,
             "weight": 28,
             "volume": 44,
             "objects": []
         },
         {
-            "id": 6,
+            "id": 4,
             "weight": 68,
             "volume": 98,
             "objects": []
         },
         {
-            "id": 7,
+            "id": 5,
             "weight": 90,
             "volume": 66,
             "objects": []
         },
         {
-            "id": 8,
+            "id": 6,
             "weight": 3,
             "volume": 73,
             "objects": []
         },
         {
-            "id": 9,
+            "id": 7,
             "weight": 39,
             "volume": 36,
             "objects": []
         },
         {
-            "id": 10,
-            "weight": 52,
-            "volume": 97,
-            "objects": []
-        },
-        {
-            "id": 11,
-            "weight": 14,
-            "volume": 62,
-            "objects": []
-        },
-        {
-            "id": 12,
+            "id": 8,
             "weight": 52,
             "volume": 72,
             "objects": []
         },
         {
-            "id": 13,
+            "id": 9,
             "weight": 30,
             "volume": 27,
             "objects": []
         },
         {
-            "id": 14,
+            "id": 10,
             "weight": 34,
             "volume": 48,
             "objects": []

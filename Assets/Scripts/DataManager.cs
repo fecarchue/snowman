@@ -9,7 +9,7 @@ public class DataManager : MonoBehaviour
     private SnowballData snowballData;
     private string jsonPath;
     private int idcount = 0;
-
+    public int CurrentPower;
     private static DataManager instance;
 
     // 다른 스크립트에서 인스턴스에 접근할 수 있는 프로퍼티
