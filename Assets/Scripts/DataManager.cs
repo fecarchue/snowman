@@ -127,6 +127,7 @@ public class DataManager : MonoBehaviour
         SelectSlot selectslot = selectObj.GetComponent<SelectSlot>();
         Snowball selectsnowball = selectslot.SelectSnowball;
         DeleteData(selectsnowball.id);
+        selectslot.Awake();
     }
 }
 

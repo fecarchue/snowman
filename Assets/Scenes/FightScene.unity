@@ -123,6 +123,51 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &562313200
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 562313202}
+  - component: {fileID: 562313201}
+  m_Layer: 0
+  m_Name: DataManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &562313201
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 562313200}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 968a37e5cfcf1764fb29e61cbefd4b42, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CurrentPower: 0
+--- !u!4 &562313202
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 562313200}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -1.5893835, y: 0.08327827, z: 5.7503724}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &835358198
 GameObject:
   m_ObjectHideFlags: 0
@@ -329,7 +374,6 @@ GameObject:
   - component: {fileID: 1000776960}
   - component: {fileID: 1000776959}
   - component: {fileID: 1000776958}
-  - component: {fileID: 1000776961}
   m_Layer: 5
   m_Name: CutScenes
   m_TagString: Untagged
@@ -454,19 +498,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1000776956}
   m_CullTransparentMesh: 1
---- !u!114 &1000776961
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1000776956}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 968a37e5cfcf1764fb29e61cbefd4b42, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  CurrentPower: 100
 --- !u!1 &1112969217
 GameObject:
   m_ObjectHideFlags: 0
@@ -542,3 +573,4 @@ SceneRoots:
   - {fileID: 835358201}
   - {fileID: 1112969220}
   - {fileID: 852348978}
+  - {fileID: 562313202}

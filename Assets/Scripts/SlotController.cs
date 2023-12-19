@@ -33,8 +33,8 @@ public class SlotController : MonoBehaviour
     public void Empty()
     {
         frame.sprite = framesprites[3];
-
     }
+    
     //프레임 변경하는 함수
     public void NonClicked()
     {

@@ -73,7 +73,8 @@ public class UI : MonoBehaviour //UI 전부를 다루는 스크립트
     }
     public void retry()
     {
-        SceneManager.LoadScene("GameScene");
+        string sceneName = SceneManager.GetActiveScene().name;
+        SceneManager.LoadScene(sceneName);
     }
     public void mainMenu()
     {

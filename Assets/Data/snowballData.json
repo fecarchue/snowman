@@ -59,12 +59,6 @@
             "weight": 30,
             "volume": 27,
             "objects": []
-        },
-        {
-            "id": 10,
-            "weight": 34,
-            "volume": 48,
-            "objects": []
         }
     ]
 }
