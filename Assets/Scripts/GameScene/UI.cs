@@ -8,11 +8,11 @@ using UnityEngine.SceneManagement;
 public class UI : MonoBehaviour //UI 전부를 다루는 스크립트
 {
     public GameObject player;
-    public PlayerData playerData;
+    private PlayerData playerData;
     public TextMeshProUGUI maxHealthText;
     public TextMeshProUGUI healthText;
     public TextMeshProUGUI volumeText;
-    public TextMeshProUGUI weightText;
+    public TextMeshProUGUI powerText;
     public Image maxHealthBar;
     public Image healthBar;
     public GameObject pauseMenu;
@@ -28,7 +28,7 @@ public class UI : MonoBehaviour //UI 전부를 다루는 스크립트
         maxHealthText = maxHealthText.GetComponent<TextMeshProUGUI>();
         healthText = healthText.GetComponent<TextMeshProUGUI>();
         volumeText = volumeText.GetComponent<TextMeshProUGUI>();
-        weightText = weightText.GetComponent<TextMeshProUGUI>();
+        powerText = powerText.GetComponent<TextMeshProUGUI>();
         Time.timeScale = 0;
     }
 
@@ -48,7 +48,7 @@ public class UI : MonoBehaviour //UI 전부를 다루는 스크립트
         maxHealthText.text = ((int)playerData.playerData[0]).ToString();
         healthText.text = ((int)playerData.playerData[1]).ToString();
         volumeText.text = ((int)playerData.playerData[2]).ToString();
-        weightText.text = ((int)playerData.playerData[3]).ToString();
+        powerText.text = ((int)playerData.playerData[3]).ToString();
     }
 
     public void pause()

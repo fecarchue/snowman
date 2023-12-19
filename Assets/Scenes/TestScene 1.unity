@@ -946,7 +946,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 4
+  m_SortingOrder: 3
   m_Sprite: {fileID: -890007328, guid: df251d1793265a84ea1325b3b254ca22, type: 3}
   m_Color: {r: 0.9528302, g: 0.9515878, b: 0.9303578, a: 1}
   m_FlipX: 0
@@ -1005,9 +1005,9 @@ CircleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.009288967, y: 0}
+  m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 0.45225227
+  m_Radius: 0.5
 --- !u!114 &138496658
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1069,6 +1069,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c609ecce87bf8e54c82b692ec372bb61, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ui: {fileID: 298572932}
   playerData:
   - 4
   - 4
@@ -1189,23 +1190,23 @@ MonoBehaviour:
   - -2
   - 3
   - 2
+  scaleRate: 0.33333334
   sizeCut:
-  - 2
-  - 4
-  - 6
-  - 8
+  - 5
   - 10
-  - 12
-  - 14
-  - 16
-  - 18
+  - 15
   - 20
-  - 22
-  - 24
+  - 25
+  - 30
+  - 35
+  - 40
+  - 45
+  - 50
+  - 55
+  - 60
   - 9999
   playerSize: 0
   snowScale: 0
-  ui: {fileID: 298572932}
 --- !u!96 &138496662
 TrailRenderer:
   serializedVersion: 3
@@ -1247,7 +1248,7 @@ TrailRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 4
+  m_SortingOrder: 2
   m_Time: 5
   m_PreviewTimeScale: 1
   m_Parameters:
@@ -1345,7 +1346,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   trailRenderer: {fileID: 0}
-  trailSize: 0.8
+  trailSize: 8
 --- !u!95 &138496665
 Animator:
   serializedVersion: 5
@@ -1844,11 +1845,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 138496653}
-  playerData: {fileID: 0}
   maxHealthText: {fileID: 320576328}
   healthText: {fileID: 1554239793}
   volumeText: {fileID: 1504953156}
-  weightText: {fileID: 402956006}
+  powerText: {fileID: 402956006}
   maxHealthBar: {fileID: 727363473}
   healthBar: {fileID: 2032159474}
   pauseMenu: {fileID: 1399508499}
@@ -2367,7 +2367,7 @@ GameObject:
   - component: {fileID: 402956007}
   - component: {fileID: 402956006}
   m_Layer: 5
-  m_Name: Weight Text
+  m_Name: Power Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2668,7 +2668,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 75.11, y: -174.08}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 10000, y: 10000}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &425453034
@@ -143595,7 +143595,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 3
+  m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: 7f4bccf7b3cc1df419922ab85169ff3a, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0

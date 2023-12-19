@@ -2,12 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class NewBehaviourScript : MonoBehaviour
+public class PlayerTrail : MonoBehaviour
 {
     // Start is called before the first frame update
     public TrailRenderer trailRenderer;
     private float playerScale;
-    public float trailSize = 0.8f;
+    public float trailSize = 8f;
 
     void Start()
     {
@@ -19,7 +19,7 @@ public class NewBehaviourScript : MonoBehaviour
     {
         // 캐릭터의 크기에 따라 Trail의 너비 동적으로 조절
         playerScale = GetComponent<PlayerData>().snowScale;
-        trailRenderer.widthMultiplier = playerScale * trailSize * 10f;
+        trailRenderer.widthMultiplier = playerScale * trailSize;
     }
     /*private void OnTriggerEnter2D(Collider2D other)
     {
