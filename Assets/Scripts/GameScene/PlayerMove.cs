@@ -14,6 +14,8 @@ public class PlayerMove : MonoBehaviour
     private SwipeControlManager swipeManager;
 
     public GameObject swipeControl;
+    public PlayerData playerData;
+    private float snowScale;
     private float rawSwipe; //불러오기
     public float maxSwipeConst = 250f; //최대 스와이프 허용 범위
     public float xSpeedRate = 0.02f; //최종 속도 배율
@@ -83,8 +85,10 @@ public class PlayerMove : MonoBehaviour
             x3Speed = x2Speed * slideMultiplier;
             y2Speed = y1Speed * slideMultiplier;
 
+            snowScale = GetComponent<PlayerData>().snowScale;
+
             transform.position += Vector3.right * x3Speed * Time.deltaTime;
-            transform.position += Vector3.down * y2Speed * Time.deltaTime;
+            transform.position += Vector3.down * y2Speed * snowScale * Time.deltaTime;
 
 
             //(실전용)좌우이동을 스와이프로 구현함, 속도인 horiSpeed는 swipe에 비례, 수직낙하에만 쓰는 moveSpeed는 horiSpeed랑 연동

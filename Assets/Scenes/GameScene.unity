@@ -878,6 +878,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   swipeManager: {fileID: 0}
   swipeControl: {fileID: 1904938539}
+  playerData: {fileID: 138496660}
   maxSwipeConst: 250
   xSpeedRate: 0.02
   xAccel: 30
@@ -925,6 +926,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c609ecce87bf8e54c82b692ec372bb61, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ui: {fileID: 298572932}
   playerData:
   - 1
   - 1
@@ -1062,7 +1064,6 @@ MonoBehaviour:
   - 9999
   playerSize: 0
   snowScale: 0
-  ui: {fileID: 298572932}
 --- !u!96 &138496662
 TrailRenderer:
   serializedVersion: 3
@@ -1269,7 +1270,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 138496653}
-  playerData: {fileID: 0}
   maxHealthText: {fileID: 320576328}
   healthText: {fileID: 1554239793}
   volumeText: {fileID: 1504953156}
