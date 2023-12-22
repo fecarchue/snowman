@@ -27,7 +27,8 @@ public class PlayerMove : MonoBehaviour
     private float diagTemp;
     public float yDefaultSpeed = 5f; // 이동 속도 미리 정의
     private float y1Speed; //슬라이드 전
-    private float y2Speed; //최종 속도
+    private float y2Speed; 
+    public float y3Speed; //최종 속도
 
     public bool isAlternative = true;
     private bool isSlide = false;
@@ -86,9 +87,9 @@ public class PlayerMove : MonoBehaviour
             y2Speed = y1Speed * slideMultiplier;
 
             snowScale = GetComponent<PlayerData>().snowScale;
-
+            y3Speed = y2Speed * snowScale;
             transform.position += Vector3.right * x3Speed * Time.deltaTime;
-            transform.position += Vector3.down * y2Speed * snowScale * Time.deltaTime;
+            transform.position += Vector3.down * y3Speed * Time.deltaTime;
 
 
             //(실전용)좌우이동을 스와이프로 구현함, 속도인 horiSpeed는 swipe에 비례, 수직낙하에만 쓰는 moveSpeed는 horiSpeed랑 연동
