@@ -12,15 +12,17 @@ public class PlayerData : MonoBehaviour
 
     //플레이어와 모든 플레이어의 수치를 변경하는 오브젝트들은 다음과 같은 데이터를 가진다:
     //[0]==MaxHealth, [1]==Health, [2]==Volume [3]==Power
-    public float[] playerData = { 1, 1, 1, 1 };
+    public float[] playerData = { 10, 5, 1, 10 };
 
     public float[] groundData = { 0, -4, 0, 0 };
     public float[] snowgroundData = { 1, 2, 1, 1 };
 
-    public float scaleRate = 0.33333333333f;
+    public float radiusRate = 0.33333333333f;
+    public float scaleRate = 2f;
     public float[] sizeCut = { 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 9999 };
     [HideInInspector] public int playerSize;
-    [HideInInspector] public float snowScale; // 그래픽 변환 고려한 실제 Scale
+    public float snowScale; // 그래픽 변환 고려한 실제 Scale
+    public float targetScale;
     [HideInInspector] public float damage;
     private float damageTimer = 0f;
 
@@ -33,13 +35,16 @@ public class PlayerData : MonoBehaviour
     void Start()
     {
         objects = new List<int>();
+        snowScale = 1f;
     }
 
     void Update()
     {
         if (playerData[2] >= sizeCut[playerSize]) playerSize++;
 
-        snowScale = Mathf.Pow(playerData[2], scaleRate); //부피의 3분의 1이 반지름
+        targetScale = Mathf.Pow(playerData[2], radiusRate); //부피의 3분의 1이 반지름
+        if (targetScale > snowScale) snowScale += Time.deltaTime * scaleRate;
+        if (Mathf.Abs(targetScale - snowScale) < Time.deltaTime * scaleRate) snowScale = targetScale;
         transform.localScale = new Vector3(snowScale, snowScale, 1);  //스케일 적용
 
         if (playerData[1] <= 0) //게임오버
