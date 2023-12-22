@@ -6,54 +6,83 @@ using UnityEngine.InputSystem.Controls;
 
 public class CutSceneManager : MonoBehaviour
 {
-    private int playnumber, power;
+    private int playnumber, power, touch;
     private Image CutScenes;
+    public GameObject SkipButton, ChallengePanel,CutSceneObject, TouchPanel, CutSceneObj;
     public Sprite[] DevilScenes;
     public Sprite[] DevilScenes23;
-    public SpriteRenderer[] Devil;
     public Sprite[] FightScenes;
 
-    private void Awake()
+    private void Start()
     {
-        power = DataManager.Instance.CurrentPower;
-        CutScenes = GetComponent<Image>();
-        if (PlayerPrefs.HasKey("PlayNumber"))
-        {
-            // 변수가 저장되어 있다면 값을 불러옴
-            playnumber = PlayerPrefs.GetInt("PlayNumber");
-            
-            if(playnumber >= 1 && playnumber <=3)
-            {
-                StartCoroutine(Play2to4());
-            }
-            else
-            {
-                StartCoroutine(Playmore5());
-            }
+        Debug.Log("실행");
+        touch = 0;
+        //데이터 초기화 (마지막 작업할 때 꼭 지우기)
+        PlayerPrefs.DeleteAll();
 
-            playnumber++;
-            PlayerPrefs.SetInt("PlayNumber", playnumber);
+        power = DataManager.Instance.CurrentPower;
+        CutScenes = CutSceneObj.GetComponent<Image>();
+        CutSceneObject.SetActive(false);
+        ChallengePanel.SetActive(false);
+        
+        if(PlayerPrefs.GetString("IsFirst") != "false")
+        {
+            StartCoroutine(FirstFight());
+            PlayerPrefs.SetString("IsFirst", "false");
             PlayerPrefs.Save();
         }
         else
         {
-            // 변수가 저장되어 있지 않다면 처음 실행
-            playnumber = 1;
-
-            StartCoroutine(FirstPlay());
-            PlayerPrefs.SetInt("PlayNumber", playnumber);
-            PlayerPrefs.Save();
+            ChallengePanel.SetActive(true);
         }
     }
 
-    IEnumerator FirstPlay()
+    public void ChallengeButton()
     {
+        ChallengePanel.SetActive(false);
+
+        if (PlayerPrefs.HasKey("PlayNumber"))
+        {
+            // 변수가 저장되어 있다면 값을 불러옴
+            playnumber = PlayerPrefs.GetInt("PlayNumber");
+
+            if (playnumber >= 1 && playnumber <= 3)
+            {
+                StartCoroutine(Challenge2to4());
+            }
+            else
+            {
+                StartCoroutine(Challenge5more());
+            }
+            playnumber++;
+        }
+        else
+        {
+            // 변수가 저장되어 있지 않다면 처음 실행 간주
+            playnumber = 1;
+
+            StartCoroutine(FirstChallenge());
+        }
+        
+        PlayerPrefs.SetInt("PlayNumber", playnumber);
+        PlayerPrefs.Save();
+    }
+
+    IEnumerator FirstFight()
+    {
+        CutSceneObject.SetActive(true);
         for (int i = 0; i < 7; i++)
         {
             CutScenes.sprite = FightScenes[i];
             yield return new WaitForSeconds(2.0f);
         }
+        CutSceneObject.SetActive(false);
+        ChallengePanel.SetActive(true);
+    }
 
+    IEnumerator FirstChallenge()
+    {
+        CutSceneObject.SetActive(true);
         for (int i = 0; i < 31; i++)
         {
             CutScenes.sprite = DevilScenes[i];
@@ -70,8 +99,9 @@ public class CutSceneManager : MonoBehaviour
         }
     }
 
-    IEnumerator Play2to4()
+    IEnumerator Challenge2to4()
     {
+        CutSceneObject.SetActive(true);
         CutScenes.sprite = DevilScenes[8];
         yield return new WaitForSeconds(2.0f);
         CutScenes.sprite = DevilScenes[14];
@@ -92,12 +122,12 @@ public class CutSceneManager : MonoBehaviour
         
     }
 
-    IEnumerator Playmore5()
+    IEnumerator Challenge5more()
     {
-        for(int i = 21; i < 31; i++)
+        CutSceneObject.SetActive(true);
+        for (int i = 21; i < 31; i++)
         {
-            StartCoroutine(FadeImage(1.5f,0.5f, DevilScenes[i]));
-            //CutScenes.sprite = DevilScenes[i];
+            StartCoroutine(FadeEffect(1.5f,0.5f, DevilScenes[i]));
             yield return new WaitForSeconds(2.0f);
         }
 
@@ -128,7 +158,22 @@ public class CutSceneManager : MonoBehaviour
         SceneManager.LoadScene("StartScene");
     }
 
-    IEnumerator FadeImage(float fadeInTime, float fadeOutTime, Sprite TargetImage)
+    public void Skip()
+    {
+        touch++;
+        if(touch == 1)
+        {
+            TouchPanel.SetActive(false);
+            SkipButton.SetActive(true);
+        }
+        else
+        {
+            StopAllCoroutines();
+            StartCoroutine(DevilScene_Win());
+        }
+    }
+
+    IEnumerator FadeEffect(float fadeInTime, float fadeOutTime, Sprite TargetImage)
     {
         if (fadeInTime > 0)
         {

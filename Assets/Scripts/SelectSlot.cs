@@ -154,6 +154,15 @@ public class SelectSlot : MonoBehaviour
 
     }
 
+    //현재 슬롯 비워지는 함수
+    public void EmptySlot()
+    {
+        if (currentSlot != null)
+        {
+            currentSlot.Empty();
+        }
+    }
+
     public void use()
     {
        if(currentSlot == TopSlotController) //선택한 슬롯이 윗 눈사람

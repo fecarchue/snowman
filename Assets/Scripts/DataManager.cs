@@ -91,10 +91,19 @@ public class DataManager : MonoBehaviour
     public void DeleteData(int TopID ,int BotID = -1)
     {
         LoadData();
-        if(BotID != -1)
+        if (BotID != -1)
         {
-            snowballData.snowballs.RemoveAt(TopID);
-            snowballData.snowballs.RemoveAt(BotID);
+            if (TopID >= BotID)
+            {
+                snowballData.snowballs.RemoveAt(TopID);
+                snowballData.snowballs.RemoveAt(BotID);
+            }
+            else
+            {
+                snowballData.snowballs.RemoveAt(BotID);
+                snowballData.snowballs.RemoveAt(TopID);
+            }
+            
         }
         else
         {
@@ -126,6 +135,7 @@ public class DataManager : MonoBehaviour
         GameObject selectObj = GameObject.Find("SelectManager");
         SelectSlot selectslot = selectObj.GetComponent<SelectSlot>();
         Snowball selectsnowball = selectslot.SelectSnowball;
+        selectslot.EmptySlot();
         DeleteData(selectsnowball.id);
         selectslot.Awake();
     }

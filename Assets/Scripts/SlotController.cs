@@ -32,6 +32,7 @@ public class SlotController : MonoBehaviour
     //프레임 변경하는 함수
     public void Empty()
     {
+        image.sprite = imagesprites[1];
         frame.sprite = framesprites[3];
     }
     
