@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 2c5522e56f7163e408f881d0061cc812
+guid: 066df21a277025d40a968690b4c30c47
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -48,7 +48,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 26
+  spritePixelsToUnits: 202
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -69,7 +69,7 @@ TextureImporter:
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
-    maxTextureSize: 2048
+    maxTextureSize: 8192
     resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 0
@@ -136,13 +136,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: angry26_0
+      name: angry202_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 26
-        height: 26
+        width: 202
+        height: 202
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -150,20 +150,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6f1ab0a367b5a62419d2243639d18c43
-      internalID: 1246596022
+      spriteID: deb4ec32370e9eb4fb39e6f59b082686
+      internalID: -1361336688
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: angry26_1
+      name: angry202_1
       rect:
         serializedVersion: 2
-        x: 26
+        x: 202
         y: 0
-        width: 26
-        height: 26
+        width: 202
+        height: 202
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -171,20 +171,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5b1f9efce518a1147b48e985452d79a6
-      internalID: 853834576
+      spriteID: ef7594bd895124543bc50bad6a1c34d0
+      internalID: 1901660151
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: angry26_2
+      name: angry202_2
       rect:
         serializedVersion: 2
-        x: 52
+        x: 404
         y: 0
-        width: 26
-        height: 26
+        width: 202
+        height: 202
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -192,20 +192,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d8c9737ff354efe42a05445bf74f6478
-      internalID: 861422707
+      spriteID: 71f8bc263c4c395409154555e4a814c7
+      internalID: -337814858
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: angry26_3
+      name: angry202_3
       rect:
         serializedVersion: 2
-        x: 78
+        x: 606
         y: 0
-        width: 26
-        height: 26
+        width: 202
+        height: 202
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -213,20 +213,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f8c40cda13b1cd14a863a0a921f105b1
-      internalID: 2009504722
+      spriteID: dfc4a8d8f73418c4e9dfddc4b2bf64ad
+      internalID: 1998827163
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: angry26_4
+      name: angry202_4
       rect:
         serializedVersion: 2
-        x: 104
+        x: 808
         y: 0
-        width: 26
-        height: 26
+        width: 202
+        height: 202
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -234,20 +234,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: bfb0d16e7b15c9e4485bc84f7ebdab35
-      internalID: -29847909
+      spriteID: 113f4e5604a61e34590a93922c644d93
+      internalID: -1537797954
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: angry26_5
+      name: angry202_5
       rect:
         serializedVersion: 2
-        x: 130
+        x: 1010
         y: 0
-        width: 26
-        height: 26
+        width: 202
+        height: 202
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -255,20 +255,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f673ed1e901e9fa489a6676995dfccc1
-      internalID: 293186603
+      spriteID: f3bfd94f89f53054c8490044f474c47f
+      internalID: -1735711736
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: angry26_6
+      name: angry202_6
       rect:
         serializedVersion: 2
-        x: 156
+        x: 1212
         y: 0
-        width: 26
-        height: 26
+        width: 202
+        height: 202
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -276,20 +276,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: deaf420caf135b04f911ddce61859375
-      internalID: 1026848062
+      spriteID: be9775d89046f644f9d91c9511d3611d
+      internalID: -249216660
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: angry26_7
+      name: angry202_7
       rect:
         serializedVersion: 2
-        x: 182
+        x: 1414
         y: 0
-        width: 26
-        height: 26
+        width: 202
+        height: 202
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -297,20 +297,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 01dd4f8b31db00447a0fb50d371c2d31
-      internalID: 1116437171
+      spriteID: e740852e358acd0448737d8d0b5fb812
+      internalID: -205621503
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: angry26_8
+      name: angry202_8
       rect:
         serializedVersion: 2
-        x: 208
+        x: 1616
         y: 0
-        width: 26
-        height: 26
+        width: 202
+        height: 202
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -318,20 +318,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f4703362495b0494ea44e7977d0a5394
-      internalID: 1054212630
+      spriteID: 3ad8b1712f9a97b4aa47ebeff18e7adc
+      internalID: -1171445184
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: angry26_9
+      name: angry202_9
       rect:
         serializedVersion: 2
-        x: 234
+        x: 1818
         y: 0
-        width: 26
-        height: 26
+        width: 202
+        height: 202
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -339,20 +339,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7c880d2702f864240821b9b3e76f33e5
-      internalID: 1937223821
+      spriteID: 82a50a37ed163de4a9d9eb3618e3a9c9
+      internalID: 168756469
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: angry26_10
+      name: angry202_10
       rect:
         serializedVersion: 2
-        x: 260
+        x: 2020
         y: 0
-        width: 26
-        height: 26
+        width: 202
+        height: 202
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -360,20 +360,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c0e52671881b56840a4fbd6ca8f8cb18
-      internalID: -1506053666
+      spriteID: 4e0c5002f87c8094a888b60b54ac6a2c
+      internalID: -1792271212
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: angry26_11
+      name: angry202_11
       rect:
         serializedVersion: 2
-        x: 286
+        x: 2222
         y: 0
-        width: 26
-        height: 26
+        width: 202
+        height: 202
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -381,20 +381,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 596e666703e6ab64db63b0960871eb38
-      internalID: 209274064
+      spriteID: 7b8df204ead736d47a9d9db3e0b4dce2
+      internalID: -72666304
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: angry26_12
+      name: angry202_12
       rect:
         serializedVersion: 2
-        x: 312
+        x: 2424
         y: 0
-        width: 26
-        height: 26
+        width: 202
+        height: 202
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -402,20 +402,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a3c4485e361698c4685dee02a422814d
-      internalID: 2127718485
+      spriteID: 36dad639487fccb4582ae66651d06681
+      internalID: 1732407983
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: angry26_13
+      name: angry202_13
       rect:
         serializedVersion: 2
-        x: 338
+        x: 2626
         y: 0
-        width: 26
-        height: 26
+        width: 202
+        height: 202
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -423,20 +423,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: df9cacd71089df44fa6962b8980ae22a
-      internalID: 2071617762
+      spriteID: b7d2f6ea412151846a3f935bf111ec82
+      internalID: 2069706858
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: angry26_14
+      name: angry202_14
       rect:
         serializedVersion: 2
-        x: 364
+        x: 2828
         y: 0
-        width: 26
-        height: 26
+        width: 202
+        height: 202
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -444,20 +444,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e091fe7331811014e98388c79521b520
-      internalID: 1229824938
+      spriteID: 5997091dcc562ba4aa4b69a5e67e534d
+      internalID: 818665241
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: angry26_15
+      name: angry202_15
       rect:
         serializedVersion: 2
-        x: 390
+        x: 3030
         y: 0
-        width: 26
-        height: 26
+        width: 202
+        height: 202
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -465,20 +465,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 31385002e1309d8409c19fa53fe32d10
-      internalID: -606460174
+      spriteID: 3211dda44e8a8ee4c93893d64063d431
+      internalID: 817238811
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: angry26_16
+      name: angry202_16
       rect:
         serializedVersion: 2
-        x: 416
+        x: 3232
         y: 0
-        width: 26
-        height: 26
+        width: 202
+        height: 202
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -486,20 +486,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4b6caa861303fe748aab0541b32cf961
-      internalID: -469916322
+      spriteID: 931ad4ead3ad405429e564cb6f068847
+      internalID: 1749568276
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: angry26_17
+      name: angry202_17
       rect:
         serializedVersion: 2
-        x: 442
+        x: 3434
         y: 0
-        width: 26
-        height: 26
+        width: 202
+        height: 202
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -507,20 +507,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8a56da5416b2d7e4aa98b245377f3743
-      internalID: 196959744
+      spriteID: 3f6204dfa9a329242b4be1b2dc569f96
+      internalID: 118692690
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: angry26_18
+      name: angry202_18
       rect:
         serializedVersion: 2
-        x: 468
+        x: 3636
         y: 0
-        width: 26
-        height: 26
+        width: 202
+        height: 202
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -528,20 +528,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3bc30acc46ba62b49a73275a590814ea
-      internalID: 1783672051
+      spriteID: 7782efc24ba81be419f28d12cfca40a8
+      internalID: 783973446
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: angry26_19
+      name: angry202_19
       rect:
         serializedVersion: 2
-        x: 494
+        x: 3838
         y: 0
-        width: 26
-        height: 26
+        width: 202
+        height: 202
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -549,20 +549,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 48cc441fb761bdd44a102a483ca9dfec
-      internalID: -939464
+      spriteID: 264f1684caabf144a850dedfc942e5db
+      internalID: 1309022040
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: angry26_20
+      name: angry202_20
       rect:
         serializedVersion: 2
-        x: 520
+        x: 4040
         y: 0
-        width: 26
-        height: 26
+        width: 202
+        height: 202
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -570,20 +570,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 13fc8049a50f5f0408a1b75f08119a56
-      internalID: 1865799999
+      spriteID: 5921cfda5599fe442b358cc358369aa1
+      internalID: 589819531
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: angry26_21
+      name: angry202_21
       rect:
         serializedVersion: 2
-        x: 546
+        x: 4242
         y: 0
-        width: 26
-        height: 26
+        width: 202
+        height: 202
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -591,20 +591,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5a5146c86d868cb42bd5b1a49515f482
-      internalID: 1755521916
+      spriteID: c52fd1eda3e3eea4780f1abb8b68057b
+      internalID: -2085563779
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: angry26_22
+      name: angry202_22
       rect:
         serializedVersion: 2
-        x: 572
+        x: 4444
         y: 0
-        width: 26
-        height: 26
+        width: 202
+        height: 202
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -612,20 +612,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1b2494350396dad4a8bc896f641f47a0
-      internalID: -645413311
+      spriteID: 0b16e1acbc09b44458a0499e089778f2
+      internalID: 2129715250
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: angry26_23
+      name: angry202_23
       rect:
         serializedVersion: 2
-        x: 598
+        x: 4646
         y: 0
-        width: 26
-        height: 26
+        width: 202
+        height: 202
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -633,8 +633,218 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0bec8db746e0e6145a96033174966cb8
-      internalID: -1370624406
+      spriteID: 80e322aa0b080ea489f82dab6849e2a8
+      internalID: -1225757850
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: angry202_24
+      rect:
+        serializedVersion: 2
+        x: 4848
+        y: 0
+        width: 202
+        height: 202
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f30bfcc57ad59f24fa137e9b8d8280cb
+      internalID: -1758780425
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: angry202_25
+      rect:
+        serializedVersion: 2
+        x: 5050
+        y: 0
+        width: 202
+        height: 202
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: db0b1f70479e68642a62b0a434819a8c
+      internalID: -807020436
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: angry202_26
+      rect:
+        serializedVersion: 2
+        x: 5252
+        y: 0
+        width: 202
+        height: 202
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 65888ce22c2d8e347a0c5d1a75e7db59
+      internalID: -1553041896
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: angry202_27
+      rect:
+        serializedVersion: 2
+        x: 5454
+        y: 0
+        width: 202
+        height: 202
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 39270f711cf25674ab40f6e8fda8f530
+      internalID: -284372501
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: angry202_28
+      rect:
+        serializedVersion: 2
+        x: 5656
+        y: 0
+        width: 202
+        height: 202
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: eaa728594bdfb4d4cb8f6befbb5d908f
+      internalID: -1900596171
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: angry202_29
+      rect:
+        serializedVersion: 2
+        x: 5858
+        y: 0
+        width: 202
+        height: 202
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ae363ff9a58c948488f59b6f18230f65
+      internalID: 1003473169
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: angry202_30
+      rect:
+        serializedVersion: 2
+        x: 6060
+        y: 0
+        width: 202
+        height: 202
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 96edd78cc37f212458fc3166e921fdd7
+      internalID: 232442638
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: angry202_31
+      rect:
+        serializedVersion: 2
+        x: 6262
+        y: 0
+        width: 202
+        height: 202
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4816137c63d120745b2c7ac675040aca
+      internalID: 1869667252
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: angry202_32
+      rect:
+        serializedVersion: 2
+        x: 6464
+        y: 0
+        width: 202
+        height: 202
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a3a0bd79e373244468967b6ae27ca6f2
+      internalID: -541054916
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: angry202_33
+      rect:
+        serializedVersion: 2
+        x: 6666
+        y: 0
+        width: 202
+        height: 202
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d2a664997f763f747ae8088ad2b97115
+      internalID: 1611531552
       vertices: []
       indices: 
       edges: []
@@ -650,30 +860,40 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      angry26_0: 1246596022
-      angry26_1: 853834576
-      angry26_10: -1506053666
-      angry26_11: 209274064
-      angry26_12: 2127718485
-      angry26_13: 2071617762
-      angry26_14: 1229824938
-      angry26_15: -606460174
-      angry26_16: -469916322
-      angry26_17: 196959744
-      angry26_18: 1783672051
-      angry26_19: -939464
-      angry26_2: 861422707
-      angry26_20: 1865799999
-      angry26_21: 1755521916
-      angry26_22: -645413311
-      angry26_23: -1370624406
-      angry26_3: 2009504722
-      angry26_4: -29847909
-      angry26_5: 293186603
-      angry26_6: 1026848062
-      angry26_7: 1116437171
-      angry26_8: 1054212630
-      angry26_9: 1937223821
+      angry202_0: -1361336688
+      angry202_1: 1901660151
+      angry202_10: -1792271212
+      angry202_11: -72666304
+      angry202_12: 1732407983
+      angry202_13: 2069706858
+      angry202_14: 818665241
+      angry202_15: 817238811
+      angry202_16: 1749568276
+      angry202_17: 118692690
+      angry202_18: 783973446
+      angry202_19: 1309022040
+      angry202_2: -337814858
+      angry202_20: 589819531
+      angry202_21: -2085563779
+      angry202_22: 2129715250
+      angry202_23: -1225757850
+      angry202_24: -1758780425
+      angry202_25: -807020436
+      angry202_26: -1553041896
+      angry202_27: -284372501
+      angry202_28: -1900596171
+      angry202_29: 1003473169
+      angry202_3: 1998827163
+      angry202_30: 232442638
+      angry202_31: 1869667252
+      angry202_32: -541054916
+      angry202_33: 1611531552
+      angry202_4: -1537797954
+      angry202_5: -1735711736
+      angry202_6: -249216660
+      angry202_7: -205621503
+      angry202_8: -1171445184
+      angry202_9: 168756469
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

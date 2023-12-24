@@ -30,8 +30,8 @@ public class PlayerData : MonoBehaviour
     private int typeID;
     private int imageID;
     private int posID;
-
-    private int starCount = 0;
+    
+    [HideInInspector] public int starCount = 0;
     void Start()
     {
         objects = new List<int>();
