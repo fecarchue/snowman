@@ -12,7 +12,7 @@ public class PlayerData : MonoBehaviour
 
     //플레이어와 모든 플레이어의 수치를 변경하는 오브젝트들은 다음과 같은 데이터를 가진다:
     //[0]==MaxHealth, [1]==Health, [2]==Volume [3]==Power
-    public float[] playerData = { 10, 5, 1, 10 };
+    public float[] playerData = { 10, 7, 1, 10 };
 
     public float[] groundData = { 0, -4, 0, 0 };
     public float[] snowgroundData = { 1, 2, 1, 1 };
