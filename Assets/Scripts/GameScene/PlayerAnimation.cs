@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class PlayerAnimation : MonoBehaviour
 {
     public Animator anim;
+    public float angryHealth = 7f;
     private int playerSize = 0;
     private int currentSize;
     private float hp;
@@ -30,12 +31,12 @@ public class PlayerAnimation : MonoBehaviour
             playerSize = currentSize;
             anim.Play(animName[playerSize, state], -1, anim.GetCurrentAnimatorStateInfo(0).normalizedTime);
         }
-        else if (state == 0 && hp < 5)
+        else if (state == 0 && hp < angryHealth)
         {
             state = 1;
             anim.Play(animName[playerSize, 1], -1, anim.GetCurrentAnimatorStateInfo(0).normalizedTime);
         }
-        else if (state == 1 && hp > 5)
+        else if (state == 1 && hp > angryHealth)
         {
             state = 0;
             anim.Play(animName[playerSize, 0], -1, anim.GetCurrentAnimatorStateInfo(0).normalizedTime);

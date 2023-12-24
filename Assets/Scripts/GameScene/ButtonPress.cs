@@ -11,11 +11,11 @@ public class ButtonPress : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
     }
     public void OnPointerDown(PointerEventData eventData)
     {
-        text.rectTransform.localPosition = new Vector2(-1, -0.5f);
+        text.rectTransform.anchoredPosition = new Vector2(-3, -3);
     }
 
     public void OnPointerUp(PointerEventData eventData)
     {
-        text.rectTransform.localPosition = new Vector2(-1, 2.5f);
+        text.rectTransform.anchoredPosition = new Vector2(-3, 9);
     }
 }

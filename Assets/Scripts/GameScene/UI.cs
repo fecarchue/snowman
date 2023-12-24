@@ -21,6 +21,8 @@ public class UI : MonoBehaviour //UI 전부를 다루는 스크립트
     public GameObject finishScreen;
     public GameObject failScreen;
 
+    public float barLength = 20f;
+
     void Start()
     {
         maxHealthBar = maxHealthBar.GetComponent<Image>();
@@ -43,10 +45,10 @@ public class UI : MonoBehaviour //UI 전부를 다루는 스크립트
             Time.timeScale = 1;
         }
 
-        maxHealthBar.rectTransform.sizeDelta = new Vector2(playerData.playerData[0] * 3, 13);
-        healthBar.rectTransform.sizeDelta = new Vector2(playerData.playerData[1] * 3, 13);
-        damageHealthBar.rectTransform.anchoredPosition = new Vector2(playerData.playerData[1] * 15 + 10, -20);
-        damageHealthBar.rectTransform.sizeDelta = new Vector2(playerData.damage * 3, 13);
+        maxHealthBar.rectTransform.sizeDelta = new Vector2(playerData.playerData[0] * barLength, 100);
+        healthBar.rectTransform.sizeDelta = new Vector2(playerData.playerData[1] * barLength, 100);
+        damageHealthBar.rectTransform.anchoredPosition = new Vector2(playerData.playerData[1] * barLength - 30, 0);
+        damageHealthBar.rectTransform.sizeDelta = new Vector2(playerData.damage * barLength, 100);
 
 
         //float값 뒤의 소수점 자르기
