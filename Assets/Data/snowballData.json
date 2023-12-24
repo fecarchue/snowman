@@ -2,8 +2,8 @@
     "snowballs": [
         {
             "id": 0,
-            "weight": 0,
-            "volume": 35,
+            "weight": 70,
+            "volume": 43,
             "objects": [
                 "tree",
                 "rock"
@@ -11,18 +11,60 @@
         },
         {
             "id": 1,
-            "weight": 20,
-            "volume": 93,
-            "objects": []
+            "weight": 30,
+            "volume": 43,
+            "objects": [
+                "tree",
+                "rock"
+            ]
         },
         {
             "id": 2,
-            "weight": 70,
+            "weight": 40,
             "volume": 43,
-            "objects": []
+            "objects": [
+                "tree",
+                "rock"
+            ]
         },
         {
             "id": 3,
+            "weight": 10,
+            "volume": 43,
+            "objects": [
+                "tree",
+                "rock"
+            ]
+        },
+        {
+            "id": 4,
+            "weight": 20,
+            "volume": 43,
+            "objects": [
+                "tree",
+                "rock"
+            ]
+        },
+        {
+            "id": 5,
+            "weight": 90,
+            "volume": 43,
+            "objects": [
+                "tree",
+                "rock"
+            ]
+        },
+        {
+            "id": 6,
+            "weight": 32,
+            "volume": 43,
+            "objects": [
+                "tree",
+                "rock"
+            ]
+        },
+        {
+            "id": 7,
             "weight": 28,
             "volume": 44,
             "objects": []

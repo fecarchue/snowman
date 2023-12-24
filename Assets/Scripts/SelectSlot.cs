@@ -165,6 +165,11 @@ public class SelectSlot : MonoBehaviour
 
     public void use()
     {
+        if(currentSlot == null)
+        {
+            Debug.Log("선택된 눈덩이 없음");
+            return;
+        }
        if(currentSlot == TopSlotController) //선택한 슬롯이 윗 눈사람
         {//윗 눈사람 돌려놓기
             TopSlotController.condition = "None";
@@ -228,6 +233,11 @@ public class SelectSlot : MonoBehaviour
             Debug.Log("이미 모두 선택되었습니다");
             PowerCheck();
         }
+    }
+
+    public void Delete()
+    {
+        DataManager.Instance.CurrentDelete();
     }
 
     private void PowerCheck() // TopSnowball과 BotSnowball이 비어있지 않으면 전투력 측정

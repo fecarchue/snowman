@@ -10,7 +10,6 @@ public class CutSceneManager : MonoBehaviour
     private Image CutScenes;
     public GameObject SkipButton, ChallengePanel,CutSceneObject, TouchPanel, CutSceneObj;
     public Sprite[] DevilScenes;
-    public Sprite[] DevilScenes23;
     public Sprite[] FightScenes;
 
     private void Start()
