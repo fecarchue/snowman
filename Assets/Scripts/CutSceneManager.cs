@@ -7,7 +7,7 @@ using UnityEngine.InputSystem.Controls;
 public class CutSceneManager : MonoBehaviour
 {
     private int playnumber, power, touch;
-    private Image CutScenes;
+    private Image CutScene;
     public GameObject SkipButton, ChallengePanel,CutSceneObject, TouchPanel, CutSceneObj;
     public Sprite[] DevilScenes;
     public Sprite[] FightScenes;
@@ -20,14 +20,14 @@ public class CutSceneManager : MonoBehaviour
         PlayerPrefs.DeleteAll();
 
         power = DataManager.Instance.CurrentPower;
-        CutScenes = CutSceneObj.GetComponent<Image>();
+        CutScene = CutSceneObj.GetComponent<Image>();
         CutSceneObject.SetActive(false);
         ChallengePanel.SetActive(false);
         
-        if(PlayerPrefs.GetString("IsFirst") != "false")
+        if(PlayerPrefs.GetString("IsFirst") != "NotFirst")
         {
             StartCoroutine(FirstFight());
-            PlayerPrefs.SetString("IsFirst", "false");
+            PlayerPrefs.SetString("IsFirst", "NotFirst");
             PlayerPrefs.Save();
         }
         else
@@ -72,7 +72,7 @@ public class CutSceneManager : MonoBehaviour
         CutSceneObject.SetActive(true);
         for (int i = 0; i < 7; i++)
         {
-            CutScenes.sprite = FightScenes[i];
+            CutScene.sprite = FightScenes[i];
             yield return new WaitForSeconds(2.0f);
         }
         CutSceneObject.SetActive(false);
@@ -84,7 +84,7 @@ public class CutSceneManager : MonoBehaviour
         CutSceneObject.SetActive(true);
         for (int i = 0; i < 31; i++)
         {
-            CutScenes.sprite = DevilScenes[i];
+            CutScene.sprite = DevilScenes[i];
             yield return new WaitForSeconds(2.0f);
         }
 
@@ -101,12 +101,12 @@ public class CutSceneManager : MonoBehaviour
     IEnumerator Challenge2to4()
     {
         CutSceneObject.SetActive(true);
-        CutScenes.sprite = DevilScenes[8];
+        CutScene.sprite = DevilScenes[8];
         yield return new WaitForSeconds(2.0f);
-        CutScenes.sprite = DevilScenes[14];
+        CutScene.sprite = DevilScenes[14];
         for (int i = 21; i < 31; i++)
         {
-            CutScenes.sprite = DevilScenes[i];
+            CutScene.sprite = DevilScenes[i];
             yield return new WaitForSeconds(1.0f);
         }
 
@@ -126,7 +126,7 @@ public class CutSceneManager : MonoBehaviour
         CutSceneObject.SetActive(true);
         for (int i = 21; i < 31; i++)
         {
-            StartCoroutine(FadeEffect(1.5f,0.5f, DevilScenes[i]));
+            CutScene.sprite = DevilScenes[i];
             yield return new WaitForSeconds(2.0f);
         }
 
@@ -142,17 +142,17 @@ public class CutSceneManager : MonoBehaviour
 
     IEnumerator DevilScene_Win()
     {
-        CutScenes.sprite = DevilScenes[31];
+        CutScene.sprite = DevilScenes[31];
         yield return new WaitForSeconds(2.0f);
-        CutScenes.sprite = DevilScenes[32];
+        CutScene.sprite = DevilScenes[32];
         yield return new WaitForSeconds(3.0f);
         SceneManager.LoadScene("StartScene");
     }
     IEnumerator DevilScene_Lose()
     {
-        CutScenes.sprite = DevilScenes[31];
+        CutScene.sprite = DevilScenes[31];
         yield return new WaitForSeconds(2.0f);
-        CutScenes.sprite = DevilScenes[33];
+        CutScene.sprite = DevilScenes[33];
         yield return new WaitForSeconds(3.0f);
         SceneManager.LoadScene("StartScene");
     }
@@ -172,37 +172,29 @@ public class CutSceneManager : MonoBehaviour
         }
     }
 
-    IEnumerator FadeEffect(float fadeInTime, float fadeOutTime, Sprite TargetImage)
+    IEnumerator FadeIn(float fadeInTime)
     {
-        if (fadeInTime > 0)
+        Color color = CutScene.color;
+        // 페이드 인
+        while (color.a < 1)
         {
-            Color color = CutScenes.color;
-
-            // 페이드 아웃
-            while (color.a > 0)
-            {
-                color.a -= Time.deltaTime / fadeInTime;
-                color.a = Mathf.Clamp01(color.a);
-                CutScenes.color = color;
-                yield return null;
-            }
-
-            // 이미지 변경
-            CutScenes.sprite = TargetImage;
-
-            // 페이드 인
-            while (color.a < 1)
-            {
-                color.a += Time.deltaTime / fadeOutTime;
-                color.a = Mathf.Clamp01(color.a);
-                CutScenes.color = color;
-                yield return null;
-            }
+            color.a += Time.deltaTime / fadeInTime;
+            color.a = Mathf.Clamp01(color.a);
+            CutScene.color = color;
+            yield return null;
         }
-        else
+    }
+
+    IEnumerator FadeOut(float fadeOutTime)
+    {
+        Color color = CutScene.color;
+        // 페이드 아웃
+        while (color.a > 0)
         {
-            // 페이드 인/아웃 시간이 0 이하인 경우 페이드 없이 이미지 변경
-            CutScenes.sprite = TargetImage;
+            color.a -= Time.deltaTime / fadeOutTime;
+            color.a = Mathf.Clamp01(color.a);
+            CutScene.color = color;
+            yield return null;
         }
     }
 }

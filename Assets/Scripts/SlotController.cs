@@ -10,11 +10,6 @@ public class SlotController : MonoBehaviour
     public Sprite[] framesprites; // => { 0 = 사용됨, 1 = 선택됨, 2 = 들어있음, 3 = 비어있음}
     public Sprite[] imagesprites; // => { 0 = 들어있음, 1 = 비어있음}
 
-    public void Awake()
-    {
-        
-    }
-
     //프레임과 이미지 가져오기
     public void BringImage()
     {

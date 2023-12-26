@@ -237,7 +237,14 @@ public class SelectSlot : MonoBehaviour
 
     public void Delete()
     {
+        if(currentSlot == null)
+        {
+            Debug.Log("선택된 눈덩이 없음");
+            return;
+        }
         DataManager.Instance.CurrentDelete();
+        currentSlot = null;
+        previousSlot = null;
     }
 
     private void PowerCheck() // TopSnowball과 BotSnowball이 비어있지 않으면 전투력 측정

@@ -53,21 +53,6 @@
                 "tree",
                 "rock"
             ]
-        },
-        {
-            "id": 6,
-            "weight": 32,
-            "volume": 43,
-            "objects": [
-                "tree",
-                "rock"
-            ]
-        },
-        {
-            "id": 7,
-            "weight": 28,
-            "volume": 44,
-            "objects": []
         }
     ]
 }

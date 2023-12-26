@@ -8,7 +8,7 @@ public class BackgroundMusic : MonoBehaviour
     private Scrollbar VolumeScrollbar;
     private static BackgroundMusic instance;
 
-    // 다른 스크립트에서 인스턴스에 접근할 수 있는 프로퍼티
+    // 다른 스크립트에서 인스턴스에 접근
     public static BackgroundMusic Instance
     {
         get
@@ -18,13 +18,9 @@ public class BackgroundMusic : MonoBehaviour
             {
                 return null;
             }
-
             return instance;
         }
     }
-
-    // 다른 클래스에서 사용할 변수나 메서드 등을 정의할 수 있음
-    public int myVariable;
 
     private void Awake()
     {
@@ -45,15 +41,9 @@ public class BackgroundMusic : MonoBehaviour
             audioSource.Play();
         }
 
-
         else
         {
             Destroy(this.gameObject);
         }
-    }
-
-    public void SetVolume() // 스크롤바 값을 사용하여 볼륨을 조절
-    {
-        audioSource.volume = VolumeScrollbar.value;
     }
 }
