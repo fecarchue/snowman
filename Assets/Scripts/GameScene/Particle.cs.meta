@@ -1,0 +1,13 @@
+fileFormatVersion: 2
+guid: 2ed7cf69934cfc8498a3cfc7bc1771a6
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - snowParticlePrefab: {fileID: 2104158561234832950, guid: 830a234a88355074faac4912f439f021, type: 3}
+  - fogParticlePrefab: {fileID: 7436804683938123680, guid: db96be3d967cd8542adc8b5300793774, type: 3}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
