@@ -32,6 +32,9 @@ public class PlayerData : MonoBehaviour
     private int posID;
     
     [HideInInspector] public int starCount = 0;
+    
+    // Player Shadow 객체를 연결해주고
+    public GameObject playerShadow; 
     void Start()
     {
         objects = new List<int>();
@@ -46,6 +49,20 @@ public class PlayerData : MonoBehaviour
         if (targetScale > snowScale) snowScale += Time.deltaTime * scaleRate;
         if (Mathf.Abs(targetScale - snowScale) < Time.deltaTime * scaleRate) snowScale = targetScale;
         transform.localScale = new Vector3(snowScale, snowScale, 1);  //스케일 적용
+
+
+
+
+
+        //플레이어 쉐도우에도 적용해야됨
+        if (playerShadow != null)
+        {
+            playerShadow.transform.localScale = new Vector3(snowScale, snowScale, 1);
+        }
+
+
+
+
 
         if (playerData[1] <= 0) //게임오버
         {
