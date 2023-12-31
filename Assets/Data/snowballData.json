@@ -10,26 +10,8 @@
             ]
         },
         {
-            "id": 1,
-            "weight": 30,
-            "volume": 43,
-            "objects": [
-                "tree",
-                "rock"
-            ]
-        },
-        {
             "id": 2,
             "weight": 40,
-            "volume": 43,
-            "objects": [
-                "tree",
-                "rock"
-            ]
-        },
-        {
-            "id": 3,
-            "weight": 10,
             "volume": 43,
             "objects": [
                 "tree",

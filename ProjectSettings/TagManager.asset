@@ -12,6 +12,7 @@ TagManager:
   - Slot
   - Goal
   - Slide
+  - Ice
   layers:
   - Default
   - TransparentFX
