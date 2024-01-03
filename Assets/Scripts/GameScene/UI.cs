@@ -47,7 +47,7 @@ public class UI : MonoBehaviour //UI 전부를 다루는 스크립트
 
         maxHealthBar.rectTransform.sizeDelta = new Vector2(playerData.playerData[0] * barLength, 100);
         healthBar.rectTransform.sizeDelta = new Vector2(playerData.playerData[1] * barLength, 100);
-        damageHealthBar.rectTransform.anchoredPosition = new Vector2(playerData.playerData[1] * barLength - 30, 0);
+        damageHealthBar.rectTransform.anchoredPosition = new Vector2(playerData.playerData[1] * barLength - 42.8571f, 0);
         damageHealthBar.rectTransform.sizeDelta = new Vector2(playerData.damage * barLength, 100);
 
 
