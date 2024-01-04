@@ -50,7 +50,7 @@ public class PlayerData : MonoBehaviour
         if (Mathf.Abs(targetScale - snowScale) < Time.deltaTime * scaleRate) snowScale = targetScale;
         transform.localScale = new Vector3(snowScale, snowScale, 1);  //스케일 적용
 
-
+        for (int i = 0; i < 4; i++) playerData[i] += snowgroundData[i] * Time.deltaTime;
 
 
 
@@ -92,10 +92,10 @@ public class PlayerData : MonoBehaviour
             for (int i = 0; i < 4; i++) playerData[i] += (groundData[i] - snowgroundData[i]) * Time.deltaTime;
         }
         //Snowground는 항상 밟고 있음
-        if (other.gameObject.tag == "Snowground")
+        /*if (other.gameObject.tag == "Snowground")
         {
             for(int i = 0; i < 4; i++) playerData[i] += snowgroundData[i] * Time.deltaTime;
-        }
+        }*/
 
     }
 

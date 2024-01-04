@@ -104,9 +104,15 @@ public class PlayerMove : MonoBehaviour
         }
     }
 
-    private void OnTriggerStay2D(Collider2D other)
+    private void OnTriggerEnter2D(Collider2D other)
     {
-        isSlide = other.gameObject.tag == "Slide" ? true : false;
-        isIce = other.gameObject.tag == "Ice" ? true : false;
+        if (other.gameObject.tag == "Slide") isSlide = true;
+        if (other.gameObject.tag == "Ice") isIce = true;
+    }
+
+    private void OnTriggerExit2D(Collider2D other)
+    {
+        if (other.gameObject.tag == "Slide") isSlide = false;
+        if (other.gameObject.tag == "Ice") isIce = false;
     }
 }
