@@ -17,9 +17,11 @@ public class PlayerData : MonoBehaviour
     public float[] groundData = { 0, -4, 0, 0 };
     public float[] snowgroundData = { 1, 2, 1, 1 };
 
-    public float radiusRate = 0.33333333333f;
-    public float scaleRate = 2f;
-    public float[] sizeCut = { 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 9999 };
+    private float initialV;
+    public float scaleCoefficient = 0.2f;
+    public float scaleExponent = 1f;
+    public float scaleEnlargeSpeed = 2f;
+    public float[] nextSize = { 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 9999 };
     [HideInInspector] public int playerSize;
     public float snowScale; // 그래픽 변환 고려한 실제 Scale
     public float targetScale;
@@ -33,6 +35,7 @@ public class PlayerData : MonoBehaviour
     void Start()
     {
         objects = new List<int>();
+        initialV = playerData[2];
         snowScale = 1f;
         StartCoroutine(InGamePlayerData());
     }
@@ -41,11 +44,11 @@ public class PlayerData : MonoBehaviour
     {
         while (true)
         {
-            if (playerData[2] >= sizeCut[playerSize]) playerSize++;
+            if (playerData[2] >= nextSize[playerSize]) playerSize++;
 
-            targetScale = Mathf.Pow(playerData[2], radiusRate);
-            if (targetScale > snowScale) snowScale += Time.deltaTime * scaleRate;
-            if (Mathf.Abs(targetScale - snowScale) < Time.deltaTime * scaleRate) snowScale = targetScale;
+            targetScale = 1f + scaleCoefficient * Mathf.Pow(playerData[2] - initialV, scaleExponent);
+            if (targetScale > snowScale) snowScale += Time.deltaTime * scaleEnlargeSpeed;
+            if (Mathf.Abs(targetScale - snowScale) < Time.deltaTime * scaleEnlargeSpeed) snowScale = targetScale;
             transform.localScale = new Vector3(snowScale, snowScale, 1);  //스케일 적용
 
             for (int i = 0; i < 4; i++) playerData[i] += snowgroundData[i] * Time.deltaTime;
