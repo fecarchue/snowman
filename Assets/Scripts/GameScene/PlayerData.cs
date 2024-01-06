@@ -30,8 +30,6 @@ public class PlayerData : MonoBehaviour
 
     private bool isGround;
     
-    // Player Shadow 객체를 연결해주고
-    public GameObject playerShadow; 
     void Start()
     {
         objects = new List<int>();
@@ -45,18 +43,12 @@ public class PlayerData : MonoBehaviour
         {
             if (playerData[2] >= sizeCut[playerSize]) playerSize++;
 
-            targetScale = Mathf.Pow(playerData[2], radiusRate); //부피의 3분의 1이 반지름
+            targetScale = Mathf.Pow(playerData[2], radiusRate);
             if (targetScale > snowScale) snowScale += Time.deltaTime * scaleRate;
             if (Mathf.Abs(targetScale - snowScale) < Time.deltaTime * scaleRate) snowScale = targetScale;
             transform.localScale = new Vector3(snowScale, snowScale, 1);  //스케일 적용
 
             for (int i = 0; i < 4; i++) playerData[i] += snowgroundData[i] * Time.deltaTime;
-
-            //플레이어 쉐도우에도 적용해야됨
-            if (playerShadow != null)
-            {
-                playerShadow.transform.localScale = new Vector3(snowScale, snowScale, 1);
-            }
 
             isGround = GetComponentInChildren<PlayerTrigger>().isGround;
             if (isGround)
