@@ -14,8 +14,9 @@ public class PlayerData : MonoBehaviour
     //[0]==MaxHealth, [1]==Health, [2]==Volume [3]==Power
     public float[] playerData = { 10, 7, 1, 10 };
 
-    public float[] groundData = { 0, -4, 0, 0 };
     public float[] snowgroundData = { 1, 2, 1, 1 };
+    public float[] groundData = { 0, -4, 0, 0 };
+    public float[] devilData = { -4, 0, 0, 0 };
 
     private float initialV;
     public float scaleCoefficient = 0.2f;
@@ -23,8 +24,8 @@ public class PlayerData : MonoBehaviour
     public float scaleEnlargeSpeed = 2f;
     public float[] nextSize = { 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 9999 };
     [HideInInspector] public int playerSize;
-    public float snowScale; // 그래픽 변환 고려한 실제 Scale
-    public float targetScale;
+    [HideInInspector] public float snowScale; // 그래픽 변환 고려한 실제 Scale
+    private float targetScale;
     [HideInInspector] public float damage;
     private float damageTimer = 0f;
 

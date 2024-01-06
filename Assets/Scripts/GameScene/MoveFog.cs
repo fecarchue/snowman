@@ -6,9 +6,9 @@ public class MoveFog : MonoBehaviour
 {
     public GameObject player;
     private float randomAngle;
-    public float duration = 0.7f;
+    public float duration = 0.75f;
     private float time = 0f;
-    public float moveSpeed = 0.5f;
+    public float moveSpeed = 1f;
     Color from = new Color(1, 1, 1, 1);
     Color to = new Color(1, 1, 1, 0);
 
