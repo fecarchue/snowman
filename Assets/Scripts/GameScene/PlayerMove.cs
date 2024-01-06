@@ -36,10 +36,10 @@ public class PlayerMove : MonoBehaviour
 
     private void Start()
     {
-        StartCoroutine(MovePlayer());
+        StartCoroutine(InGameMovePlayer());
     }
 
-    private IEnumerator MovePlayer()
+    private IEnumerator InGameMovePlayer()
     {
         while (true) // 무한 반복
         {

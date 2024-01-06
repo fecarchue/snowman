@@ -18,21 +18,30 @@ public class Particle : MonoBehaviour
     public float fogDistance = 0.7f;
     public float fogScale = 0.5f;
 
-    void Update()
+    void Start()
     {
-        // 일정 간격으로 눈 입자 생성
-        spawnTimer += Time.deltaTime;
-        if (spawnTimer >= snowSpawnInterval)
-        {
-            SpawnSnowParticle();
-            spawnTimer = 0f;
-        }
+        StartCoroutine(MakeParticle());
+    }
 
-        currentSize = GetComponent<PlayerData>().playerSize;
-        if (playerSize != currentSize)
+    private IEnumerator MakeParticle()
+    {
+        while (true)
         {
-            playerSize = currentSize;
-            SpawnFog();
+            // 일정 간격으로 눈 입자 생성
+            spawnTimer += Time.deltaTime;
+            if (spawnTimer >= snowSpawnInterval)
+            {
+                SpawnSnowParticle();
+                spawnTimer = 0f;
+            }
+
+            currentSize = GetComponent<PlayerData>().playerSize;
+            if (playerSize != currentSize)
+            {
+                playerSize = currentSize;
+                SpawnFog();
+            }
+            yield return null;
         }
     }
 

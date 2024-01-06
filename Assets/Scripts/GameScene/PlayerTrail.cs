@@ -13,26 +13,17 @@ public class PlayerTrail : MonoBehaviour
     {
         // Trail Renderer 컴포넌트 참조
         trailRenderer = GetComponent<TrailRenderer>();
+        StartCoroutine(MakeTrail());
     }
 
-    void Update()
+    private IEnumerator MakeTrail()
     {
-        // 캐릭터의 크기에 따라 Trail의 너비 동적으로 조절
-        playerScale = GetComponent<PlayerData>().snowScale;
-        trailRenderer.widthMultiplier = playerScale * trailSize;
-    }
-    /*private void OnTriggerEnter2D(Collider2D other)
-    {
-        if (other.gameObject.tag == "Ground")
+        while (true)
         {
-            trailRenderer.endColor = new Color(0.5f, 0.4f, 0.25f, 0.6f);
+            // 캐릭터의 크기에 따라 Trail의 너비 동적으로 조절
+            playerScale = GetComponent<PlayerData>().snowScale;
+            trailRenderer.widthMultiplier = playerScale * trailSize;
+            yield return null;
         }
     }
-    private void OnTriggerExit2D(Collider2D other)
-    {
-        if (other.gameObject.tag == "Ground")
-        {
-            trailRenderer.endColor = new Color(0.5f, 0.5f, 0.5f, 0.6f);
-        }
-    }*/
 }

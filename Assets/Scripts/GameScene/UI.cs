@@ -33,29 +33,41 @@ public class UI : MonoBehaviour //UI 전부를 다루는 스크립트
         healthText = healthText.GetComponent<TextMeshProUGUI>();
         volumeText = volumeText.GetComponent<TextMeshProUGUI>();
         powerText = powerText.GetComponent<TextMeshProUGUI>();
-        Time.timeScale = 0;
+        StartCoroutine(Ready());
     }
 
-    
-    void Update()
+    private IEnumerator Ready()
     {
-        if (startMenu.activeSelf && Input.GetMouseButtonDown(0)) //게임 시작
+        Time.timeScale = 0;
+        while (true)
         {
-            startMenu.SetActive(false);
-            Time.timeScale = 1;
+            if (startMenu.activeSelf && Input.GetMouseButtonDown(0)) //게임 시작
+            {
+                startMenu.SetActive(false);
+                StartCoroutine(Play());
+                break;
+            }
+            yield return null;
         }
+    }
+    
+    private IEnumerator Play()
+    {
+        Time.timeScale = 1;
+        while (true)
+        {
+            maxHealthBar.rectTransform.sizeDelta = new Vector2(playerData.playerData[0] * barLength, 100);
+            healthBar.rectTransform.sizeDelta = new Vector2(playerData.playerData[1] * barLength, 100);
+            damageHealthBar.rectTransform.anchoredPosition = new Vector2(playerData.playerData[1] * barLength - 42.8571f, 0);
+            damageHealthBar.rectTransform.sizeDelta = new Vector2(playerData.damage * barLength, 100);
 
-        maxHealthBar.rectTransform.sizeDelta = new Vector2(playerData.playerData[0] * barLength, 100);
-        healthBar.rectTransform.sizeDelta = new Vector2(playerData.playerData[1] * barLength, 100);
-        damageHealthBar.rectTransform.anchoredPosition = new Vector2(playerData.playerData[1] * barLength - 42.8571f, 0);
-        damageHealthBar.rectTransform.sizeDelta = new Vector2(playerData.damage * barLength, 100);
-
-
-        //float값 뒤의 소수점 자르기
-        maxHealthText.text = ((int)playerData.playerData[0]).ToString();
-        healthText.text = ((int)playerData.playerData[1]).ToString();
-        volumeText.text = ((int)playerData.playerData[2]).ToString();
-        powerText.text = ((int)playerData.playerData[3]).ToString();
+            //float값 뒤의 소수점 자르기
+            maxHealthText.text = ((int)playerData.playerData[0]).ToString();
+            healthText.text = ((int)playerData.playerData[1]).ToString();
+            volumeText.text = ((int)playerData.playerData[2]).ToString();
+            powerText.text = ((int)playerData.playerData[3]).ToString();
+            yield return null;
+        }
     }
 
     public void pause()

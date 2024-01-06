@@ -39,51 +39,48 @@ public class PlayerData : MonoBehaviour
     {
         objects = new List<int>();
         snowScale = 1f;
+        StartCoroutine(InGamePlayerData());
     }
 
-    void Update()
+    private IEnumerator InGamePlayerData()
     {
-        if (playerData[2] >= sizeCut[playerSize]) playerSize++;
-
-        targetScale = Mathf.Pow(playerData[2], radiusRate); //부피의 3분의 1이 반지름
-        if (targetScale > snowScale) snowScale += Time.deltaTime * scaleRate;
-        if (Mathf.Abs(targetScale - snowScale) < Time.deltaTime * scaleRate) snowScale = targetScale;
-        transform.localScale = new Vector3(snowScale, snowScale, 1);  //스케일 적용
-
-        for (int i = 0; i < 4; i++) playerData[i] += snowgroundData[i] * Time.deltaTime;
-
-
-
-        //플레이어 쉐도우에도 적용해야됨
-        if (playerShadow != null)
+        while (true)
         {
-            playerShadow.transform.localScale = new Vector3(snowScale, snowScale, 1);
+            if (playerData[2] >= sizeCut[playerSize]) playerSize++;
+
+            targetScale = Mathf.Pow(playerData[2], radiusRate); //부피의 3분의 1이 반지름
+            if (targetScale > snowScale) snowScale += Time.deltaTime * scaleRate;
+            if (Mathf.Abs(targetScale - snowScale) < Time.deltaTime * scaleRate) snowScale = targetScale;
+            transform.localScale = new Vector3(snowScale, snowScale, 1);  //스케일 적용
+
+            for (int i = 0; i < 4; i++) playerData[i] += snowgroundData[i] * Time.deltaTime;
+
+            //플레이어 쉐도우에도 적용해야됨
+            if (playerShadow != null)
+            {
+                playerShadow.transform.localScale = new Vector3(snowScale, snowScale, 1);
+            }
+
+            if (playerData[1] <= 0) //게임오버
+            {
+                playerData[1] = 0;
+                ui.fail();
+            }
+            if (playerData[0] <= playerData[1]) //체력 초과
+            {
+                playerData[1] = playerData[0];
+            }
+
+            damageTimer -= Time.deltaTime;
+            if (damage >= playerData[0] - playerData[1]) damage = playerData[0] - playerData[1];
+            if (damageTimer <= 0)
+            {
+                if (damage <= 0) damage = 0;
+                else damage -= Time.deltaTime * 10f;
+            }
+            yield return null;
         }
-
-
-
-
-
-        if (playerData[1] <= 0) //게임오버
-        {
-            playerData[1] = 0;
-            ui.fail();
-        }
-        if (playerData[0] <= playerData[1]) //체력 초과
-        {
-            playerData[1] = playerData[0];
-        }
-
-        damageTimer -= Time.deltaTime;
-        if (damage >= playerData[0] - playerData[1]) damage = playerData[0] - playerData[1];
-        if (damageTimer <= 0)
-        {
-            if (damage <= 0) damage = 0;
-            else damage -= Time.deltaTime * 10f;
-        }
-
     }
-
     
     private void OnTriggerStay2D(Collider2D other)
     {
@@ -91,11 +88,6 @@ public class PlayerData : MonoBehaviour
         {
             for (int i = 0; i < 4; i++) playerData[i] += (groundData[i] - snowgroundData[i]) * Time.deltaTime;
         }
-        //Snowground는 항상 밟고 있음
-        /*if (other.gameObject.tag == "Snowground")
-        {
-            for(int i = 0; i < 4; i++) playerData[i] += snowgroundData[i] * Time.deltaTime;
-        }*/
 
     }
 

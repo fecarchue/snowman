@@ -12,9 +12,9 @@ public class MoveCamera : MonoBehaviour
     [SerializeField]
     private void Start()
     {
-        StartCoroutine(CameraUp());
+        StartCoroutine(InGameCamera());
     }
-    private IEnumerator CameraUp()
+    private IEnumerator InGameCamera()
     {
         while (true)
         {

@@ -7,6 +7,7 @@ public class Swipe : MonoBehaviour
     private float x1, x2;
     [HideInInspector] public float dist;
     public float distRate = 1f;
+
     void Start()
     {
         StartCoroutine(GetSwipe());
@@ -33,8 +34,4 @@ public class Swipe : MonoBehaviour
         }
     }
 
-    void Update()
-    {
-        
-    }
 }

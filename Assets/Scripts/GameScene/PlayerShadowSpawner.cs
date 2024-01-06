@@ -18,19 +18,24 @@ public class PlayerShadow : MonoBehaviour
         {
             Debug.LogError("SpriteRenderer not found on player or playershadow.");
         }
+        StartCoroutine(UpdateShadow());
     }
 
-    void Update()
+    private IEnumerator UpdateShadow()
     {
-        // 플레이어의 위치를 가져와서 쉐도우의 위치를 업데이트합니다.
-        if (targetPlayer != null)
+        while (true)
         {
-            transform.position = targetPlayer.position;
-            transform.rotation = targetPlayer.rotation;
+            // 플레이어의 위치를 가져와서 쉐도우의 위치를 업데이트합니다.
+            if (targetPlayer != null)
+            {
+                transform.position = targetPlayer.position;
+                transform.rotation = targetPlayer.rotation;
 
-            // 플레이어의 sprite를 가져와서 playershadow의 sprite를 업데이트합니다.
-            shadowSpriteRenderer.sprite = playerSpriteRenderer.sprite;
+                // 플레이어의 sprite를 가져와서 playershadow의 sprite를 업데이트합니다.
+                shadowSpriteRenderer.sprite = playerSpriteRenderer.sprite;
 
+            }
+            yield return null;
         }
     }
 }
