@@ -41,7 +41,7 @@ public class UI : MonoBehaviour //UI 전부를 다루는 스크립트
         Time.timeScale = 0;
         while (true)
         {
-            if (startMenu.activeSelf && Input.GetMouseButtonDown(0)) //게임 시작
+            if (Input.GetMouseButtonDown(0)) //게임 시작
             {
                 startMenu.SetActive(false);
                 StartCoroutine(Play());

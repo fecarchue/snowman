@@ -9,8 +9,8 @@ public class MoveCamera : MonoBehaviour
     public float ySync = 5f;
     private float playerScale;
     private float newZ; //zRatio를 반영한 최종 z축, 눈 크기에 비례
-    [SerializeField]
-    private void Start()
+    
+    void Start()
     {
         StartCoroutine(InGameCamera());
     }
