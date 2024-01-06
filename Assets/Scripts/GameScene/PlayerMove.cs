@@ -9,11 +9,7 @@ using UnityEngine;
 public class PlayerMove : MonoBehaviour
 {
 
-    [SerializeField]
-    
-    private SwipeControlManager swipeManager;
-
-    public GameObject swipeControl;
+    public GameObject swipe;
     public PlayerData playerData;
     private float snowScale;
     private float rawSwipe; //불러오기
@@ -41,7 +37,6 @@ public class PlayerMove : MonoBehaviour
     private void Start()
     {
         StartCoroutine(MovePlayer());
-        //swipeManager = FindObjectOfType<SwipeControlManager>();
     }
 
     private IEnumerator MovePlayer()
@@ -50,7 +45,7 @@ public class PlayerMove : MonoBehaviour
         {
             if (!isIce) {
                 //rawXSpeed는 (-1 * xSpeedRate * maxSwipeConst) ~ (xSpeedRate * maxSwipeConst)로 제한
-                rawSwipe = swipeControl.GetComponent<SwipeControlManager>().rawswipe;
+                rawSwipe = swipe.GetComponent<Swipe>().dist;
                 if (rawSwipe >= 0) x1Speed = xSpeedRate * Mathf.Min(maxSwipeConst, rawSwipe);
                 else x1Speed = xSpeedRate * Mathf.Max(-maxSwipeConst, rawSwipe);
 
