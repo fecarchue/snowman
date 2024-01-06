@@ -26,12 +26,9 @@ public class PlayerData : MonoBehaviour
     [HideInInspector] public float damage;
     private float damageTimer = 0f;
 
-    private int ID;
-    private int typeID;
-    private int imageID;
-    private int posID;
-    
     [HideInInspector] public int starCount = 0;
+
+    private bool isGround;
     
     // Player Shadow 객체를 연결해주고
     public GameObject playerShadow; 
@@ -61,6 +58,11 @@ public class PlayerData : MonoBehaviour
                 playerShadow.transform.localScale = new Vector3(snowScale, snowScale, 1);
             }
 
+            isGround = GetComponentInChildren<PlayerTrigger>().isGround;
+            if (isGround)
+                for (int i = 0; i < 4; i++)
+                    playerData[i] += (groundData[i] - snowgroundData[i]) * Time.deltaTime;
+
             if (playerData[1] <= 0) //게임오버
             {
                 playerData[1] = 0;
@@ -81,53 +83,33 @@ public class PlayerData : MonoBehaviour
             yield return null;
         }
     }
-    
-    private void OnTriggerStay2D(Collider2D other)
-    {
-        if (other.gameObject.tag == "Ground")
-        {
-            for (int i = 0; i < 4; i++) playerData[i] += (groundData[i] - snowgroundData[i]) * Time.deltaTime;
-        }
 
+    public void TreeStone(Collision2D other)
+    {
+        float[] data = other.gameObject.GetComponentInParent<ObjectData>().data;
+        for (int i = 0; i < 4; i++) playerData[i] += data[i];
+        damage -= data[1];
+        damageTimer = 1f;
+        if (playerData[1] > 0) Destroy(other.gameObject);
     }
 
-    private void OnCollisionEnter2D(Collision2D other)
+    public void Orb(Collision2D other)
     {
-        //ID는 6글자, 구조는 다음과 같다:
-        //앞 2자리: 오브젝트 타입(나무, 돌 등); 10부터 시작
-        //중간 2자리: 그래픽 종류 (사이즈); 00부터 시작
-        //뒤 2자리: 같은 이미지 습득 저장이 필요할 때; 00부터 시작
-        ID = other.gameObject.GetComponentInParent<ObjectID>().ID;
-        typeID = ID / 10000;
-        imageID = ID % 10000 / 100;
-        posID = ID % 100;
-
-        switch (typeID)
-        {
-            case 10 or 11: //stone or tree
-                float[] data = other.gameObject.GetComponentInParent<ObjectData>().data;
-                for (int i = 0; i < 4; i++) playerData[i] += data[i];
-                damage -= data[1];
-                damageTimer = 1f;
-                if (playerData[1] > 0) Destroy(other.gameObject);
-                break;
-
-            case 20: //orb
-                float power = other.gameObject.GetComponentInParent<ObjectData>().data[3];
-                playerData[3] += power;
-                Destroy(other.gameObject);
-                break;
-
-            case 21: //star
-                starCount++;
-                objects.Add(ID);
-                Destroy(other.gameObject);
-                break;
-
-            case 40: //goal
-                ui.finish();
-                break;
-
-        }
+        float power = other.gameObject.GetComponentInParent<ObjectData>().data[3];
+        playerData[3] += power;
+        Destroy(other.gameObject);
     }
+
+    public void Star(Collision2D other, int ID)
+    {
+        starCount++;
+        objects.Add(ID);
+        Destroy(other.gameObject);
+    }
+
+    public void Goal()
+    {
+        ui.finish();
+    }
+
 }

@@ -28,8 +28,8 @@ public class PlayerMove : MonoBehaviour
     private float y2Speed; //스케일 보정
     private float y3Speed;
 
-    private bool isSlide = false;
-    private bool isIce = false;
+    private bool isSlide;
+    private bool isIce;
     public float slideSpeedRate = 1.5f;
     private float slideMultiplier = 1f;
     public float slideAccel = 0.75f;
@@ -43,6 +43,9 @@ public class PlayerMove : MonoBehaviour
     {
         while (true) // 무한 반복
         {
+            isSlide = GetComponentInChildren<PlayerTrigger>().isSlide;
+            isIce = GetComponentInChildren<PlayerTrigger>().isIce;
+
             if (!isIce) {
                 //rawXSpeed는 (-1 * xSpeedRate * maxSwipeConst) ~ (xSpeedRate * maxSwipeConst)로 제한
                 rawSwipe = swipe.GetComponent<Swipe>().dist;
@@ -99,15 +102,4 @@ public class PlayerMove : MonoBehaviour
         }
     }
 
-    private void OnTriggerEnter2D(Collider2D other)
-    {
-        if (other.gameObject.tag == "Slide") isSlide = true;
-        if (other.gameObject.tag == "Ice") isIce = true;
-    }
-
-    private void OnTriggerExit2D(Collider2D other)
-    {
-        if (other.gameObject.tag == "Slide") isSlide = false;
-        if (other.gameObject.tag == "Ice") isIce = false;
-    }
 }
