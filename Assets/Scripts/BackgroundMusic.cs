@@ -1,11 +1,11 @@
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class BackgroundMusic : MonoBehaviour
 {
     public AudioSource audioSource;
-    public GameObject scrollbar;
-    private Scrollbar VolumeScrollbar;
+    public GameObject slider;
     private static BackgroundMusic instance;
 
     // 다른 스크립트에서 인스턴스에 접근
@@ -31,12 +31,10 @@ public class BackgroundMusic : MonoBehaviour
             DontDestroyOnLoad(this.gameObject);
 
             //초기설정
-            VolumeScrollbar = scrollbar.GetComponent<Scrollbar>();
             audioSource = GetComponent<AudioSource>();
 
             //배경음악 초기 설정
             audioSource.loop = true;
-            audioSource.volume = VolumeScrollbar.value;
 
             audioSource.Play();
         }
@@ -46,4 +44,5 @@ public class BackgroundMusic : MonoBehaviour
             Destroy(this.gameObject);
         }
     }
+
 }
