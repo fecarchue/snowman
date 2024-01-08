@@ -5,7 +5,6 @@ using UnityEngine.SceneManagement;
 public class BackgroundMusic : MonoBehaviour
 {
     public AudioSource audioSource;
-    public GameObject slider;
     private static BackgroundMusic instance;
 
     // 다른 스크립트에서 인스턴스에 접근
