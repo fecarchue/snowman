@@ -4,6 +4,12 @@ using UnityEngine;
 
 public class InfinitySnowground : MonoBehaviour
 {
+    public GameObject player;
+
+    void Start()
+    {
+        transform.position += player.transform.position;
+    }
 
     private void OnTriggerExit2D(Collider2D collision)
     {

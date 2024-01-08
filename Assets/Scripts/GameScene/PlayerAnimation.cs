@@ -28,6 +28,8 @@ public class PlayerAnimation : MonoBehaviour
             hp = GetComponent<PlayerData>().playerData[1];
             starCount = GetComponent<PlayerData>().starCount;
 
+            anim.speed = anim.GetCurrentAnimatorStateInfo(0).length;
+
             if (playerSize != currentSize)
             {
                 playerSize = currentSize;
