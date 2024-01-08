@@ -58,8 +58,8 @@ public class Particle : MonoBehaviour
         Vector3 spawnPosition = transform.position;
         spawnPosition.y -= 0.7f; // 적절한 높이로 조절
 
-        if(GetComponentInChildren<PlayerTrigger>().isGround) spriteNumber = Random.Range(4, 6);
-        else spriteNumber = Random.Range(1, 3);
+        if(GetComponentInChildren<PlayerTrigger>().isGround) spriteNumber = Random.Range(3, 6);
+        else spriteNumber = Random.Range(0, 3);
         GameObject particle = Instantiate(particlePrefab[spriteNumber], spawnPosition, Quaternion.identity);
 
         // 입자에 방향과 속력 적용
@@ -79,7 +79,7 @@ public class Particle : MonoBehaviour
 
             Vector3 spawnPosition = transform.position + new Vector3(Mathf.Cos(randomAngle), Mathf.Sin(randomAngle), 0) * snowScale * fogDistance;
 
-            spriteNumber = Random.Range(1, 3);
+            spriteNumber = Random.Range(0, 3);
             GameObject fog = Instantiate(fogPrefab[spriteNumber], spawnPosition, Quaternion.identity);
             fog.transform.localScale = new Vector3(snowScale * fogScale, snowScale * fogScale, 0);
             

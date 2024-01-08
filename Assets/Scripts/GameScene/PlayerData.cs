@@ -31,7 +31,7 @@ public class PlayerData : MonoBehaviour
 
     [HideInInspector] public int starCount = 0;
 
-    private bool isGround;
+    private bool isGround, isDevil;
     
     void Start()
     {
@@ -58,6 +58,11 @@ public class PlayerData : MonoBehaviour
             if (isGround)
                 for (int i = 0; i < 4; i++)
                     playerData[i] += (groundData[i] - snowgroundData[i]) * Time.deltaTime;
+
+            isDevil = GetComponentInChildren<PlayerTrigger>().isDevil;
+            if (isDevil)
+                for (int i = 0; i < 4; i++)
+                    playerData[i] += (devilData[i] - snowgroundData[i]) * Time.deltaTime;
 
             if (playerData[1] <= 0) //게임오버
             {

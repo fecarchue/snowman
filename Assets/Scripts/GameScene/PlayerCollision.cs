@@ -36,10 +36,6 @@ public class PlayerCollision : MonoBehaviour
                 playerData.Star(collider, ID);
                 break;
 
-            case 40: //Goal
-                playerData.Goal();
-                break;
-
         }
     }
 }
