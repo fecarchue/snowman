@@ -97,6 +97,6 @@ public class UI : MonoBehaviour //UI 전부를 다루는 스크립트
     }
     public void mainMenu()
     {
-        SceneManager.LoadScene("StartScene");
+        SceneManager.LoadScene("MainMenu");
     }
 }

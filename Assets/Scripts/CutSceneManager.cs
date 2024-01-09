@@ -146,7 +146,7 @@ public class CutSceneManager : MonoBehaviour
         yield return new WaitForSeconds(2.0f);
         CutScene.sprite = DevilScenes[32];
         yield return new WaitForSeconds(3.0f);
-        SceneManager.LoadScene("StartScene");
+        SceneManager.LoadScene("MainMenu");
     }
     IEnumerator DevilScene_Lose()
     {
@@ -154,7 +154,7 @@ public class CutSceneManager : MonoBehaviour
         yield return new WaitForSeconds(2.0f);
         CutScene.sprite = DevilScenes[33];
         yield return new WaitForSeconds(3.0f);
-        SceneManager.LoadScene("StartScene");
+        SceneManager.LoadScene("MainMenu");
     }
 
     public void Skip()
