@@ -6,17 +6,17 @@ public class Description : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
     public GameObject description;
     private RectTransform DescriptionPosition,ButtonPosition;
     private GameObject Button;
-    private int i;
+    private bool first;
 
     private void Awake()
     {
-        i = 0;
+        first = true;
     }
 
     //버튼 누를때
     public void OnPointerDown(PointerEventData eventData)
     {
-        if(i == 0)
+        if(first)
         {
             Button = EventSystem.current.currentSelectedGameObject;
 
@@ -25,14 +25,14 @@ public class Description : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
 
             DescriptionPosition.localPosition = ButtonPosition.localPosition + new Vector3(1000, 0, 0);
         }
-        i++;
+        first = false;
         description.SetActive(true);
     }
 
     //버튼에서 손 땔때
     public void OnPointerUp(PointerEventData eventData)
     {
-        i = 0;
+        first = true;
         description.SetActive(false);
     }
 }

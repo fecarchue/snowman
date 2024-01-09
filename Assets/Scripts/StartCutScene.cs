@@ -5,18 +5,21 @@ using System.Collections;
 
 public class StartCutScene : MonoBehaviour
 {
-    public GameObject CutSceneObj;
-    private Image CutScene;
+    public GameObject CutSceneObj, BackgroundObj,TouchToStartObj;
+    private Image CutScene, Background, TouchToStart;
     public Sprite[] CutScenes;
+    public Sprite SnowmanVsDevil;
 
     public void Awake()
     {
+        Background = BackgroundObj.GetComponent<Image>();
+        TouchToStart = TouchToStartObj.GetComponent<Image>();
+
         PlayerPrefs.DeleteAll();
         CutScene = CutSceneObj.GetComponent<Image>();
 
         if (!PlayerPrefs.HasKey("IsFirst"))
         {
-            Debug.Log("½ÇÇà");
             StartCoroutine(ShowCutScene());
             PlayerPrefs.SetString("IsFirst", "NotFirst");
             PlayerPrefs.Save();
@@ -48,7 +51,42 @@ public class StartCutScene : MonoBehaviour
         StartCoroutine(FadeOut(2.0f));
         yield return new WaitForSeconds(2.0f);
 
-        SceneManager.LoadScene("MainMenu");
+        ClickScene();
+    }
+
+    public void ClickScene()
+    {
+        CutSceneObj.SetActive(false);
+        Background.sprite = SnowmanVsDevil;
+        Background.color = Color.white;
+        TouchToStartObj.SetActive(true);
+
+        StartCoroutine(BlinkText());
+    }
+
+    IEnumerator BlinkText()
+    {
+        Color color = new Color(1f, 1f, 1f,0);
+        color.a = 0;
+        while (true)
+        {
+            while (color.a < 1)
+            {
+                color.a += Time.deltaTime * 2;
+                color.a = Mathf.Clamp01(color.a);
+                TouchToStart.color = color;
+                yield return null;
+            }
+
+            while (color.a > 0)
+            {
+                color.a -= Time.deltaTime * 2;
+                color.a = Mathf.Clamp01(color.a);
+                TouchToStart.color = color;
+                yield return null;
+            }
+            yield return null;
+        }
     }
 
     IEnumerator FadeIn(float fadeInTime)

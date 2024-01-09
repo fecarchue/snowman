@@ -16,8 +16,6 @@ public class CutSceneManager : MonoBehaviour
     {
         Debug.Log("실행");
         touch = 0;
-        //데이터 초기화 (마지막 작업할 때 꼭 지우기)
-        PlayerPrefs.DeleteAll();
 
         power = DataManager.Instance.CurrentPower;
         CutScene = CutSceneObj.GetComponent<Image>();

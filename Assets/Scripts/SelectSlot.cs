@@ -22,6 +22,7 @@ public class SelectSlot : MonoBehaviour
 
     public void Awake()
     {
+        TopSnowball = null; BotSnowball = null;
         objectinfo = ObjectInfoObj.GetComponent<ObjectInfomation>();
         Topsnowman = TopsnowmanObj.GetComponent<Image>();
         Botsnowman = BotsnowmanObj.GetComponent<Image>();
@@ -253,11 +254,11 @@ public class SelectSlot : MonoBehaviour
         if (TopSnowball != null && BotSnowball != null)
         {
             power = (TopSnowball.power + BotSnowball.power);
-            TotalPowertext.text = "Power: " + power;
+            TotalPowertext.text = "Total Power: " + power;
         }
         else
         {
-            TotalPowertext.text = "Power: " + 0;
+            TotalPowertext.text = "Total Power: " + 0;
         }
     }
 
