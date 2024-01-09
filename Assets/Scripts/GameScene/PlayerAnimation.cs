@@ -53,4 +53,11 @@ public class PlayerAnimation : MonoBehaviour
             yield return null;
         }
     }
+
+    public void Fail()
+    {
+        anim.speed = 0;
+        StopAllCoroutines();
+        //StartCoroutine(FailAnimation());
+    }
 }

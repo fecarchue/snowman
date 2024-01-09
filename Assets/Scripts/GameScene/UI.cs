@@ -16,10 +16,11 @@ public class UI : MonoBehaviour //UI 전부를 다루는 스크립트
     public Image maxHealthBar;
     public Image healthBar;
     public Image damageHealthBar;
+    public GameObject pauseButton;
     public GameObject pauseMenu;
     public GameObject startMenu;
     public GameObject finishScreen;
-    public GameObject failScreen;
+    public GameObject[] failScreen = new GameObject[4];
 
     public float barLength = 20f;
 
@@ -33,10 +34,10 @@ public class UI : MonoBehaviour //UI 전부를 다루는 스크립트
         healthText = healthText.GetComponent<TextMeshProUGUI>();
         volumeText = volumeText.GetComponent<TextMeshProUGUI>();
         powerText = powerText.GetComponent<TextMeshProUGUI>();
-        StartCoroutine(Ready());
+        StartCoroutine(ReadyUI());
     }
 
-    private IEnumerator Ready()
+    private IEnumerator ReadyUI()
     {
         Time.timeScale = 0;
         while (true)
@@ -44,14 +45,15 @@ public class UI : MonoBehaviour //UI 전부를 다루는 스크립트
             if (Input.GetMouseButtonDown(0)) //게임 시작
             {
                 startMenu.SetActive(false);
-                StartCoroutine(Play());
+                pauseButton.SetActive(true);
+                StartCoroutine(PlayUI());
                 break;
             }
             yield return null;
         }
     }
     
-    private IEnumerator Play()
+    private IEnumerator PlayUI()
     {
         Time.timeScale = 1;
         while (true)
@@ -70,32 +72,44 @@ public class UI : MonoBehaviour //UI 전부를 다루는 스크립트
         }
     }
 
-    public void pause()
+    private IEnumerator FailUI()
+    {
+        pauseButton.SetActive(false);
+
+        failScreen[0].SetActive(true);
+        yield return new WaitForSeconds(2.5f);
+
+        failScreen[1].SetActive(true);
+        yield return new WaitForSeconds(1f);
+
+        failScreen[2].SetActive(true);
+        failScreen[3].SetActive(true);
+    }
+
+    public void Pause()
     {
         Time.timeScale = 0;
         pauseMenu.SetActive(true);
     }
-    public void unpause()
+    public void Unpause()
     {
         Time.timeScale = 1;
         pauseMenu.SetActive(false);
     }
-    public void finish()
+    public void Finish()
     {
-        Time.timeScale = 0;
         finishScreen.SetActive(true);
     }
-    public void fail()
+    public void Fail()
     {
-        Time.timeScale = 0;
-        failScreen.SetActive(true);
+        StartCoroutine(FailUI());
     }
-    public void retry()
+    public void Retry()
     {
         string sceneName = SceneManager.GetActiveScene().name;
         SceneManager.LoadScene(sceneName);
     }
-    public void mainMenu()
+    public void MainMenu()
     {
         SceneManager.LoadScene("MainMenu");
     }

@@ -7,6 +7,11 @@ public class PlayerData : MonoBehaviour
 {
 
     public UI ui;
+    public MoveCamera moveCamera;
+    public PlayerMove playerMove;
+    public PlayerAnimation playerAnimation;
+    public Particle particle;
+
 
     private List<int> objects; //흡수한 오브젝트들 ID 리스트
 
@@ -65,14 +70,10 @@ public class PlayerData : MonoBehaviour
                     playerData[i] += (devilData[i] - snowgroundData[i]) * Time.deltaTime;
 
             if (playerData[1] <= 0) //게임오버
-            {
-                playerData[1] = 0;
-                ui.fail();
-            }
+                Fail();
+
             if (playerData[0] <= playerData[1]) //체력 초과
-            {
                 playerData[1] = playerData[0];
-            }
 
             damageTimer -= Time.deltaTime;
             if (damage >= playerData[0] - playerData[1]) damage = playerData[0] - playerData[1];
@@ -85,13 +86,32 @@ public class PlayerData : MonoBehaviour
         }
     }
 
+    private IEnumerator FailPlayerData()
+    {
+        playerData[1] = 0;
+        GetComponent<SpriteRenderer>().sortingOrder = 8;
+        GetComponent<SpriteRenderer>().maskInteraction = SpriteMaskInteraction.None;
+
+        while(true)
+        {
+            damageTimer -= Time.deltaTime;
+            if (damageTimer <= 0)
+            {
+                if (damage <= 0) damage = 0;
+                else damage -= Time.deltaTime * 10f;
+            }
+
+            yield return null;
+        }
+    }
+
     public void TreeStone(Collision2D other)
     {
         float[] data = other.gameObject.GetComponentInParent<ObjectData>().data;
         for (int i = 0; i < 4; i++) playerData[i] += data[i];
         damage -= data[1];
         damageTimer = 1f;
-        if (playerData[1] > 0) Destroy(other.gameObject);
+        Destroy(other.gameObject);
     }
 
     public void Orb(Collision2D other)
@@ -110,8 +130,19 @@ public class PlayerData : MonoBehaviour
 
     public void Goal()
     {
-        ui.finish();
-        DataManager.Instance.SaveData((int)playerData[3],objects);
+        Time.timeScale = 0;
+        ui.Finish();
     }
 
+    public void Fail()
+    {
+        StopAllCoroutines();
+        StartCoroutine(FailPlayerData());
+
+        moveCamera.Fail();
+        playerMove.Fail();
+        playerAnimation.Fail();
+        particle.Fail();
+        ui.Fail();
+    }
 }

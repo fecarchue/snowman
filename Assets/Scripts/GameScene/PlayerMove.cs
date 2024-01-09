@@ -102,4 +102,9 @@ public class PlayerMove : MonoBehaviour
         }
     }
 
+    public void Fail()
+    {
+        StopAllCoroutines();
+    }
+
 }

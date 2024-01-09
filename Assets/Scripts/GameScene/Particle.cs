@@ -86,4 +86,9 @@ public class Particle : MonoBehaviour
             Destroy(fog, 0.7f);
         }
     }
+
+    public void Fail()
+    {
+        StopAllCoroutines();
+    }
 }
