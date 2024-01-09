@@ -36,10 +36,10 @@ public class PlayerMove : MonoBehaviour
 
     private void Start()
     {
-        StartCoroutine(InGameMovePlayer());
+        StartCoroutine(MovePlayer(false));
     }
 
-    private IEnumerator InGameMovePlayer()
+    private IEnumerator MovePlayer(bool isGoal)
     {
         while (true) // 무한 반복
         {
@@ -47,6 +47,7 @@ public class PlayerMove : MonoBehaviour
             isIce = GetComponentInChildren<PlayerTrigger>().isIce;
 
             if (!isIce) {
+
                 //rawXSpeed는 (-1 * xSpeedRate * maxSwipeConst) ~ (xSpeedRate * maxSwipeConst)로 제한
                 rawSwipe = swipe.GetComponent<Swipe>().dist;
                 if (rawSwipe >= 0) x1Speed = xSpeedRate * Mathf.Min(maxSwipeConst, rawSwipe);
@@ -83,6 +84,8 @@ public class PlayerMove : MonoBehaviour
                 x4Speed = x3Speed * snowScale;
                 y2Speed = y1Speed * snowScale;
             }
+
+            if (isGoal) x4Speed = 0;
             transform.position += Vector3.right * x4Speed * Time.deltaTime;
             transform.position += Vector3.down * y2Speed * Time.deltaTime;
 
@@ -102,9 +105,17 @@ public class PlayerMove : MonoBehaviour
         }
     }
 
-    public void Fail()
+
+    public void Goal()
+    {
+        StopAllCoroutines();
+        StartCoroutine(MovePlayer(true));
+    }
+
+    public void Stop()
     {
         StopAllCoroutines();
     }
+
 
 }

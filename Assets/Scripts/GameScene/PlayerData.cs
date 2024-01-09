@@ -70,7 +70,10 @@ public class PlayerData : MonoBehaviour
                     playerData[i] += (devilData[i] - snowgroundData[i]) * Time.deltaTime;
 
             if (playerData[1] <= 0) //게임오버
+            {
+                playerData[1] = 0;
                 Fail();
+            }
 
             if (playerData[0] <= playerData[1]) //체력 초과
                 playerData[1] = playerData[0];
@@ -86,11 +89,14 @@ public class PlayerData : MonoBehaviour
         }
     }
 
-    private IEnumerator FailPlayerData()
+    private IEnumerator StopPlayerData(bool isGoal)
     {
-        playerData[1] = 0;
         GetComponent<SpriteRenderer>().sortingOrder = 8;
         GetComponent<SpriteRenderer>().maskInteraction = SpriteMaskInteraction.None;
+        int count = 0;
+        bool countDone = false;
+        string prevSprite = "temp";
+        string nowSprite;
 
         while(true)
         {
@@ -99,6 +105,23 @@ public class PlayerData : MonoBehaviour
             {
                 if (damage <= 0) damage = 0;
                 else damage -= Time.deltaTime * 10f;
+            }
+
+            if (count <= 1 && isGoal)
+            {
+                nowSprite = gameObject.GetComponent<SpriteRenderer>().sprite.name;
+
+                if (nowSprite != prevSprite && nowSprite.EndsWith("_0")) count++;
+                prevSprite = nowSprite;
+            }
+
+            if (!countDone && count == 2)
+            {
+                countDone = true;
+                particle.Stop();
+                playerAnimation.Goal();
+                playerMove.Stop();
+                ui.Goal();
             }
 
             yield return null;
@@ -130,19 +153,23 @@ public class PlayerData : MonoBehaviour
 
     public void Goal()
     {
-        Time.timeScale = 0;
-        ui.Finish();
+        StopAllCoroutines();
+        StartCoroutine(StopPlayerData(true));
+     
+        playerMove.Goal();
+        moveCamera.Goal();
+        playerAnimation.SubGoal();
     }
 
     public void Fail()
     {
         StopAllCoroutines();
-        StartCoroutine(FailPlayerData());
+        StartCoroutine(StopPlayerData(false));
 
+        particle.Stop();
+        playerMove.Stop();
         moveCamera.Fail();
-        playerMove.Fail();
         playerAnimation.Fail();
-        particle.Fail();
         ui.Fail();
     }
 }

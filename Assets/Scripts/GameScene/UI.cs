@@ -19,10 +19,12 @@ public class UI : MonoBehaviour //UI 전부를 다루는 스크립트
     public GameObject pauseButton;
     public GameObject pauseMenu;
     public GameObject startMenu;
-    public GameObject finishScreen;
+    public GameObject[] goalScreen = new GameObject[4];
     public GameObject[] failScreen = new GameObject[4];
 
     public float barLength = 20f;
+
+    
 
     void Start()
     {
@@ -72,6 +74,34 @@ public class UI : MonoBehaviour //UI 전부를 다루는 스크립트
         }
     }
 
+    private IEnumerator GoalUI()
+    {
+        pauseButton.SetActive(false);
+
+        goalScreen[0].SetActive(true);
+        goalScreen[1].SetActive(true);
+        Color from = new Color(0, 0, 0, 0);
+        Color to = new Color(0, 0, 0, 0.7f);
+        float duration = 1f;
+        float time = 0f;
+        while (time < duration)
+        {
+            goalScreen[1].GetComponent<SpriteRenderer>().color =
+                Color.Lerp(from, to, time / duration);
+            time += Time.deltaTime;
+
+            yield return null;
+        }
+
+        yield return new WaitForSeconds(0.5f);
+
+        goalScreen[2].SetActive(true);
+        yield return new WaitForSeconds(1f);
+
+        goalScreen[3].SetActive(true);
+        goalScreen[4].SetActive(true);
+    }
+
     private IEnumerator FailUI()
     {
         pauseButton.SetActive(false);
@@ -96,9 +126,9 @@ public class UI : MonoBehaviour //UI 전부를 다루는 스크립트
         Time.timeScale = 1;
         pauseMenu.SetActive(false);
     }
-    public void Finish()
+    public void Goal()
     {
-        finishScreen.SetActive(true);
+        StartCoroutine(GoalUI());
     }
     public void Fail()
     {

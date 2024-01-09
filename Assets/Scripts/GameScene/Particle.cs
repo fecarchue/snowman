@@ -87,7 +87,7 @@ public class Particle : MonoBehaviour
         }
     }
 
-    public void Fail()
+    public void Stop()
     {
         StopAllCoroutines();
     }
