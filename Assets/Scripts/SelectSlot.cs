@@ -4,12 +4,13 @@ using UnityEngine.SceneManagement;
 using System.IO;
 using TMPro;
 using UnityEngine.UI;
+using System.Collections.Generic;
 
 public class SelectSlot : MonoBehaviour
 {
     private ObjectInfomation objectinfo;
     public Snowball SelectSnowball;
-    public GameObject WeightObj, VolumeObj, PowerObj, TopsnowmanObj,BotsnowmanObj, ObjectInfoObj;
+    public GameObject PowerObj, TotalPowerObj, TopsnowmanObj,BotsnowmanObj, ObjectInfoObj;
     private Image Topsnowman, Botsnowman;
     private string jsonPath;
     private SnowballData snowballData;
@@ -68,7 +69,7 @@ public class SelectSlot : MonoBehaviour
 
     public void ClickSlot() //슬롯 클릭 할때 호출
     {
-        string[] objects = new string[10];
+        List<int> objects = new List<int>();
         clickObject = EventSystem.current.currentSelectedGameObject;
         
         //슬롯 클릭시 버튼 번호 가져오기
@@ -109,10 +110,9 @@ public class SelectSlot : MonoBehaviour
     public void ShowStatus() // 상태창에 Text 띄워주는 함수
     {
 
-        TextMeshProUGUI WeightText = WeightObj.GetComponent<TextMeshProUGUI>();
-        TextMeshProUGUI VolumeText = VolumeObj.GetComponent<TextMeshProUGUI>();
-        WeightText.text = "Weight: " + SelectSnowball.weight;
-        VolumeText.text = "Volume: " + SelectSnowball.volume;
+        TextMeshProUGUI PowerText = PowerObj.GetComponent<TextMeshProUGUI>();
+        PowerText.text = "Power: " + SelectSnowball.power;
+
     }
 
     public int getClickID() // 클릭된 버튼 숫자 가져오는 함수
@@ -180,13 +180,13 @@ public class SelectSlot : MonoBehaviour
 
             Topsnowman.color = Color.white;
 
-            PowerCheck();
+            TotalPowerCheck();
         }
 
        else if(currentSlot == BotSlotController && TopSlotController != null) //선택한 슬롯이 아랫 눈사람이면서 윗 눈사람이 존재
         {//위에 있는 눈덩이를 치워야 아래눈덩이가 제거됨
             Debug.Log("위에 있는 눈덩이를 먼저 제거해주세요");
-            PowerCheck();
+            TotalPowerCheck();
         }
 
        else if (currentSlot == BotSlotController) //선택한 슬롯이 아랫 눈사람인데 윗 눈사람이 없음
@@ -199,7 +199,7 @@ public class SelectSlot : MonoBehaviour
 
             Botsnowman.color = Color.white;
 
-            PowerCheck();
+            TotalPowerCheck();
         }
 
        else if(BotSlotController == null && TopSlotController ==null) //위 아래 눈사람 다 비어있을때
@@ -212,7 +212,7 @@ public class SelectSlot : MonoBehaviour
 
             Botsnowman.color = Color.gray;
 
-            PowerCheck();
+            TotalPowerCheck();
         }
 
        else if(BotSlotController != null && TopSlotController == null) //아래 눈사람만 있을때
@@ -225,13 +225,13 @@ public class SelectSlot : MonoBehaviour
 
             Topsnowman.color = Color.gray;
 
-            PowerCheck();
+            TotalPowerCheck();
         }
 
        else // 꽉 차있을때
         {
             Debug.Log("이미 모두 선택되었습니다");
-            PowerCheck();
+            TotalPowerCheck();
         }
     }
 
@@ -247,17 +247,17 @@ public class SelectSlot : MonoBehaviour
         previousSlot = null;
     }
 
-    private void PowerCheck() // TopSnowball과 BotSnowball이 비어있지 않으면 전투력 측정
+    private void TotalPowerCheck() // TopSnowball과 BotSnowball이 비어있지 않으면 전투력 측정
     {
-        TextMeshProUGUI Powertext = PowerObj.GetComponent<TextMeshProUGUI>();
+        TextMeshProUGUI TotalPowertext = TotalPowerObj.GetComponent<TextMeshProUGUI>();
         if (TopSnowball != null && BotSnowball != null)
         {
-            power = (TopSnowball.weight + BotSnowball.weight) * (TopSnowball.volume + BotSnowball.volume);
-            Powertext.text = "Power: " + power;
+            power = (TopSnowball.power + BotSnowball.power);
+            TotalPowertext.text = "Power: " + power;
         }
         else
         {
-            Powertext.text = "Power: " + 0;
+            TotalPowertext.text = "Power: " + 0;
         }
     }
 
@@ -269,7 +269,7 @@ public class SelectSlot : MonoBehaviour
             DataManager.Instance.DeleteData(TopSnowball.id, BotSnowball.id);
             Awake();
             DataManager.Instance.CurrentPower = power;
-            SceneManager.LoadScene("FightScene");
+            SceneManager.LoadScene("FightCutScene");
         }
         else
         {

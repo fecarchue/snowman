@@ -111,6 +111,7 @@ public class PlayerData : MonoBehaviour
     public void Goal()
     {
         ui.finish();
+        DataManager.Instance.SaveData((int)playerData[3],objects);
     }
 
 }

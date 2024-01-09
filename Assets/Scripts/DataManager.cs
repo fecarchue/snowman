@@ -43,7 +43,7 @@ public class DataManager : MonoBehaviour
         SortData();   
     }
 
-    public void SaveData(int snowweight, int snowvolume, string[] objects)
+    public void SaveData(int power, List<int> objects) // DataManager.Instance.SaveData(power,objects); --> 코드 추가하면 저장
     {
         SortData();
 
@@ -52,8 +52,7 @@ public class DataManager : MonoBehaviour
         Snowball snowball = new Snowball
         {
             id = idcount,
-            weight = snowweight,
-            volume = snowvolume,
+            power = power,
             objects = objects
         };
 
@@ -145,9 +144,8 @@ public class DataManager : MonoBehaviour
 public class Snowball
 {
     public int id;
-    public int weight;
-    public int volume;
-    public string[] objects;
+    public int power;
+    public List<int> objects;
 }
 
 [System.Serializable]
