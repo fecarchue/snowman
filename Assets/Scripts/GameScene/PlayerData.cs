@@ -37,13 +37,15 @@ public class PlayerData : MonoBehaviour
     [HideInInspector] public int starCount = 0;
 
     private bool isGround, isDevil;
-    
+    private bool canDash = false;
+
     void Start()
     {
         objects = new List<int>();
         initialV = playerData[2];
         snowScale = 1f;
         StartCoroutine(InGamePlayerData());
+        StartCoroutine(CheckMouseUpForDash());
     }
 
     private IEnumerator InGamePlayerData()
@@ -144,6 +146,45 @@ public class PlayerData : MonoBehaviour
         Destroy(other.gameObject);
     }
 
+    public void EnableDash()
+    {
+        canDash = true;
+        Debug.Log("Dash on"); // Dash 가능 상태 메시지 출력
+    }
+    private IEnumerator CheckMouseUpForDash()
+    {
+        while (true)
+        {
+            if (canDash && Input.GetMouseButtonUp(0)) // 터치가 끊어진 순간에만 Dash 실행
+            {
+                Debug.Log("Dash!"); // Dash 메시지 출력
+
+                // 여기에 원하는 Dash 동작을 추가
+                // 예를 들어, 이동 속도 증가 등의 효과를 구현할 수 있음
+
+                // 왼쪽으로 1초간 이동
+                StartCoroutine(MoveLeftForDuration(1f));
+
+                canDash = false; // Dash 사용 후 상태 초기화
+            }
+
+            yield return null;
+        }
+    }
+    private IEnumerator MoveLeftForDuration(float duration)
+    {
+        float elapsedTime = 0f;
+        float dashSpeed = 10f; // Dash 속도 조절
+
+        while (elapsedTime < duration)
+        {
+            transform.Translate(Vector2.left * dashSpeed * Time.deltaTime);
+            elapsedTime += Time.deltaTime;
+            yield return null;
+        }
+    }
+
+
     public void Star(Collision2D other, int ID)
     {
         starCount++;
@@ -172,4 +213,6 @@ public class PlayerData : MonoBehaviour
         playerAnimation.Fail();
         ui.Fail();
     }
+
+
 }

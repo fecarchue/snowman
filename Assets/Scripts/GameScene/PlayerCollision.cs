@@ -28,8 +28,9 @@ public class PlayerCollision : MonoBehaviour
                 playerData.TreeStone(collider);
                 break;
 
-            case 20: //Orb
-                playerData.Orb(collider);
+            case 20: // dashOrb
+                playerData.EnableDash();
+                Destroy(collider.gameObject);
                 break;
 
             case 21: //Star
