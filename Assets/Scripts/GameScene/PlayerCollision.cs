@@ -28,12 +28,47 @@ public class PlayerCollision : MonoBehaviour
                 playerData.TreeStone(collider);
                 break;
 
-            case 20: // dashOrb
-                playerData.EnableDash();
+            case 20: // LEFTUP dashOrb
+                playerData.EnableDashLU();
+                Destroy(collider.gameObject);
+                break;
+            case 21: // LEFT dashOrb                        
+                playerData.EnableDashLL();
+                Destroy(collider.gameObject);
+                break;
+            case 22: // LEFTDOWN dashOrb
+                playerData.EnableDashLD();
+                Destroy(collider.gameObject);
+                break;
+            case 23: // DOWN dashOrb
+                playerData.EnableDashDD();
+                Destroy(collider.gameObject);
+                break;
+            case 24: // RIGHTDOWN dashOrb
+                playerData.EnableDashRD();
+                Destroy(collider.gameObject);
+                break;
+            case 25: // RIGHT dashOrb
+                playerData.EnableDashRR();
+                Destroy(collider.gameObject);
+                break;
+            case 26: // RIGHTUP dashOrb
+                playerData.EnableDashRU();
+                Destroy(collider.gameObject);
+                break;
+//여기까지 dashOrb
+
+            case 30: // RushOrb
+                playerData.EnableRush();
                 Destroy(collider.gameObject);
                 break;
 
-            case 21: //Star
+            case 40: // ShrinkOrb
+                playerData.EnableShrink();
+                Destroy(collider.gameObject);
+                break;
+
+            case 50: //Star
                 playerData.Star(collider, ID);
                 break;
 

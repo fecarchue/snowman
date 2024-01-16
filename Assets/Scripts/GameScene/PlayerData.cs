@@ -37,7 +37,10 @@ public class PlayerData : MonoBehaviour
     [HideInInspector] public int starCount = 0;
 
     private bool isGround, isDevil;
-    private bool canDash = false;
+    private bool DashLL, DashLD, DashDD, DashRD, DashRR, DashRU, DashLU, Rush, Shrink;    
+    public float dashDuration = 0.2f; // Dash 지속 시간 조절
+    public float dashSpeed = 100f; // Dash 속도 조절
+
 
     void Start()
     {
@@ -45,7 +48,7 @@ public class PlayerData : MonoBehaviour
         initialV = playerData[2];
         snowScale = 1f;
         StartCoroutine(InGamePlayerData());
-        StartCoroutine(CheckMouseUpForDash());
+        StartCoroutine(CheckMouseUp());                 //마우스뗐는지감지-> 오브사용트리거
     }
 
     private IEnumerator InGamePlayerData()
@@ -145,47 +148,71 @@ public class PlayerData : MonoBehaviour
         playerData[3] += power;
         Destroy(other.gameObject);
     }
+    public void EnableDashLU()                                                                                               //여기서 다른 오브값이 true인지확인하고 있으면 그거false하고방금먹은거true되도록!!!
+    {DashLU = true; DashLL = false; DashLD = false; DashDD = false; DashRD = false; DashRR = false; DashRU = false; Rush = false; Shrink = false;}//좀 더럽지만 아무튼 기존오브 false하고 방금먹은거 true되는거 간단하게구현함..
+    public void EnableDashLL()                                                                                                                   
+    {DashLU = false; DashLL = true; DashLD = false; DashDD = false; DashRD = false; DashRR = false; DashRU = false; Rush = false; Shrink = false;}
+    public void EnableDashLD()
+    {DashLU = false; DashLL = false; DashLD = true; DashDD = false; DashRD = false; DashRR = false; DashRU = false; Rush = false; Shrink = false;}
+    public void EnableDashDD()
+    {DashLU = false; DashLL = false; DashLD = false; DashDD = true; DashRD = false; DashRR = false; DashRU = false; Rush = false; Shrink = false;}
+    public void EnableDashRD()
+    {DashLU = false; DashLL = false; DashLD = false; DashDD = false; DashRD = true; DashRR = false; DashRU = false; Rush = false; Shrink = false;}
+    public void EnableDashRR()
+    {DashLU = false; DashLL = false; DashLD = false; DashDD = false; DashRD = false; DashRR = true; DashRU = false; Rush = false; Shrink = false;}
+    public void EnableDashRU()
+    {DashLU = false; DashLL = false; DashLD = false; DashDD = false; DashRD = false; DashRR = false; DashRU = true; Rush = false; Shrink = false;}
 
-    public void EnableDash()
-    {
-        canDash = true;
-        Debug.Log("Dash on"); // Dash 가능 상태 메시지 출력
-    }
-    private IEnumerator CheckMouseUpForDash()
+    public void EnableRush()
+    {DashLU = false; DashLL = false; DashLD = false; DashDD = false; DashRD = false; DashRR = false; DashRU = false; Rush = true; Shrink = false;}
+    public void EnableShrink()
+    {DashLU = false; DashLL = false; DashLD = false; DashDD = false; DashRD = false; DashRR = false; DashRU = false; Rush = false; Shrink = true;}
+
+
+                                                                                                  
+    private IEnumerator CheckMouseUp()          //여기서 다른 불값들을 보고 어떻동작을할지 확인(모든동작들 다 여ㅣㄱ서 실행시키도록때려넣을것!!!
     {
         while (true)
         {
-            if (canDash && Input.GetMouseButtonUp(0)) // 터치가 끊어진 순간에만 Dash 실행
+            if (Input.GetMouseButtonUp(0)) // 터치가 끊어진 순간에만 Dash 실행
             {
-                Debug.Log("Dash!"); // Dash 메시지 출력
 
-                // 여기에 원하는 Dash 동작을 추가
-                // 예를 들어, 이동 속도 증가 등의 효과를 구현할 수 있음
+                if (DashLU) StartCoroutine(MoveInDirectionForDuration(Vector2.left + Vector2.up, dashDuration));
+                else if (DashLL) StartCoroutine(MoveInDirectionForDuration(Vector2.left, dashDuration));
+                else if (DashLD) StartCoroutine(MoveInDirectionForDuration(Vector2.left + Vector2.down, dashDuration));
+                else if (DashDD) StartCoroutine(MoveInDirectionForDuration(Vector2.down, dashDuration));
+                else if (DashRD) StartCoroutine(MoveInDirectionForDuration(Vector2.right + Vector2.down, dashDuration));
+                else if (DashRR) StartCoroutine(MoveInDirectionForDuration(Vector2.right, dashDuration));
+                else if (DashRU) StartCoroutine(MoveInDirectionForDuration(Vector2.right + Vector2.up, dashDuration));
 
-                // 왼쪽으로 1초간 이동
-                StartCoroutine(MoveLeftForDuration(1f));
-
-                canDash = false; // Dash 사용 후 상태 초기화
+                // 모든 방향에 대한 Dash 사용 후 상태 초기화
+                DashLU = DashLL = DashLD = DashDD = DashRD = DashRR = DashRU = false;
             }
-
             yield return null;
         }
     }
-    private IEnumerator MoveLeftForDuration(float duration)
+
+    private IEnumerator MoveInDirectionForDuration(Vector2 direction, float duration)
     {
         float elapsedTime = 0f;
-        float dashSpeed = 10f; // Dash 속도 조절
-
         while (elapsedTime < duration)
         {
-            transform.Translate(Vector2.left * dashSpeed * Time.deltaTime);
+            transform.Translate(direction * dashSpeed * Time.deltaTime);
             elapsedTime += Time.deltaTime;
             yield return null;
         }
     }
 
+    private void SetDashDirection(bool lu, bool ll, bool ld, bool dd, bool rd, bool rr, bool ru)
+    {
+        DashLU = lu; DashLL = ll; DashLD = ld; DashDD = dd; DashRD = rd; DashRR = rr; DashRU = ru;
+    }
 
-    public void Star(Collision2D other, int ID)
+
+
+
+
+public void Star(Collision2D other, int ID)
     {
         starCount++;
         objects.Add(ID);
