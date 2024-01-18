@@ -30,6 +30,7 @@ public class PlayerMove : MonoBehaviour
 
     private bool isSlide;
     private bool isIce;
+    private bool isRush;
     public float slideSpeedRate = 1.5f;
     private float slideMultiplier = 1f;
     public float slideAccel = 0.75f;
@@ -45,8 +46,9 @@ public class PlayerMove : MonoBehaviour
         {
             isSlide = GetComponentInChildren<PlayerTrigger>().isSlide;
             isIce = GetComponentInChildren<PlayerTrigger>().isIce;
+            isRush = GetComponentInChildren<PlayerData>().isRushing;
 
-            if (!isIce) {
+            if (!isIce && !isRush) {        //ice가 아니고 rush가 아닐때
 
                 //rawXSpeed는 (-1 * xSpeedRate * maxSwipeConst) ~ (xSpeedRate * maxSwipeConst)로 제한
                 rawSwipe = swipe.GetComponent<Swipe>().dist;

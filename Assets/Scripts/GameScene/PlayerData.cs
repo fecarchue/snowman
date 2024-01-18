@@ -38,9 +38,12 @@ public class PlayerData : MonoBehaviour
 
     private bool isGround, isDevil;
     private bool DashLL, DashLD, DashDD, DashRD, DashRR, DashRU, DashLU, Rush, Shrink;    
+                                   
     public float dashDuration = 0.2f; // Dash 지속 시간 조절
     public float dashSpeed = 100f; // Dash 속도 조절
-    public float rushDuration = 0.2f; // Rush 지속 시간 조절
+    public float rushDuration = 10f; // Rush 지속 시간 조절
+    private bool isDashing = false;   
+    public bool isRushing = false; //이동중에 다른 오브젝트를 먹었을때 구분
     public float shrinkDuration = 0.2f; // Shrink 지속 시간 조절
 
 
@@ -137,6 +140,9 @@ public class PlayerData : MonoBehaviour
 
     public void TreeStone(Collision2D other)
     {
+        if(isDashing) return; //Dash중에는 트리,돌 무시하고지나감
+        if (isRushing) { Destroy(other.gameObject); return; } //Rush중에는 트리,돌 터트리고 지나감!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!안개생성되는거 추가필요함
+
         float[] data = other.gameObject.GetComponentInParent<ObjectData>().data;
         for (int i = 0; i < 4; i++) playerData[i] += data[i];
         damage -= data[1];
@@ -188,6 +194,7 @@ public class PlayerData : MonoBehaviour
                 else if (DashRR) StartCoroutine(MoveInDirectionForDuration(Vector2.right, dashDuration));
                 else if (DashRU) StartCoroutine(MoveInDirectionForDuration(Vector2.right + Vector2.up, dashDuration));
                 else if (Rush) StartCoroutine(DoRush(rushDuration));
+
                 else if (Shrink) StartCoroutine(DoShrink(shrinkDuration));
 
                 // 모든 방향에 대한 Dash 사용 후 상태 초기화
@@ -196,16 +203,28 @@ public class PlayerData : MonoBehaviour
             yield return null;
         }
     }
-
     private IEnumerator DoRush(float duration)
     {
+        // Rush 동작 중에 입력 무시
+        isRushing = true;
+
         float elapsedTime = 0f;
         while (elapsedTime < duration)
         {
-            transform.Translate(Vector2.up * dashSpeed * Time.deltaTime);
+            if (Input.GetMouseButtonDown(0))                    //도중 터치감지해서 터치시 종료
+            {
+                Debug.Log("Touch detected -> rush over");
+                break;
+            }
+
+            // Rush 동작 추가필요!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!   여기에 체력서서히감소+빨라지기넣어야됨
+
             elapsedTime += Time.deltaTime;
             yield return null;
         }
+
+        // Rush 동작이 끝나면 입력 받기
+        isRushing = false;
     }
 
     private IEnumerator DoShrink(float duration)
@@ -213,8 +232,7 @@ public class PlayerData : MonoBehaviour
         float elapsedTime = 0f;
         while (elapsedTime < duration)
         {
-            transform.Translate(Vector2.down * dashSpeed * Time.deltaTime);
-            elapsedTime += Time.deltaTime;
+            // Shrink 동작 추가필요!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
             yield return null;
         }
     }
@@ -223,6 +241,7 @@ public class PlayerData : MonoBehaviour
 
     private IEnumerator MoveInDirectionForDuration(Vector2 direction, float duration)
     {
+        isDashing = true;
         float elapsedTime = 0f;
         while (elapsedTime < duration)
         {
@@ -230,13 +249,14 @@ public class PlayerData : MonoBehaviour
             elapsedTime += Time.deltaTime;
             yield return null;
         }
+        isDashing = false;
     }
 
-    private void SetDashDirection(bool lu, bool ll, bool ld, bool dd, bool rd, bool rr, bool ru)
+/*    private void SetDashDirection(bool lu, bool ll, bool ld, bool dd, bool rd, bool rr, bool ru)
     {
         DashLU = lu; DashLL = ll; DashLD = ld; DashDD = dd; DashRD = rd; DashRR = rr; DashRU = ru;
     }
-
+*/
 
 
 
