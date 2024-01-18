@@ -40,6 +40,8 @@ public class PlayerData : MonoBehaviour
     private bool DashLL, DashLD, DashDD, DashRD, DashRR, DashRU, DashLU, Rush, Shrink;    
     public float dashDuration = 0.2f; // Dash 지속 시간 조절
     public float dashSpeed = 100f; // Dash 속도 조절
+    public float rushDuration = 0.2f; // Rush 지속 시간 조절
+    public float shrinkDuration = 0.2f; // Shrink 지속 시간 조절
 
 
     void Start()
@@ -148,6 +150,7 @@ public class PlayerData : MonoBehaviour
         playerData[3] += power;
         Destroy(other.gameObject);
     }
+
     public void EnableDashLU()                                                                                               //여기서 다른 오브값이 true인지확인하고 있으면 그거false하고방금먹은거true되도록!!!
     {DashLU = true; DashLL = false; DashLD = false; DashDD = false; DashRD = false; DashRR = false; DashRU = false; Rush = false; Shrink = false;}//좀 더럽지만 아무튼 기존오브 false하고 방금먹은거 true되는거 간단하게구현함..
     public void EnableDashLL()                                                                                                                   
@@ -184,13 +187,39 @@ public class PlayerData : MonoBehaviour
                 else if (DashRD) StartCoroutine(MoveInDirectionForDuration(Vector2.right + Vector2.down, dashDuration));
                 else if (DashRR) StartCoroutine(MoveInDirectionForDuration(Vector2.right, dashDuration));
                 else if (DashRU) StartCoroutine(MoveInDirectionForDuration(Vector2.right + Vector2.up, dashDuration));
+                else if (Rush) StartCoroutine(DoRush(rushDuration));
+                else if (Shrink) StartCoroutine(DoShrink(shrinkDuration));
 
                 // 모든 방향에 대한 Dash 사용 후 상태 초기화
-                DashLU = DashLL = DashLD = DashDD = DashRD = DashRR = DashRU = false;
+                DashLU = DashLL = DashLD = DashDD = DashRD = DashRR = DashRU = Rush = Shrink = false;
             }
             yield return null;
         }
     }
+
+    private IEnumerator DoRush(float duration)
+    {
+        float elapsedTime = 0f;
+        while (elapsedTime < duration)
+        {
+            transform.Translate(Vector2.up * dashSpeed * Time.deltaTime);
+            elapsedTime += Time.deltaTime;
+            yield return null;
+        }
+    }
+
+    private IEnumerator DoShrink(float duration)
+    {
+        float elapsedTime = 0f;
+        while (elapsedTime < duration)
+        {
+            transform.Translate(Vector2.down * dashSpeed * Time.deltaTime);
+            elapsedTime += Time.deltaTime;
+            yield return null;
+        }
+    }
+
+
 
     private IEnumerator MoveInDirectionForDuration(Vector2 direction, float duration)
     {
