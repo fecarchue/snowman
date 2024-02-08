@@ -19,6 +19,8 @@ public class Particle : MonoBehaviour
     public float fogDistance = 0.7f;
     public float fogScale = 0.5f;
 
+    private bool isCrush = false;
+
     void Start()
     {
         StartCoroutine(MakeParticle());
@@ -83,6 +85,24 @@ public class Particle : MonoBehaviour
             GameObject fog = Instantiate(fogPrefab[spriteNumber], spawnPosition, Quaternion.identity);
             fog.transform.localScale = new Vector3(snowScale * fogScale, snowScale * fogScale, 0);
             
+            Destroy(fog, 0.7f);
+        }
+    }
+
+    public void SpawnFogDuringRush()
+    {
+        for (int i = 0; i < fogAmount; i++)
+        {
+            //float randomAngle = Random.Range(0f, 360f);
+            float randomAngle = i * (360f / fogAmount);
+            float snowScale = GetComponent<PlayerData>().snowScale;
+
+            Vector3 spawnPosition = transform.position - new Vector3(0, 2, 0) + new Vector3(Mathf.Cos(randomAngle), Mathf.Sin(randomAngle), 0) * snowScale * fogDistance;
+
+            spriteNumber = Random.Range(0, 3);
+            GameObject fog = Instantiate(fogPrefab[spriteNumber], spawnPosition, Quaternion.identity);
+            fog.transform.localScale = new Vector3(snowScale * fogScale, snowScale * fogScale, 0);
+
             Destroy(fog, 0.7f);
         }
     }

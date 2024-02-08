@@ -13,7 +13,6 @@ public class PlayerData : MonoBehaviour
     public PlayerAnimation playerAnimation;
     public Particle particle;
 
-
     private List<int> objects; //흡수한 오브젝트들 ID 리스트
 
     //플레이어와 모든 플레이어의 수치를 변경하는 오브젝트들은 다음과 같은 데이터를 가진다:
@@ -47,9 +46,11 @@ public class PlayerData : MonoBehaviour
 
     public bool isRushing = false; //이동중에 다른 오브젝트를 먹었을때 구분
     public float rushDuration = 10f; // Rush 지속 시간 조절
+    public bool crush = false;
     public float rushDamage = 0.02f;
 
     public bool isShrinked = false;
+    [HideInInspector] public float shrinkedScale;
     public float shrinkDuration = 3f; // Shrink 지속 시간 조절
 
 
@@ -64,7 +65,7 @@ public class PlayerData : MonoBehaviour
 
     private IEnumerator InGamePlayerData()
     {
-        while (!isShrinked)
+        while (true)
         {
             if (playerData[2] >= nextSize[playerSize]) playerSize++;
 
@@ -147,7 +148,11 @@ public class PlayerData : MonoBehaviour
     public void TreeStone(Collision2D other)
     {
         if(isDashing) return; //Dash중에는 트리,돌 무시하고지나감
-        if (isRushing) { Destroy(other.gameObject); return; } //Rush중에는 트리,돌 터트리고 지나감!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!안개생성되는거 추가필요함
+        if (isRushing) {
+            
+            Destroy(other.gameObject);
+            particle.SpawnFogDuringRush();                                      //rush중에 밑에 먼지 생기게 함. 코드는 particle에있음
+            return; } //Rush중에는 트리,돌 터트리고 지나감
 
         float[] data = other.gameObject.GetComponentInParent<ObjectData>().data;
         for (int i = 0; i < 4; i++) playerData[i] += data[i];
@@ -250,6 +255,7 @@ public class PlayerData : MonoBehaviour
 
     private IEnumerator DoShrink(float duration)
     {
+        isShrinked = true;
         float initialScale = transform.localScale.x; // 초기 스케일 저장
         float targetShrinkScale = initialScale * 0.5f; // 축소할 목표 스케일 (현재 크기의 절반)
 
@@ -258,6 +264,7 @@ public class PlayerData : MonoBehaviour
         while (elapsedTime < 2f)    //2초간축소과정
         {
             float scale = Mathf.Lerp(initialScale, targetShrinkScale, elapsedTime / 2f);
+            shrinkedScale = scale;
             transform.localScale = new Vector3(scale, scale, 1f);
             elapsedTime += Time.deltaTime;
             yield return null;
@@ -269,17 +276,16 @@ public class PlayerData : MonoBehaviour
             elapsedTime += Time.deltaTime;
             yield return null;
         }
-
-        
-
         elapsedTime = 0f;
         while (elapsedTime < 1f)  // 다시 원래 크기로 돌아가도록 1초간 확대
         {
             float scale = Mathf.Lerp(targetShrinkScale, initialScale+1, elapsedTime / 1f);  //그사이 조금 커지니까 1더해줌
+            shrinkedScale = scale;
             transform.localScale = new Vector3(scale, scale, 1f);
             elapsedTime += Time.deltaTime;
             yield return null;
         }
+        isShrinked = false;
     }
 
 
