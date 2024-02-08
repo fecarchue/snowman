@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Runtime.CompilerServices;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public class PlayerData : MonoBehaviour
 {
@@ -32,19 +33,24 @@ public class PlayerData : MonoBehaviour
     [HideInInspector] public float snowScale; // 그래픽 변환 고려한 실제 Scale
     private float targetScale;
     [HideInInspector] public float damage;
+    
     private float damageTimer = 0f;
 
     [HideInInspector] public int starCount = 0;
 
     private bool isGround, isDevil;
-    private bool DashLL, DashLD, DashDD, DashRD, DashRR, DashRU, DashLU, Rush, Shrink;    
-                                   
+    private bool DashLL, DashLD, DashDD, DashRD, DashRR, DashRU, DashLU, Rush, Shrink;
+
+    public bool isDashing = false;                         
     public float dashDuration = 0.2f; // Dash 지속 시간 조절
     public float dashSpeed = 100f; // Dash 속도 조절
-    public float rushDuration = 10f; // Rush 지속 시간 조절
-    private bool isDashing = false;   
+
     public bool isRushing = false; //이동중에 다른 오브젝트를 먹었을때 구분
-    public float shrinkDuration = 0.2f; // Shrink 지속 시간 조절
+    public float rushDuration = 10f; // Rush 지속 시간 조절
+    public float rushDamage = 0.02f;
+
+    public bool isShrinked = false;
+    public float shrinkDuration = 3f; // Shrink 지속 시간 조절
 
 
     void Start()
@@ -58,7 +64,7 @@ public class PlayerData : MonoBehaviour
 
     private IEnumerator InGamePlayerData()
     {
-        while (true)
+        while (!isShrinked)
         {
             if (playerData[2] >= nextSize[playerSize]) playerSize++;
 
@@ -179,30 +185,42 @@ public class PlayerData : MonoBehaviour
 
 
                                                                                                   
-    private IEnumerator CheckMouseUp()          //여기서 다른 불값들을 보고 어떻동작을할지 확인(모든동작들 다 여ㅣㄱ서 실행시키도록때려넣을것!!!
+    private IEnumerator CheckMouseUp()          //여기서 다른 불값들을 보고 어떻동작을할지 확인
     {
         while (true)
         {
             if (Input.GetMouseButtonUp(0)) // 터치가 끊어진 순간에만 Dash 실행
             {
 
-                if (DashLU) StartCoroutine(MoveInDirectionForDuration(Vector2.left + Vector2.up, dashDuration));
-                else if (DashLL) StartCoroutine(MoveInDirectionForDuration(Vector2.left, dashDuration));
-                else if (DashLD) StartCoroutine(MoveInDirectionForDuration(Vector2.left + Vector2.down, dashDuration));
-                else if (DashDD) StartCoroutine(MoveInDirectionForDuration(Vector2.down, dashDuration));
-                else if (DashRD) StartCoroutine(MoveInDirectionForDuration(Vector2.right + Vector2.down, dashDuration));
-                else if (DashRR) StartCoroutine(MoveInDirectionForDuration(Vector2.right, dashDuration));
-                else if (DashRU) StartCoroutine(MoveInDirectionForDuration(Vector2.right + Vector2.up, dashDuration));
+                if (DashLU)  StartCoroutine(DoDash(Vector2.left + Vector2.up, dashDuration));
+                else if (DashLL)  StartCoroutine(DoDash(Vector2.left, dashDuration));  
+                else if (DashLD)  StartCoroutine(DoDash(Vector2.left + Vector2.down, dashDuration)); 
+                else if (DashDD)  StartCoroutine(DoDash(Vector2.down, dashDuration)); 
+                else if (DashRD)  StartCoroutine(DoDash(Vector2.right + Vector2.down, dashDuration));
+                else if (DashRR)  StartCoroutine(DoDash(Vector2.right, dashDuration)); 
+                else if (DashRU)  StartCoroutine(DoDash(Vector2.right + Vector2.up, dashDuration)); 
                 else if (Rush) StartCoroutine(DoRush(rushDuration));
-
                 else if (Shrink) StartCoroutine(DoShrink(shrinkDuration));
 
                 // 모든 방향에 대한 Dash 사용 후 상태 초기화
-                DashLU = DashLL = DashLD = DashDD = DashRD = DashRR = DashRU = Rush = Shrink = false;
+                DashLU = DashLL = DashLD = DashDD = DashRD = DashRR = DashRU = Rush = Shrink =  false;
             }
             yield return null;
         }
+    }    
+    private IEnumerator DoDash(Vector2 direction, float duration)
+    {
+        isDashing = true;
+        float elapsedTime = 0f;
+        while (elapsedTime < duration)
+        {
+            transform.Translate(direction * dashSpeed * Time.deltaTime);
+            elapsedTime += Time.deltaTime;
+            yield return null;
+        }
+        isDashing = false;
     }
+
     private IEnumerator DoRush(float duration)
     {
         // Rush 동작 중에 입력 무시
@@ -216,52 +234,56 @@ public class PlayerData : MonoBehaviour
                 Debug.Log("Touch detected -> rush over");
                 break;
             }
+            //빨라지는건 playerMove에서 속도증가로넣음
 
-            // Rush 동작 추가필요!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!   여기에 체력서서히감소+빨라지기넣어야됨
+            //이건 rush시 체력 서서히감소 임
+            playerData[1] -= rushDamage;
 
             elapsedTime += Time.deltaTime;
             yield return null;
         }
-
         // Rush 동작이 끝나면 입력 받기
         isRushing = false;
     }
 
+
+
     private IEnumerator DoShrink(float duration)
     {
+        float initialScale = transform.localScale.x; // 초기 스케일 저장
+        float targetShrinkScale = initialScale * 0.5f; // 축소할 목표 스케일 (현재 크기의 절반)
+
+        // 축소
         float elapsedTime = 0f;
-        while (elapsedTime < duration)
+        while (elapsedTime < 2f)    //2초간축소과정
         {
-            // Shrink 동작 추가필요!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-            yield return null;
-        }
-    }
-
-
-
-    private IEnumerator MoveInDirectionForDuration(Vector2 direction, float duration)
-    {
-        isDashing = true;
-        float elapsedTime = 0f;
-        while (elapsedTime < duration)
-        {
-            transform.Translate(direction * dashSpeed * Time.deltaTime);
+            float scale = Mathf.Lerp(initialScale, targetShrinkScale, elapsedTime / 2f);
+            transform.localScale = new Vector3(scale, scale, 1f);
             elapsedTime += Time.deltaTime;
             yield return null;
         }
-        isDashing = false;
+        elapsedTime = 0f;
+        while (elapsedTime < duration)
+        {
+            transform.localScale = new Vector3(targetShrinkScale, targetShrinkScale, 1f);
+            elapsedTime += Time.deltaTime;
+            yield return null;
+        }
+
+        
+
+        elapsedTime = 0f;
+        while (elapsedTime < 1f)  // 다시 원래 크기로 돌아가도록 1초간 확대
+        {
+            float scale = Mathf.Lerp(targetShrinkScale, initialScale+1, elapsedTime / 1f);  //그사이 조금 커지니까 1더해줌
+            transform.localScale = new Vector3(scale, scale, 1f);
+            elapsedTime += Time.deltaTime;
+            yield return null;
+        }
     }
 
-/*    private void SetDashDirection(bool lu, bool ll, bool ld, bool dd, bool rd, bool rr, bool ru)
-    {
-        DashLU = lu; DashLL = ll; DashLD = ld; DashDD = dd; DashRD = rd; DashRR = rr; DashRU = ru;
-    }
-*/
 
-
-
-
-public void Star(Collision2D other, int ID)
+    public void Star(Collision2D other, int ID)
     {
         starCount++;
         objects.Add(ID);

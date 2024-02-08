@@ -31,9 +31,13 @@ public class PlayerMove : MonoBehaviour
     private bool isSlide;
     private bool isIce;
     private bool isRush;
+    private bool isDash;
     public float slideSpeedRate = 1.5f;
     private float slideMultiplier = 1f;
     public float slideAccel = 0.75f;
+
+    public float rushDuration, dashDuration;
+    
 
     private void Start()
     {
@@ -47,9 +51,9 @@ public class PlayerMove : MonoBehaviour
             isSlide = GetComponentInChildren<PlayerTrigger>().isSlide;
             isIce = GetComponentInChildren<PlayerTrigger>().isIce;
             isRush = GetComponentInChildren<PlayerData>().isRushing;
+            isDash = GetComponentInChildren<PlayerData>().isDashing;
 
             if (!isIce && !isRush) {        //ice가 아니고 rush가 아닐때
-
                 //rawXSpeed는 (-1 * xSpeedRate * maxSwipeConst) ~ (xSpeedRate * maxSwipeConst)로 제한
                 rawSwipe = swipe.GetComponent<Swipe>().dist;
                 if (rawSwipe >= 0) x1Speed = xSpeedRate * Mathf.Min(maxSwipeConst, rawSwipe);
@@ -67,7 +71,6 @@ public class PlayerMove : MonoBehaviour
                     else if (x2Speed > 0) x2Speed -= xDecel * Time.deltaTime;
                     if (Mathf.Abs(x1Speed - x2Speed) < xDecel * Time.deltaTime) x2Speed = 0; //0 근처에서 +-+- 왔다갔다 방지
                 }
-
                 if (isSlide)
                 {
                     if (slideMultiplier >= slideSpeedRate) slideMultiplier = slideSpeedRate;
@@ -79,6 +82,7 @@ public class PlayerMove : MonoBehaviour
                     else slideMultiplier -= Time.deltaTime * slideAccel;
                 }
 
+
                 x3Speed = x2Speed * slideMultiplier;
                 y1Speed = yDefaultSpeed * slideMultiplier;
 
@@ -86,23 +90,16 @@ public class PlayerMove : MonoBehaviour
                 x4Speed = x3Speed * snowScale;
                 y2Speed = y1Speed * snowScale;
             }
+            else if (isRush) {
+                rushDuration = GetComponentInChildren<PlayerData>().rushDuration;
+                StartCoroutine(rushSpeedUp(rushDuration));
+            }
+
 
             if (isGoal) x4Speed = 0;
+
             transform.position += Vector3.right * x4Speed * Time.deltaTime;
             transform.position += Vector3.down * y2Speed * Time.deltaTime;
-
-
-            //(테스트용)키보드 좌우만 명령은 쓸수있게 살렸다. 안중요한 코드
-            Vector3 moveTo = new Vector3(yDefaultSpeed * Time.deltaTime, 0, 0);     //Vector3개값에서 x만 저거로 설정, y랑z는 0,0
-            if (Input.GetKey(KeyCode.LeftArrow))
-            {                            //GetKey로키보드에서받은 KeyCode중LeftArrow왼쪽화살표인식하면
-                transform.position -= moveTo * 5;                               //그 동안에 moveTo만큼 움직이자
-            }
-            else if (Input.GetKey(KeyCode.RightArrow))
-            {
-                transform.position += moveTo * 5;
-            }
-
             yield return null; // 한 프레임을 기다림
         }
     }
@@ -119,5 +116,13 @@ public class PlayerMove : MonoBehaviour
         StopAllCoroutines();
     }
 
-
+    public IEnumerator rushSpeedUp(float duration) { //rush시 속도 증가
+        float elapsedTime = 0f;
+        while (elapsedTime < duration)
+        {
+            y2Speed = y1Speed * snowScale*2;
+            elapsedTime += Time.deltaTime;
+            yield return null;
+        }
+    }
 }
