@@ -2,78 +2,41 @@
     "snowballs": [
         {
             "id": 0,
-            "power": 0,
-            "objects": [
-                0,
-                0
-            ]
+            "ad": 1.0,
+            "ap": 3.0,
+            "objects": []
         },
         {
             "id": 1,
-            "power": 0,
-            "objects": [
-                0,
-                0
-            ]
+            "ad": 2.0,
+            "ap": 3.0,
+            "objects": []
         },
         {
             "id": 2,
-            "power": 0,
-            "objects": [
-                0,
-                0
-            ]
+            "ad": 6.0,
+            "ap": 2.0,
+            "objects": []
         },
         {
             "id": 3,
-            "power": 0,
-            "objects": [
-                0,
-                0
-            ]
+            "ad": 0.0,
+            "ap": 0.0,
+            "objects": []
         },
         {
             "id": 4,
-            "power": 0,
+            "ad": 0.0,
+            "ap": 0.0,
             "objects": [
-                0,
-                0
+                210000,
+                210000
             ]
         },
         {
             "id": 5,
-            "power": 12,
-            "objects": []
-        },
-        {
-            "id": 6,
-            "power": 12,
-            "objects": []
-        },
-        {
-            "id": 7,
-            "power": 12,
-            "objects": [
-                210000,
-                210000
-            ]
-        },
-        {
-            "id": 8,
-            "power": 12,
-            "objects": [
-                210000,
-                210000
-            ]
-        },
-        {
-            "id": 9,
-            "power": 12,
-            "objects": []
-        },
-        {
-            "id": 10,
-            "power": 12,
+            "ad": 0.0,
+            "ap": 0.0,
             "objects": [
                 210000,
                 210000

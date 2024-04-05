@@ -10,7 +10,8 @@ public class SelectSlot : MonoBehaviour
 {
     private ObjectInfomation objectinfo;
     public Snowball SelectSnowball;
-    public GameObject PowerObj, TotalPowerObj, TopsnowmanObj,BotsnowmanObj, ObjectInfoObj;
+    public GameObject TotalPowerObj, TopsnowmanObj,BotsnowmanObj, ObjectInfoObj;
+    public TextMeshProUGUI apText, adText;
     private Image Topsnowman, Botsnowman;
     private string jsonPath;
     private SnowballData snowballData;
@@ -18,7 +19,7 @@ public class SelectSlot : MonoBehaviour
     private GameObject clickObject;
     private SlotController currentSlot, previousSlot, TopSlotController, BotSlotController;
     private Snowball TopSnowball, BotSnowball;
-    private int power;
+    private float TotalPower;
 
     public void Awake()
     {
@@ -88,12 +89,10 @@ public class SelectSlot : MonoBehaviour
                 break;
             }
         }
-        // 추출된 숫자를 int로 변환 후 리턴
+        // 슬롯 번호를 int로 변환 후 리턴
         slotID = int.Parse(numberPart);
 
-
-        //눈덩이가 없는 슬롯 클릭할때 오류
-        if (slotID + 1  <= snowballData.snowballs.Count)
+        if (slotID  < snowballData.snowballs.Count)
         {
             //SelectSnowball 은 현재 선택된 Snowball
             SelectSnowball = snowballData.snowballs[slotID];
@@ -102,7 +101,7 @@ public class SelectSlot : MonoBehaviour
             ShowStatus(); //눈덩이 스탯 보여주기
             ClickNow(); //클릭할때 슬롯 이미지 바꾸기
         }
-        else
+        else //눈덩이가 없는 슬롯 클릭할때 오류
         {
             Debug.Log("눈덩이 없음");
         }
@@ -110,10 +109,8 @@ public class SelectSlot : MonoBehaviour
 
     public void ShowStatus() // 상태창에 Text 띄워주는 함수
     {
-
-        TextMeshProUGUI PowerText = PowerObj.GetComponent<TextMeshProUGUI>();
-        PowerText.text = "Power: " + SelectSnowball.power;
-
+        apText.text = "AP: " + SelectSnowball.ap;
+        adText.text = "AD: " + SelectSnowball.ad;
     }
 
     public int getClickID() // 클릭된 버튼 숫자 가져오는 함수
@@ -253,12 +250,12 @@ public class SelectSlot : MonoBehaviour
         TextMeshProUGUI TotalPowertext = TotalPowerObj.GetComponent<TextMeshProUGUI>();
         if (TopSnowball != null && BotSnowball != null)
         {
-            power = (TopSnowball.power + BotSnowball.power);
-            TotalPowertext.text = "Total Power: " + power;
+            TotalPower = TopSnowball.ap * 1.3f + TopSnowball.ad * 0.7f + BotSnowball.ap *0.7f + BotSnowball.ad * 1.3f;  //총 전투력 계산식
+            TotalPowertext.text = "Total Power: " + TotalPower;
         }
         else
         {
-            TotalPowertext.text = "Total Power: " + 0;
+            TotalPowertext.text = "Total Power: " + 0f;
         }
     }
 
@@ -269,7 +266,7 @@ public class SelectSlot : MonoBehaviour
         {
             DataManager.Instance.DeleteData(TopSnowball.id, BotSnowball.id);
             Awake();
-            DataManager.Instance.CurrentPower = power;
+            DataManager.Instance.CurrentPower = TotalPower;
             SceneManager.LoadScene("FightCutScene");
         }
         else

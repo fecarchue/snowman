@@ -5,15 +5,6 @@ using UnityEngine.UI;
 public class ObjectInfomation : MonoBehaviour
 {
     public GameObject InfoWindow, closebutton, SampleStar, SampleRock;
-    public bool Active = false;
-    
-    public void ActiveWindow()
-    {  
-        //Info Ã¢ ÄÑÁö°í ²¨Áü
-        Active = !Active;
-        InfoWindow.SetActive(Active);
-        closebutton.SetActive(Active);
-    }
 
     public void MakeObject(List<int> objects)
     {

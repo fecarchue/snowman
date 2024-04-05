@@ -6,7 +6,8 @@ using UnityEngine.InputSystem.Controls;
 
 public class CutSceneManager : MonoBehaviour
 {
-    private int playnumber, power, touch;
+    private int playnumber, touch;
+    private float power;
     private Image CutScene;
     public GameObject SkipButton, ChallengePanel,CutSceneObject, TouchPanel, CutSceneObj;
     public Sprite[] DevilScenes;

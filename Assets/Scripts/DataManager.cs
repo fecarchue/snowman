@@ -9,7 +9,7 @@ public class DataManager : MonoBehaviour
     private SnowballData snowballData;
     private string jsonPath;
     private int idcount = 0;
-    public int CurrentPower;
+    public float CurrentPower;
     private static DataManager instance;
 
     // 다른 스크립트에서 인스턴스에 접근할 수 있는 프로퍼티
@@ -43,7 +43,7 @@ public class DataManager : MonoBehaviour
         SortData();   
     }
 
-    public void SaveData(int power, List<int> objects) // DataManager.Instance.SaveData(power,objects); --> 코드 추가하면 저장
+    public void SaveData(int input_ad,int input_ap, List<int> objects) // DataManager.Instance.SaveData(power,objects); --> 코드 추가하면 저장
     {
         SortData();
 
@@ -52,7 +52,8 @@ public class DataManager : MonoBehaviour
         Snowball snowball = new Snowball
         {
             id = idcount,
-            power = power,
+            ad = input_ad,
+            ap = input_ap,
             objects = objects
         };
 
@@ -138,14 +139,6 @@ public class DataManager : MonoBehaviour
         DeleteData(selectsnowball.id);
         selectslot.Awake();
     }
-}
-
-[System.Serializable]
-public class Snowball
-{
-    public int id;
-    public int power;
-    public List<int> objects;
 }
 
 [System.Serializable]
