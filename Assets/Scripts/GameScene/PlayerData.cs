@@ -32,8 +32,6 @@ public class PlayerData : MonoBehaviour
     [HideInInspector] public float snowScale; // 그래픽 변환 고려한 실제 Scale
     private float targetScale;
     [HideInInspector] public float damage;
-    
-    private float damageTimer = 0f;
 
     [HideInInspector] public int starCount = 0;
 
@@ -56,6 +54,7 @@ public class PlayerData : MonoBehaviour
 
     void Start()
     {
+        damage = 0;
         objects = new List<int>();
         initialV = playerData[2];
         snowScale = 1f;
@@ -85,27 +84,27 @@ public class PlayerData : MonoBehaviour
             if (isDevil)
                 for (int i = 0; i < 4; i++)
                     playerData[i] += (devilData[i] - snowgroundData[i]) * Time.deltaTime;
-
-            if (playerData[1] <= 0) //게임오버
-            {
-                playerData[1] = 0;
-                Fail();
-            }
-
-            if (playerData[0] <= playerData[1]) //체력 초과
-                playerData[1] = playerData[0];
-
-            damageTimer -= Time.deltaTime;
-            if (damage >= playerData[0] - playerData[1]) damage = playerData[0] - playerData[1];
-            if (damageTimer <= 0)
-            {
-                if (damage <= 0) damage = 0;
-                else damage -= Time.deltaTime * 10f;
-            }
             yield return null;
         }
     }
 
+    public void Update()
+    {
+        if (playerData[1] <= 0) //게임오버
+        {
+            playerData[1] = 0;
+            Fail();
+        }
+
+        if (playerData[0] <= playerData[1]) //체력 초과
+            playerData[1] = playerData[0];
+
+        if (damage > 0)
+        {
+            playerData[1] -= damage;
+            damage = 0;
+        }
+    }
     private IEnumerator StopPlayerData(bool isGoal)
     {
         GetComponent<SpriteRenderer>().sortingOrder = 8;
@@ -117,12 +116,6 @@ public class PlayerData : MonoBehaviour
 
         while(true)
         {
-            damageTimer -= Time.deltaTime;
-            if (damageTimer <= 0)
-            {
-                if (damage <= 0) damage = 0;
-                else damage -= Time.deltaTime * 10f;
-            }
 
             if (count <= 1 && isGoal)
             {
@@ -156,8 +149,7 @@ public class PlayerData : MonoBehaviour
 
         float[] data = other.gameObject.GetComponentInParent<ObjectData>().data;
         for (int i = 0; i < 4; i++) playerData[i] += data[i];
-        damage -= data[1];
-        damageTimer = 1f;
+        ui.takeDamage(playerData[1], -data[1]); // <-- 추가한 함수
         Destroy(other.gameObject);
     }
 

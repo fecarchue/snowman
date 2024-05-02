@@ -30,6 +30,7 @@ public class UI : MonoBehaviour //UI 전부를 다루는 스크립트
 
     void Start()
     {
+        damage = 0;
         maxSize_x = MaxSize.sizeDelta.x / 20f;
         barLength = MaxSize.sizeDelta.x / 50f;
         playerData = player.GetComponent<PlayerData>();
@@ -54,18 +55,18 @@ public class UI : MonoBehaviour //UI 전부를 다루는 스크립트
             yield return null;
         }
     }
-    
+
     private IEnumerator PlayUI()
     {
-        bool damageCoroutine = false;
         maxHealthBar.rectTransform.sizeDelta = new Vector2(playerData.playerData[0] * maxSize_x, 100);
+        healthBar.rectTransform.sizeDelta = new Vector2(playerData.playerData[1] * barLength, 100);
+        damageHealthBar.rectTransform.sizeDelta = new Vector2(playerData.playerData[1] * barLength, 100);
 
         Time.timeScale = 1;
         while (true)
         {
             maxHP = playerData.playerData[0];
             HP = playerData.playerData[1];
-            damage = playerData.damage;
             
             if (maxHP < maxSize_x)
             {
@@ -77,15 +78,32 @@ public class UI : MonoBehaviour //UI 전부를 다루는 스크립트
                 healthBar.rectTransform.sizeDelta = new Vector2(HP * barLength, 100);
             }
 
-            damageHealthBar.rectTransform.anchoredPosition = new Vector2(playerData.playerData[1] * barLength - 42.8571f, 0);
-            damageHealthBar.rectTransform.sizeDelta = new Vector2(damage * barLength, 100);
-
             //float값 뒤의 소수점 자르기
             healthText.text = "HP: " + ((int)playerData.playerData[1]).ToString() + " / " + ((int)playerData.playerData[0]).ToString();
             volumeText.text = "Volume: " + ((int)playerData.playerData[2]).ToString();
             powerText.text = "Power: " + ((int)playerData.playerData[3]).ToString();
             yield return null;
         }
+    }
+
+    public void takeDamage(float beforeDamage, float Damage)
+    {
+        damage = (Damage < HP)? Damage: 0;
+        StopCoroutine(damageAnimation());
+        StartCoroutine(damageAnimation());
+    }
+    private IEnumerator damageAnimation()
+    {
+        float staticHP = HP;
+        float t = -2f;
+        damageHealthBar.rectTransform.sizeDelta = new Vector2((staticHP + damage) * barLength, 100);
+        while (damageHealthBar.rectTransform.sizeDelta.x >= healthBar.rectTransform.sizeDelta.x)
+        {
+            damageHealthBar.rectTransform.sizeDelta = Vector2.Lerp(new Vector2((staticHP + damage)* barLength, 100) ,new Vector2(0f,100), Mathf.Exp(t)-1);
+            t += Time.deltaTime;
+            yield return null;
+        }
+        yield return null;
     }
 
     private IEnumerator GoalUI()
